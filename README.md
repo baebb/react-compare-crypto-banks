@@ -1,1 +1,1 @@
-# react-compare-crypto-accounts
+# react-compare-crypto-banks
