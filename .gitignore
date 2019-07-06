@@ -66,4 +66,4 @@ artifacts/
 dist
 
 # Firebase
-.firebase/
+.firebase/*
