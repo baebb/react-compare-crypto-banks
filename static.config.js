@@ -57,6 +57,7 @@ export default {
                 id: 'GTM-NXRNKXK'
             }
         ],
+        require.resolve('react-static-plugin-evergreen'),
         require.resolve('react-static-plugin-reach-router'),
         require.resolve('react-static-plugin-sitemap'),
     ],

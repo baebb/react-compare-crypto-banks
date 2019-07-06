@@ -1,9 +1,10 @@
+// NPM Dependencies
 import React from 'react';
 import { Root, Routes, addPrefetchExcludes } from 'react-static';
-//
-import { Link, Router } from 'components/Router';
-import Dynamic from 'containers/Dynamic';
 
+// Local Dependencies
+import { Link, Router } from 'components/Router';
+// import Dynamic from 'containers/Dynamic';
 import './app.css';
 import './flexboxgrid.min.css';
 
