@@ -5,6 +5,7 @@ import { Link, Router } from 'components/Router';
 import Dynamic from 'containers/Dynamic';
 
 import './app.css';
+import './flexboxgrid.min.css';
 
 // Any routes that start with 'dynamic' will be treated as non-static routes
 addPrefetchExcludes(['dynamic']);
@@ -13,8 +14,14 @@ function App() {
     return (
         <Root>
             <nav>
-                <Link to="/">Home</Link>
-                <Link to="/blog">Blog</Link>
+                <div className="row">
+                    <div className="col-xs-6">
+                        <Link to="/">Home</Link>
+                    </div>
+                    <div className="col-xs-6">
+                        <Link to="/blog">Blog</Link>
+                    </div>
+                </div>
             </nav>
             <div className="content">
                 <React.Suspense fallback={<em>Loading...</em>}>
