@@ -15,12 +15,14 @@ function App() {
     return (
         <Root>
             <nav>
-                <div className="row">
-                    <div className="col-xs-6">
-                        <Link to="/">Home</Link>
-                    </div>
-                    <div className="col-xs-6">
-                        <Link to="/blog">Blog</Link>
+                <div className="navbar">
+                    <div className="row">
+                        <div className="col-xs-6">
+                            <Link to="/">Home</Link>
+                        </div>
+                        <div className="col-xs-6">
+                            <Link to="/blog">Blog</Link>
+                        </div>
                     </div>
                 </div>
             </nav>
