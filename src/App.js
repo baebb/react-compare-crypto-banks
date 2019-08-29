@@ -1,6 +1,7 @@
 // NPM Dependencies
 import React from 'react';
 import { Root, Routes, addPrefetchExcludes } from 'react-static';
+import { Heading } from 'evergreen-ui';
 
 // Local Dependencies
 import { Link, Router } from 'components/Router';
@@ -17,21 +18,27 @@ function App() {
             <nav>
                 <div className="row">
                     <div className="col-xs-6">
-                        <Link to="/">Home</Link>
+                        <Link to="/">
+                            <Heading
+                                size={600}
+                                marginTop={0}
+                                is="h1"
+                            >
+                                Crypto Banks Compared
+                            </Heading>
+                        </Link>
                     </div>
-                    <div className="col-xs-6">
-                        <Link to="/blog">Blog</Link>
-                    </div>
+                    {/*<div className="col-xs-6">*/}
+                    {/*    <Link to="/blog">Blog</Link>*/}
+                    {/*</div>*/}
                 </div>
             </nav>
-            <div className="content">
-                <React.Suspense fallback={<em>Loading...</em>}>
-                    <Router>
-                        {/*<Dynamic path="dynamic" />*/}
-                        <Routes path="*" />
-                    </Router>
-                </React.Suspense>
-            </div>
+            <React.Suspense fallback={<em>Loading...</em>}>
+                <Router>
+                    {/*<Dynamic path="dynamic" />*/}
+                    <Routes path="*" />
+                </Router>
+            </React.Suspense>
         </Root>
     );
 }
