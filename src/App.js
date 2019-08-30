@@ -16,17 +16,22 @@ function App() {
     return (
         <Root>
             <nav>
-                <div className="row">
-                    <div className="col-xs-6">
-                        <Link to="/">
-                            <Heading
-                                size={600}
-                                marginTop={0}
-                                is="h1"
-                            >
-                                Crypto Banks Compared
-                            </Heading>
-                        </Link>
+                <div className="navbar">
+                    <div className="row">
+                        <div className="col-xs-6">
+                            <Link to="/">
+                                <Heading
+                                    size={600}
+                                    marginTop={0}
+                                    is="h1"
+                                >
+                                    Crypto Banks Compared
+                                </Heading>
+                            </Link>
+                        </div>
+                        <div className="col-xs-6">
+                            <Link to="/blog">Blog</Link>
+                        </div>
                     </div>
                     {/*<div className="col-xs-6">*/}
                     {/*    <Link to="/blog">Blog</Link>*/}

@@ -18,6 +18,20 @@ body {
     padding: 8px 16px;
 }
 
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.banner {
+    margin-bottom: 32px;
+}
 
 @media only screen and (max-width : 575px) {
     .content {
@@ -38,3 +52,4 @@ body {
         display: none;
     }
 }
+
