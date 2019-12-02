@@ -1,7 +1,7 @@
 // NPM Dependencies
 import React from 'react';
 import { Root, Routes, addPrefetchExcludes } from 'react-static';
-import { Heading } from 'evergreen-ui';
+import { Button, Heading } from 'evergreen-ui';
 
 // Local Dependencies
 import { Link, Router } from 'components/Router';
@@ -29,13 +29,14 @@ function App() {
                                 </Heading>
                             </Link>
                         </div>
-                        <div className="col-xs-6">
-                            <Link to="/blog">Blog</Link>
+                        <div className="col-xs-6" style={{ textAlign: 'right' }}>
+                            <Link to="/blog">
+                                <Button appearance="primary">
+                                    Blog
+                                </Button>
+                            </Link>
                         </div>
                     </div>
-                    {/*<div className="col-xs-6">*/}
-                    {/*    <Link to="/blog">Blog</Link>*/}
-                    {/*</div>*/}
                 </div>
             </nav>
             <React.Suspense fallback={<em>Loading...</em>}>

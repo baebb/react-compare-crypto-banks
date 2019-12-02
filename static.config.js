@@ -4,16 +4,17 @@ import axios from 'axios';
 
 export default {
     Document: ({
-                   Html,
-                   Head,
-                   Body,
-                   children,
-                   state: { siteData, renderMeta },
-               }) => (
+        Html,
+        Head,
+        Body,
+        children,
+        state: { siteData, renderMeta },
+    }) => (
         <Html lang="en-US">
             <Head>
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <title>Compare Crypto Banks</title>
                 <meta property="og:title" content="Compare Crypto Banks" />
                 <meta property="og:url" content="https://www.comparecryptobanks.com" />
                 <meta property="og:type" content="website" />

@@ -1,7 +1,11 @@
 // NPM Dependencies
 import React from 'react';
 
+// UI Dependencies
 import { Button, Pane, Text, Heading } from 'evergreen-ui';
+
+// Data
+import items from '../demo';
 
 export default () => (
     <div>
@@ -13,24 +17,21 @@ export default () => (
             >
                 Crypto Banks is ready
             </Heading>
-            <Button appearance="primary" iconAfter="arrow-right">
-                Icon After
-            </Button>
         </div>
         <div className="items">
-            {['one', 'two', 'three'].map((card) =>
+            {items.map(({ title, url}) =>
                 <Pane
                     elevation={1}
                     padding={24}
                     marginBottom={24}
-                    key={card}
+                    key={title}
                 >
                     <div className="row">
                         <div className="col-xs-12 col-sm-4">
-                            <Text>{card}</Text>
+                            <Text>{title}</Text>
                         </div>
                         <div className="col-xs-12 col-sm-8">
-                            <Text>{card}</Text>
+                            <Text>{url}</Text>
                         </div>
                     </div>
                 </Pane>
