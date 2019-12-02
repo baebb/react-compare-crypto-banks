@@ -11,7 +11,7 @@ export default () => (
                 marginTop={0}
                 is="h4"
             >
-                Crypto Banks
+                Crypto Banks is ready
             </Heading>
             <Button appearance="primary" iconAfter="arrow-right">
                 Icon After

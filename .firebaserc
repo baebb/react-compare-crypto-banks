@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "compare-crypto-banks-staging"
+    "prod": "compare-crypto-banks-prod",
+    "staging": "compare-crypto-banks-staging"
   }
 }
