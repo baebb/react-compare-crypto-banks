@@ -23,6 +23,7 @@ export default () => (
                     elevation={1}
                     padding={24}
                     marginBottom={24}
+                    key={card}
                 >
                     <div className="row">
                         <div className="col-xs-12 col-sm-4">
