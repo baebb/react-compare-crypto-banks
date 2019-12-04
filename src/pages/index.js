@@ -29,7 +29,10 @@ export default () => (
                 >
                     <div className="row">
                         <div className="col-xs-12 col-sm-3">
-                            <div style={{ textAlign: 'center', marginBottom: 16 }}>
+                            <div
+                                style={{ textAlign: 'center', marginBottom: 16, minHeight: 140}}
+                                className="img-center-frame"
+                            >
                                 <img src={BlockFiLogo} style={{ maxWidth: 240 }} />
                             </div>
                             <div style={{ textAlign: 'center', marginBottom: 8 }}>

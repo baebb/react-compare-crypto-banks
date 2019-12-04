@@ -1,0 +1,13 @@
+.block-btn {
+    width: 100%;
+    text-align: center;
+    display: block !important;
+}
+
+.img-center-frame {
+    display: flex;
+    align-items: center;
+    img {
+        height: auto;
+    }
+}
