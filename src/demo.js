@@ -3,6 +3,7 @@ const items = [
         logo: '',
         url: 'https://blockfi.com',
         title: 'Block Fi Interest Account',
+        companyName: 'Block Fi',
         returns: {
             BTC: 6.2,
             ETH: 2.5,

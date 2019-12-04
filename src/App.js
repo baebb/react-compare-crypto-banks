@@ -7,6 +7,7 @@ import { Button, Heading } from 'evergreen-ui';
 import { Link, Router } from 'components/Router';
 // import Dynamic from 'containers/Dynamic';
 import './app.css';
+import './helpers.css';
 import './flexboxgrid.min.css';
 
 // Any routes that start with 'dynamic' will be treated as non-static routes
