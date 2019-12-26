@@ -1,3 +1,29 @@
+@import 'src/base';
+
+.wide-text {
+    letter-spacing: 0.0625em;
+    text-transform: uppercase;
+}
+
+.callout-button {
+    @extend .wide-text;
+    font-family: $gotham;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 0.125rem;
+
+    &.callout-button--primary {
+        border: none;
+        background-color: $primary-color;
+        color: white;
+        padding: 16px;
+        &:hover {
+            background-color: $primary-color-1;
+        }
+    }
+}
+
 .block-btn {
     width: 100%;
     text-align: center;

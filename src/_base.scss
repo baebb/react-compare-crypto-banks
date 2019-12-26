@@ -1,0 +1,27 @@
+@font-face {
+    font-family: Gotham;
+    src: url("../public/Gotham400.woff") format("woff");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Gotham;
+    src: url("../public/Gotham600.woff") format("woff");
+    font-style: normal;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: GothamBody;
+    src: url("../public/GothamBody.woff") format("woff");
+    font-style: normal;
+    font-weight: 400;
+}
+
+$gotham: Gotham,system-ui,sans-serif;
+$gotham-body: GothamBody,system-ui,sans-serif;
+
+$primary-color: #008255;
+$primary-color-1: lighten( $primary-color, 5% );
+$primary-color-2: lighten( $primary-color, 10% );
