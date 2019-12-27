@@ -1,4 +1,4 @@
-@use 'base';
+@import 'src/base';
 
 * {
     scroll-behavior: smooth;
@@ -17,25 +17,11 @@ nav {
 }
 
 body {
-    //padding: 8px 16px;
-    //font-family: GothamBody;
+    font-family: $gotham400;
 }
 
-h1 {
-    font-size: 72px;
-    //font-family: Gotham;
-}
-
-.uppercase-button {
-    font-family: Gotham;
-    font-size: 0.8125rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    background-color: #008255;
-    color: white;
-    padding: 8px 16px;
-    margin-bottom: 30px;
-    letter-spacing: 0.0625em;
+h1, h2, h3, h4, h5, h6 {
+    font-family: $gotham600;
 }
 
 .navbar {
