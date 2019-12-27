@@ -1,5 +1,22 @@
 @import 'src/base';
 
+.intro-section {
+    margin: 72px 0;
+    text-align: center;
+
+    .intro-section__heading {
+        margin-bottom: 40px;
+        font-size: 28px;
+        .calloutText {
+            color: $primary-color;
+        }
+    }
+    .intro-section__sub-heading {
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+}
+
 .wide-text {
     letter-spacing: 0.0625em;
 }
@@ -17,6 +34,7 @@
         background-color: $primary-color;
         color: white;
         padding: 16px;
+
         &:hover {
             background-color: $primary-color-1;
         }
@@ -33,6 +51,7 @@
     border: none;
     color: white;
     padding: 6px 16px;
+
     &:hover {
         background-color: $primary-color-1;
     }
@@ -71,7 +90,7 @@
         .product-card__summary-text-column {
             .product-card__summary-heading {
                 font-size: 24px;
-                margin: 8px 0px;
+                margin: 8px 0;
             }
         }
     }

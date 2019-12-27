@@ -12,9 +12,22 @@ const subHeading = 'Crypto banks allows crypto investors to earn compound intere
 
 export default () => (
     <div className="content">
+        <div className="intro-section">
+            <div className="intro-section__heading">
+                <h2>
+                    {heading}
+                    <span className="calloutText">{calloutWord}</span>
+                </h2>
+            </div>
+            <div className="intro-section__sub-heading">
+                <div className="row">
+                    <div className="col-xs-12 col-sm-8 col-sm-offset-2">
+                        {subHeading}
+                    </div>
+                </div>
+            </div>
+        </div>
         <div className="banner">
-            <h1>Test</h1>
-            <p>Earn cash rewards</p>
         </div>
         <div className="items">
             {items.map(product =>
