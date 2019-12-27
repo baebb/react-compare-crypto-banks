@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Data
-import items from '../demo';
+import items from '../demoData';
 import BlockFiLogo from '../blockfi.png';
 
 export default () => (

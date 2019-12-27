@@ -1,7 +1,6 @@
 // NPM Dependencies
 import React from 'react';
 import { Root, Routes, addPrefetchExcludes } from 'react-static';
-import { Button, Heading } from 'evergreen-ui';
 
 // Local Dependencies
 import { Link, Router } from 'components/Router';
@@ -21,20 +20,14 @@ function App() {
                     <div className="row">
                         <div className="col-xs-6">
                             <Link to="/">
-                                <Heading
-                                    size={600}
-                                    marginTop={0}
-                                    is="h1"
-                                >
-                                    Crypto Banks Compared
-                                </Heading>
+                                <h1 className="navbar__home-text">Compare Crypto Banks</h1>
                             </Link>
                         </div>
                         <div className="col-xs-6" style={{ textAlign: 'right' }}>
                             <Link to="/blog">
-                                <Button appearance="primary">
+                                <button  type="button" className="nav-button">
                                     Blog
-                                </Button>
+                                </button>
                             </Link>
                         </div>
                     </div>

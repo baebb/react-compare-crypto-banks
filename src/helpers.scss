@@ -2,11 +2,11 @@
 
 .wide-text {
     letter-spacing: 0.0625em;
-    text-transform: uppercase;
 }
 
 .callout-button {
     @extend .wide-text;
+    text-transform: uppercase;
     font-family: $gotham600;
     font-size: 0.8125rem;
     cursor: pointer;
@@ -20,6 +20,21 @@
         &:hover {
             background-color: $primary-color-1;
         }
+    }
+}
+
+.nav-button {
+    @extend .wide-text;
+    font-family: $gotham400;
+    background-color: $primary-color;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 0.125rem;
+    border: none;
+    color: white;
+    padding: 6px 16px;
+    &:hover {
+        background-color: $primary-color-1;
     }
 }
 
