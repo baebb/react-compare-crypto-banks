@@ -27,9 +27,9 @@ export default () => (
                 </div>
             </div>
         </div>
-        <div className="banner">
+        <div className="banner-section">
         </div>
-        <div className="items">
+        <div className="products-section">
             {items.map(product =>
                 <ProductCard product={product} key={product.title} />
             )}
