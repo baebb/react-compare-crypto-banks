@@ -1,5 +1,6 @@
 // NPM Dependencies
 import React from 'react';
+import StarRatings from 'react-star-ratings';
 
 import BlockFiLogo from "../blockfi.png";
 
@@ -7,9 +8,11 @@ const ProductCard = ({ product }) => {
     const {
         title,
         companyName,
+        keyPoints,
+        editorRating,
         geoAvailability,
-        interestPayout,
         payoutCurrencies,
+        interestPayout,
         lockUpPeriod,
         minimums,
         savingsInterestRate,
@@ -42,6 +45,22 @@ const ProductCard = ({ product }) => {
                     <div className="col-xs-12 col-sm-9">
                         <div className="product-summary__text-column">
                             <h3 className="product-summary__heading">{title}</h3>
+                            <p className="product-summary__rating">
+                                <span>{editorRating.toFixed(1)} Editor's Rating</span>
+                                <span className="product-summary__star-rating">
+                                    <StarRatings
+                                        rating={editorRating}
+                                        starDimension="22px"
+                                        starSpacing="1px"
+                                        starRatedColor="#008255"
+                                    />
+                                </span>
+                            </p>
+                            <ul className="product-summary__keypoint-list">
+                                {keyPoints.map((item) =>
+                                    <li><p>{item}</p></li>
+                                )}
+                            </ul>
                         </div>
                     </div>
                 </div>

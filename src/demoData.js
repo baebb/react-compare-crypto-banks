@@ -25,6 +25,7 @@ const items = [
             'Security. Your crypto is held by the Gemini Trust Company, regulated by the New York Department of Financial Services.',
             'Withdraw anytime. While BlockFi says it can take up to seven days to process withdrawals, most withdrawals are pushed through on the same day.'
         ],
+        editorRating: 4.0,
         security: ['Bitgo Insured Custody', '2FA'],
         requirements: [
             'Email address',
