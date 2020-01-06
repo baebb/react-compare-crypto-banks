@@ -9,9 +9,9 @@ const ProductCard = ({ product }) => {
         companyName,
         geoAvailability,
         interestPayout,
-        interestPayoutCurrencies,
+        payoutCurrencies,
         lockUpPeriod,
-        security,
+        minimums,
         savingsInterestRate,
     } = product;
 
@@ -50,35 +50,40 @@ const ProductCard = ({ product }) => {
                 <div className="row">
                     <div className="col-xs-12 col-sm-3">
                         <div className=" product-key-details__column">
-                            <h5 className="product-key-details__heading">Interest rate</h5>
-                            {Object.keys(savingsInterestRate).map((key) => (
-                                <p className="product-key-details__text" key={key}>
-                                    <span>{`${key}: `}</span>
-                                    <span>{`${savingsInterestRate[key]}%`}</span>
-                                </p>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="col-xs-12 col-sm-3">
-                        <div className=" product-key-details__column">
-                            <h5 className="product-key-details__heading">Interest details</h5>
-                            <p className="product-key-details__text">{interestPayout}</p>
-                            <p className="product-key-details__text">{`Paid in ${interestPayoutCurrencies.join(', ')}`}</p>
-                            <p className="product-key-details__text">{lockUpPeriod}</p>
-                        </div>
-                    </div>
-                    <div className="col-xs-12 col-sm-3">
-                        <div className=" product-key-details__column">
                             <h5 className="product-key-details__heading">Availability</h5>
                             <p className="product-key-details__text">{geoAvailability}</p>
                         </div>
                     </div>
                     <div className="col-xs-12 col-sm-3">
                         <div className=" product-key-details__column">
-                            <h5 className="product-key-details__heading">Security</h5>
-                            {security.map((securityItem) => (
-                                <p className="product-key-details__text" key={securityItem}>
-                                    {`- ${securityItem}`}
+                            <h5 className="product-key-details__heading">Interest details</h5>
+                            <p className="product-key-details__text">{interestPayout}</p>
+                            <p className="product-key-details__text">{`Paid in ${payoutCurrencies.join(', ')}`}</p>
+                            <p className="product-key-details__text">{lockUpPeriod}</p>
+                        </div>
+                    </div>
+                    <div className="col-xs-12 col-sm-3">
+                        <div className=" product-key-details__column">
+                            <h5 className="product-key-details__heading">Minimum deposit</h5>
+                            {minimums === 'none' ?
+                                <p className="product-key-details__text">None</p>
+                                :
+                                (Object.keys(minimums).map((key) => (
+                                    <p className="product-key-details__text" key={key}>
+                                        <span>{`${key}: `}</span>
+                                        <span className="product-key-details__rate">{`${minimums[key]}`}</span>
+                                    </p>
+                                )))
+                            }
+                        </div>
+                    </div>
+                    <div className="col-xs-12 col-sm-3">
+                        <div className=" product-key-details__column">
+                            <h5 className="product-key-details__heading">Interest rate</h5>
+                            {Object.keys(savingsInterestRate).map((key) => (
+                                <p className="product-key-details__text" key={key}>
+                                    <span>{`${key}: `}</span>
+                                    <span className="product-key-details__rate">{`${savingsInterestRate[key]}%`}</span>
                                 </p>
                             ))}
                         </div>
