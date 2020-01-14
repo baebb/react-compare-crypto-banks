@@ -38,6 +38,26 @@
     }
 }
 
+.link-button {
+    font-family: $gotham400;
+    border: none;
+    background-color: transparent;
+    color: $blue-2;
+    cursor: pointer;
+    font-size: inherit;
+
+    &.link-button--read-more {
+        @extend .wide-text;
+        text-transform: uppercase;
+        font-size: 0.8125rem;
+        font-family: $gotham600;
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 .block-btn {
     width: 100%;
     text-align: center;

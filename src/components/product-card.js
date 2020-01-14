@@ -18,6 +18,12 @@ class ProductCard extends Component {
         };
     }
 
+    toggleKeyPointsExpand() {
+        this.setState({
+            keyPointsExpand: !this.state.keyPointsExpand
+        });
+    }
+
     render() {
         const {
             keyPointsExpand
@@ -34,10 +40,10 @@ class ProductCard extends Component {
             minimums,
             savingsInterestRate,
         } = this.props.product;
-        const keyPointsSlim = keyPoints.slice(0, 3);
+        const displayKeyPoints = keyPointsExpand ? keyPoints : keyPoints.slice(0, 3);
 
         return (
-            <div className="product-card">
+            <div className="product-card" key={title}>
                 <div className="product-summary">
                     <div className="row">
                         <div className="col-xs-12 col-sm-3">
@@ -63,7 +69,7 @@ class ProductCard extends Component {
                         <div className="col-xs-12 col-sm-9">
                             <div className="product-summary__text-column">
                                 <h3 className="product-summary__heading">{title}</h3>
-                                <p className="product-summary__rating">
+                                <div className="product-summary__rating">
                                     <span>{editorRating.toFixed(1)} Editor's Rating</span>
                                     <span className="product-summary__star-rating">
                                         <StarRatings
@@ -73,12 +79,18 @@ class ProductCard extends Component {
                                             starRatedColor="#008255"
                                         />
                                     </span>
-                                </p>
+                                </div>
                                 <ul className="product-summary__keypoint-list">
-                                    {keyPointsSlim.map((item) =>
-                                        <li><p>{item}</p></li>
+                                    {displayKeyPoints.map((item, id) =>
+                                        <li key={id}><p>{item}</p></li>
                                     )}
                                 </ul>
+                                <button
+                                    className="link-button link-button--read-more"
+                                    onClick={() => this.toggleKeyPointsExpand()}
+                                >
+                                    {keyPointsExpand ? 'Read Less' : 'Read More'}
+                                </button>
                             </div>
                         </div>
                     </div>
