@@ -1,116 +1,135 @@
 // NPM Dependencies
-import React from 'react';
+import React, { Component } from 'react';
 import StarRatings from 'react-star-ratings';
 
 import BlockFiLogo from "../blockfi.png";
 
-const ProductCard = ({ product }) => {
-    const {
-        title,
-        companyName,
-        keyPoints,
-        editorRating,
-        geoAvailability,
-        payoutCurrencies,
-        interestPayout,
-        lockUpPeriod,
-        minimums,
-        savingsInterestRate,
-    } = product;
+class ProductCard extends Component {
+    // static propTypes = {
+    // };
+    // static defaultProps = {
+    // };
 
-    return (
-        <div className="product-card">
-            <div className="product-summary">
-                <div className="row">
-                    <div className="col-xs-12 col-sm-3">
-                        <div className="product-summary__cta-column">
-                            <div
-                                style={{ textAlign: 'center', marginBottom: 16, minHeight: 100 }}
-                                className="img-center-frame"
-                            >
-                                <img src={BlockFiLogo} style={{ maxWidth: 240 }} />
-                            </div>
-                            <div className="product-summary__cta-button">
-                                <a href="http://rossdyson.com" target="_blank">
-                                    <button  type="button" className="callout-button callout-button--primary">
-                                        Apply now
-                                    </button>
-                                </a>
-                            </div>
-                            <div className="product-summary__muted-cta-text">
-                                <span>on {companyName}'s website</span>
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            keyPointsExpand: false
+        };
+    }
+
+    render() {
+        const {
+            keyPointsExpand
+        } = this.state;
+        const {
+            title,
+            companyName,
+            keyPoints,
+            editorRating,
+            geoAvailability,
+            payoutCurrencies,
+            interestPayout,
+            lockUpPeriod,
+            minimums,
+            savingsInterestRate,
+        } = this.props.product;
+        const keyPointsSlim = keyPoints.slice(0, 3);
+
+        return (
+            <div className="product-card">
+                <div className="product-summary">
+                    <div className="row">
+                        <div className="col-xs-12 col-sm-3">
+                            <div className="product-summary__cta-column">
+                                <div
+                                    style={{ textAlign: 'center', marginBottom: 16, minHeight: 100 }}
+                                    className="img-center-frame"
+                                >
+                                    <img src={BlockFiLogo} style={{ maxWidth: 240 }} />
+                                </div>
+                                <div className="product-summary__cta-button">
+                                    <a href="http://rossdyson.com" target="_blank">
+                                        <button  type="button" className="callout-button callout-button--primary">
+                                            Apply now
+                                        </button>
+                                    </a>
+                                </div>
+                                <div className="product-summary__muted-cta-text">
+                                    <span>on {companyName}'s website</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-xs-12 col-sm-9">
-                        <div className="product-summary__text-column">
-                            <h3 className="product-summary__heading">{title}</h3>
-                            <p className="product-summary__rating">
-                                <span>{editorRating.toFixed(1)} Editor's Rating</span>
-                                <span className="product-summary__star-rating">
-                                    <StarRatings
-                                        rating={editorRating}
-                                        starDimension="22px"
-                                        starSpacing="1px"
-                                        starRatedColor="#008255"
-                                    />
-                                </span>
-                            </p>
-                            <ul className="product-summary__keypoint-list">
-                                {keyPoints.map((item) =>
-                                    <li><p>{item}</p></li>
-                                )}
-                            </ul>
+                        <div className="col-xs-12 col-sm-9">
+                            <div className="product-summary__text-column">
+                                <h3 className="product-summary__heading">{title}</h3>
+                                <p className="product-summary__rating">
+                                    <span>{editorRating.toFixed(1)} Editor's Rating</span>
+                                    <span className="product-summary__star-rating">
+                                        <StarRatings
+                                            rating={editorRating}
+                                            starDimension="22px"
+                                            starSpacing="1px"
+                                            starRatedColor="#008255"
+                                        />
+                                    </span>
+                                </p>
+                                <ul className="product-summary__keypoint-list">
+                                    {keyPointsSlim.map((item) =>
+                                        <li><p>{item}</p></li>
+                                    )}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="product-key-details">
-                <div className="row">
-                    <div className="col-xs-12 col-sm-3">
-                        <div className=" product-key-details__column">
-                            <h5 className="product-key-details__heading">Availability</h5>
-                            <p className="product-key-details__text">{geoAvailability}</p>
+                <div className="product-key-details">
+                    <div className="row">
+                        <div className="col-xs-12 col-sm-3">
+                            <div className=" product-key-details__column">
+                                <h5 className="product-key-details__heading">Availability</h5>
+                                <p className="product-key-details__text">{geoAvailability}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-xs-12 col-sm-3">
-                        <div className=" product-key-details__column">
-                            <h5 className="product-key-details__heading">Interest details</h5>
-                            <p className="product-key-details__text">{interestPayout}</p>
-                            <p className="product-key-details__text">{`Paid in ${payoutCurrencies.join(', ')}`}</p>
-                            <p className="product-key-details__text">{lockUpPeriod}</p>
+                        <div className="col-xs-12 col-sm-3">
+                            <div className=" product-key-details__column">
+                                <h5 className="product-key-details__heading">Interest details</h5>
+                                <p className="product-key-details__text">{interestPayout}</p>
+                                <p className="product-key-details__text">{`Paid in ${payoutCurrencies.join(', ')}`}</p>
+                                <p className="product-key-details__text">{lockUpPeriod}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-xs-12 col-sm-3">
-                        <div className=" product-key-details__column">
-                            <h5 className="product-key-details__heading">Minimum deposit</h5>
-                            {minimums === 'none' ?
-                                <p className="product-key-details__text">None</p>
-                                :
-                                (Object.keys(minimums).map((key) => (
+                        <div className="col-xs-12 col-sm-3">
+                            <div className=" product-key-details__column">
+                                <h5 className="product-key-details__heading">Minimum deposit</h5>
+                                {minimums === 'none' ?
+                                    <p className="product-key-details__text">None</p>
+                                    :
+                                    (Object.keys(minimums).map((key) => (
+                                        <p className="product-key-details__text" key={key}>
+                                            <span>{`${key}: `}</span>
+                                            <span className="product-key-details__rate">{`${minimums[key]}`}</span>
+                                        </p>
+                                    )))
+                                }
+                            </div>
+                        </div>
+                        <div className="col-xs-12 col-sm-3">
+                            <div className=" product-key-details__column">
+                                <h5 className="product-key-details__heading">Interest rate</h5>
+                                {Object.keys(savingsInterestRate).map((key) => (
                                     <p className="product-key-details__text" key={key}>
                                         <span>{`${key}: `}</span>
-                                        <span className="product-key-details__rate">{`${minimums[key]}`}</span>
+                                        <span className="product-key-details__rate">{`${savingsInterestRate[key]}%`}</span>
                                     </p>
-                                )))
-                            }
-                        </div>
-                    </div>
-                    <div className="col-xs-12 col-sm-3">
-                        <div className=" product-key-details__column">
-                            <h5 className="product-key-details__heading">Interest rate</h5>
-                            {Object.keys(savingsInterestRate).map((key) => (
-                                <p className="product-key-details__text" key={key}>
-                                    <span>{`${key}: `}</span>
-                                    <span className="product-key-details__rate">{`${savingsInterestRate[key]}%`}</span>
-                                </p>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
-};
+        );
+    }
+}
 
 export default ProductCard;
