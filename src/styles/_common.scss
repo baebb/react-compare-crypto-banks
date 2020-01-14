@@ -1,0 +1,54 @@
+.wide-text {
+    letter-spacing: 0.0625em;
+}
+
+.nav-button {
+    @extend .wide-text;
+    font-family: $gotham400;
+    background-color: $primary-color;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 0.125rem;
+    border: none;
+    color: white;
+    padding: 6px 16px;
+
+    &:hover {
+        background-color: $primary-color-1;
+    }
+}
+
+.callout-button {
+    @extend .wide-text;
+    text-transform: uppercase;
+    font-family: $gotham600;
+    font-size: 0.8125rem;
+    cursor: pointer;
+    border-radius: 0.125rem;
+
+    &.callout-button--primary {
+        border: none;
+        background-color: $primary-color;
+        color: white;
+        padding: 16px;
+
+        &:hover {
+            background-color: $primary-color-1;
+        }
+    }
+}
+
+.block-btn {
+    width: 100%;
+    text-align: center;
+    display: block !important;
+}
+
+.img-center-frame {
+    display: flex;
+    align-items: center;
+    img {
+        height: auto;
+    }
+}
+

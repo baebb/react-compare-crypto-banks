@@ -5,8 +5,7 @@ import { Root, Routes, addPrefetchExcludes } from 'react-static';
 // Local Dependencies
 import { Link, Router } from 'components/Router';
 // import Dynamic from 'containers/Dynamic';
-import './app.scss';
-import './helpers.scss';
+import './styles/app.scss';
 import './flexboxgrid.min.css';
 
 // Any routes that start with 'dynamic' will be treated as non-static routes
