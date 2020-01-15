@@ -1,6 +1,7 @@
 // NPM Dependencies
 import React, { Component } from 'react';
 import StarRatings from 'react-star-ratings';
+import Popup from 'reactjs-popup';
 
 import BlockFiLogo from "../blockfi.png";
 
@@ -38,6 +39,7 @@ class ProductCard extends Component {
             lockUpPeriod,
             minimums,
             savingsInterestRate,
+            displayCurrencies
         } = this.props.product;
         const displayKeyPoints = keyPointsExpand ? keyPoints : keyPoints.slice(0, 3);
 
@@ -108,7 +110,6 @@ class ProductCard extends Component {
                             <div className=" product-key-details__column">
                                 <h5 className="product-key-details__heading">Interest details</h5>
                                 <p className="product-key-details__text">{interestPayout}</p>
-                                {/*<p className="product-key-details__text">{`Paid in ${payoutCurrencies.join(', ')}`}</p>*/}
                                 <p className="product-key-details__text">{lockUpPeriod}</p>
                             </div>
                         </div>
@@ -118,10 +119,10 @@ class ProductCard extends Component {
                                 {minimums === 'none' ?
                                     <p className="product-key-details__text">None</p>
                                     :
-                                    (Object.keys(minimums).map((key) => (
-                                        <p className="product-key-details__text" key={key}>
-                                            <span>{`${key}: `}</span>
-                                            <span className="product-key-details__rate">{`${minimums[key]}`}</span>
+                                    (displayCurrencies.map((currency) => (
+                                        <p className="product-key-details__text" key={currency}>
+                                            <span>{`${currency}: `}</span>
+                                            <span className="product-key-details__rate">{`${minimums[currency]}`}</span>
                                         </p>
                                     )))
                                 }
@@ -129,13 +130,22 @@ class ProductCard extends Component {
                         </div>
                         <div className="col-xs-12 col-sm-3">
                             <div className=" product-key-details__column">
-                                <h5 className="product-key-details__heading">Interest rate</h5>
-                                {Object.keys(savingsInterestRate).map((key) => (
-                                    <p className="product-key-details__text" key={key}>
-                                        <span>{`${key}: `}</span>
-                                        <span className="product-key-details__rate">{`${savingsInterestRate[key]}%`}</span>
+                                <h5 className="product-key-details__heading product-key-details__heading--interest-rate">Interest rate</h5>
+                                {displayCurrencies.map((currency) => (
+                                    <p className="product-key-details__text" key={currency}>
+                                        <span>{`${currency}: `}</span>
+                                        <span className="product-key-details__rate">{`${savingsInterestRate[currency]}%`}</span>
                                     </p>
                                 ))}
+                                {Object.keys(savingsInterestRate).length > 3 &&
+                                    <Popup
+                                        trigger={<button className="link-button">See all currencies</button>}
+                                        position="top center"
+                                        on="hover"
+                                    >
+                                        content
+                                    </Popup>
+                                }
                             </div>
                         </div>
                     </div>

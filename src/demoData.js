@@ -19,6 +19,7 @@ const items = [
             "GUSD": 5,
             "USDC": 5
         },
+        "displayCurrencies": ["BTC", "ETH", "USDC"],
         "interestPayout": "Paid monthly",
         "lockUpPeriod": "Withdraw anytime",
         "geoAvailability": "US only",
