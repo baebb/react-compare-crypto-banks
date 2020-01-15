@@ -85,6 +85,10 @@
         font-size: 0.8125rem;
         margin: 0;
         margin-bottom: 1rem;
+
+        &.product-key-details__heading--interest {
+            color: $primary-color;
+        }
     }
 
     .product-key-details__text {
@@ -96,6 +100,6 @@
 
     .product-key-details__rate {
         float: right;
-        color: $blue-1;
+        color: $primary-color;
     }
 }
