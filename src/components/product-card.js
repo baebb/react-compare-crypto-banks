@@ -34,7 +34,6 @@ class ProductCard extends Component {
             keyPoints,
             editorRating,
             geoAvailability,
-            payoutCurrencies,
             interestPayout,
             lockUpPeriod,
             minimums,
@@ -85,12 +84,14 @@ class ProductCard extends Component {
                                         <li key={id}><p>{item}</p></li>
                                     )}
                                 </ul>
-                                <button
-                                    className="link-button link-button--read-more"
-                                    onClick={() => this.toggleKeyPointsExpand()}
-                                >
-                                    {keyPointsExpand ? 'Read Less' : 'Read More'}
-                                </button>
+                                {keyPoints.length > 3 &&
+                                    <button
+                                        className="link-button link-button--read-more"
+                                        onClick={() => this.toggleKeyPointsExpand()}
+                                    >
+                                        {keyPointsExpand ? 'Read Less' : 'Read More'}
+                                    </button>
+                                }
                             </div>
                         </div>
                     </div>
@@ -107,7 +108,7 @@ class ProductCard extends Component {
                             <div className=" product-key-details__column">
                                 <h5 className="product-key-details__heading">Interest details</h5>
                                 <p className="product-key-details__text">{interestPayout}</p>
-                                <p className="product-key-details__text">{`Paid in ${payoutCurrencies.join(', ')}`}</p>
+                                {/*<p className="product-key-details__text">{`Paid in ${payoutCurrencies.join(', ')}`}</p>*/}
                                 <p className="product-key-details__text">{lockUpPeriod}</p>
                             </div>
                         </div>
