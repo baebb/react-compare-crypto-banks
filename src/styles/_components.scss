@@ -102,4 +102,13 @@
         float: right;
         color: $primary-color;
     }
+
+    .product-key-details__more-info-wrapper {
+        font-size: 0.8125rem;
+        text-align: center;
+    }
+
+    .product-key-details__more-info-content {
+        text-align: left;
+    }
 }

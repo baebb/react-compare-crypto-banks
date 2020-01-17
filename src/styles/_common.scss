@@ -45,6 +45,7 @@
     color: $blue-2;
     cursor: pointer;
     font-size: inherit;
+    padding: 0;
 
     &.link-button--read-more {
         @extend .wide-text;

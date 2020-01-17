@@ -1,7 +1,9 @@
 // NPM Dependencies
 import React, { Component } from 'react';
 import StarRatings from 'react-star-ratings';
-import Popup from 'reactjs-popup';
+
+// Components
+import AllCryptoRatesPopup from './all-crypto-rates-popup';
 
 import BlockFiLogo from "../blockfi.png";
 
@@ -101,20 +103,20 @@ class ProductCard extends Component {
                 <div className="product-key-details">
                     <div className="row">
                         <div className="col-xs-12 col-sm-3">
-                            <div className=" product-key-details__column">
+                            <div className="product-key-details__column">
                                 <h5 className="product-key-details__heading">Availability</h5>
                                 <p className="product-key-details__text">{geoAvailability}</p>
                             </div>
                         </div>
                         <div className="col-xs-12 col-sm-3">
-                            <div className=" product-key-details__column">
+                            <div className="product-key-details__column">
                                 <h5 className="product-key-details__heading">Interest details</h5>
                                 <p className="product-key-details__text">{interestPayout}</p>
                                 <p className="product-key-details__text">{lockUpPeriod}</p>
                             </div>
                         </div>
                         <div className="col-xs-12 col-sm-3">
-                            <div className=" product-key-details__column">
+                            <div className="product-key-details__column">
                                 <h5 className="product-key-details__heading">Minimum deposit</h5>
                                 {minimums === 'none' ?
                                     <p className="product-key-details__text">None</p>
@@ -129,7 +131,7 @@ class ProductCard extends Component {
                             </div>
                         </div>
                         <div className="col-xs-12 col-sm-3">
-                            <div className=" product-key-details__column">
+                            <div className="product-key-details__column">
                                 <h5 className="product-key-details__heading product-key-details__heading--interest-rate">Interest rate</h5>
                                 {displayCurrencies.map((currency) => (
                                     <p className="product-key-details__text" key={currency}>
@@ -138,13 +140,7 @@ class ProductCard extends Component {
                                     </p>
                                 ))}
                                 {Object.keys(savingsInterestRate).length > 3 &&
-                                    <Popup
-                                        trigger={<button className="link-button">See all currencies</button>}
-                                        position="top center"
-                                        on="hover"
-                                    >
-                                        content
-                                    </Popup>
+                                    <AllCryptoRatesPopup savingsInterestRate={savingsInterestRate} />
                                 }
                             </div>
                         </div>
