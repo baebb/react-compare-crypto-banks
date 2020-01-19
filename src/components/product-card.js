@@ -4,6 +4,7 @@ import StarRatings from 'react-star-ratings';
 
 // Components
 import AllCryptoRatesPopup from './all-crypto-rates-popup';
+import GeoExceptionsPopup from './geo-exceptions-popup';
 
 import BlockFiLogo from "../blockfi.png";
 
@@ -37,6 +38,7 @@ class ProductCard extends Component {
             keyPoints,
             editorRating,
             geoAvailability,
+            geoAvailabilityExceptions,
             interestPayout,
             lockUpPeriod,
             minimums,
@@ -105,7 +107,14 @@ class ProductCard extends Component {
                         <div className="col-xs-12 col-sm-3">
                             <div className="product-key-details__column">
                                 <h5 className="product-key-details__heading">Availability</h5>
-                                <p className="product-key-details__text">{geoAvailability}</p>
+                                <div className="product-key-details__text">
+                                    <span>{geoAvailability} </span>
+                                    {geoAvailabilityExceptions.length > 1 &&
+                                        <span>
+                                            (<GeoExceptionsPopup geoAvailabilityExceptions={geoAvailabilityExceptions} />)
+                                        </span>
+                                    }
+                                </div>
                             </div>
                         </div>
                         <div className="col-xs-12 col-sm-3">
