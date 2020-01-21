@@ -41,7 +41,7 @@ class ProductCard extends Component {
             geoAvailabilityExceptions,
             interestPayout,
             lockUpPeriod,
-            minimums,
+            security,
             savingsInterestRate,
             displayCurrencies
         } = this.props.product;
@@ -126,17 +126,10 @@ class ProductCard extends Component {
                         </div>
                         <div className="col-xs-12 col-sm-3">
                             <div className="product-key-details__column">
-                                <h5 className="product-key-details__heading">Minimum deposit</h5>
-                                {minimums === 'none' ?
-                                    <p className="product-key-details__text">None</p>
-                                    :
-                                    (displayCurrencies.map((currency) => (
-                                        <p className="product-key-details__text" key={currency}>
-                                            <span>{`${currency}: `}</span>
-                                            <span className="product-key-details__rate">{`${minimums[currency]}`}</span>
-                                        </p>
-                                    )))
-                                }
+                                <h5 className="product-key-details__heading">Security</h5>
+                                {security.map((securityItem) => (
+                                    <p className="product-key-details__text" key={securityItem}>{securityItem}</p>
+                                ))}
                             </div>
                         </div>
                         <div className="col-xs-12 col-sm-3">
