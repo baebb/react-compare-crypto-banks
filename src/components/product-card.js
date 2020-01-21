@@ -6,7 +6,8 @@ import StarRatings from 'react-star-ratings';
 import AllCryptoRatesPopup from './all-crypto-rates-popup';
 import GeoExceptionsPopup from './geo-exceptions-popup';
 
-import BlockFiLogo from "../blockfi.png";
+// Selectors
+import { productLogos } from '../selectors';
 
 class ProductCard extends Component {
     // static propTypes = {
@@ -33,6 +34,7 @@ class ProductCard extends Component {
             keyPointsExpand
         } = this.state;
         const {
+            id,
             title,
             companyName,
             keyPoints,
@@ -57,7 +59,7 @@ class ProductCard extends Component {
                                     style={{ textAlign: 'center', marginBottom: 16, minHeight: 100 }}
                                     className="img-center-frame"
                                 >
-                                    <img src={BlockFiLogo} style={{ maxWidth: 240 }} />
+                                    <img src={productLogos[id]} style={{ maxWidth: 240 }} />
                                 </div>
                                 <div className="product-summary__cta-button">
                                     <a href="http://rossdyson.com" target="_blank">

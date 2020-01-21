@@ -245,12 +245,11 @@ const items = [
         "editorRating": 0,
         "security": [
             "2FA",
-            "Bitgo Insured Custody",
-            "Lloyd’s of London insurance"
+            "Bitgo Insured Custody"
         ]
     },
     {
-        "logo": "celciusNetwork",
+        "id": "celciusNetwork",
         "url": "https://celsius.network",
         "title": "Celsius Network Earn Coins",
         "companyName": "Celsius Network",
@@ -294,6 +293,7 @@ const items = [
         "security": [
             "Email confirmation withdraw",
             "Photo and video verification",
+            "Bitgo Insured Custody",
             "2FA"
         ]
     },
