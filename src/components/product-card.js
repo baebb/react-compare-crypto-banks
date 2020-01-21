@@ -2,11 +2,11 @@
 import React, { Component } from 'react';
 import StarRatings from 'react-star-ratings';
 
-// Components
+// Component Dependencies
 import AllCryptoRatesPopup from './all-crypto-rates-popup';
 import GeoExceptionsPopup from './geo-exceptions-popup';
 
-// Selectors
+// Utility Dependencies
 import { productLogos } from '../selectors';
 
 class ProductCard extends Component {
@@ -55,11 +55,8 @@ class ProductCard extends Component {
                     <div className="row">
                         <div className="col-xs-12 col-sm-3">
                             <div className="product-summary__cta-column">
-                                <div
-                                    style={{ textAlign: 'center', marginBottom: 16, minHeight: 100 }}
-                                    className="img-center-frame"
-                                >
-                                    <img src={productLogos[id]} style={{ maxWidth: 240 }} />
+                                <div className="product-summary__logo-img">
+                                    <img src={productLogos[id]} />
                                 </div>
                                 <div className="product-summary__cta-button">
                                     <a href="http://rossdyson.com" target="_blank">

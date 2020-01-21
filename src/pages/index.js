@@ -1,8 +1,12 @@
 // NPM Dependencies
 import React from 'react';
 
-// Local Dependencies
+// Component Dependencies
 import ProductCard from '../components/product-card';
+
+// Utility Dependencies
+import { shuffle } from '../selectors';
+
 
 // Data
 import items from '../demoData';
@@ -30,7 +34,7 @@ export default () => (
         <div className="banner-section">
         </div>
         <div className="products-section">
-            {items.map(product =>
+            {shuffle(items).map(product =>
                 <ProductCard product={product} key={product.title} />
             )}
         </div>

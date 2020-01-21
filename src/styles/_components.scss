@@ -35,6 +35,18 @@
         }
     }
 
+    .product-summary__logo-img {
+        margin-bottom: 16px;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        img {
+            padding: 0px 20px;
+            height: auto;
+            width: 100%;
+        }
+    }
+
     .product-summary__cta-button {
         .callout-button {
             width: 100%;
