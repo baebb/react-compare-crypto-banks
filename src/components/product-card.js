@@ -58,6 +58,20 @@ class ProductCard extends Component {
                                 <div className="product-summary__logo-img">
                                     <img src={productLogos[id]} />
                                 </div>
+                                <div className="product-summary__mobile-text hide-desktop">
+                                    <h3 className="product-summary__heading">{title}</h3>
+                                    <div className="product-summary__rating">
+                                        <span>{editorRating.toFixed(1)} Editor's Rating</span>
+                                        <span className="product-summary__star-rating">
+                                            <StarRatings
+                                                rating={editorRating}
+                                                starDimension="22px"
+                                                starSpacing="1px"
+                                                starRatedColor="#008255"
+                                            />
+                                        </span>
+                                    </div>
+                                </div>
                                 <div className="product-summary__cta-button">
                                     <a href="http://rossdyson.com" target="_blank">
                                         <button  type="button" className="callout-button callout-button--primary">
@@ -72,8 +86,8 @@ class ProductCard extends Component {
                         </div>
                         <div className="col-xs-12 col-sm-9">
                             <div className="product-summary__text-column">
-                                <h3 className="product-summary__heading">{title}</h3>
-                                <div className="product-summary__rating">
+                                <h3 className="product-summary__heading hide-mobile">{title}</h3>
+                                <div className="product-summary__rating hide-mobile">
                                     <span>{editorRating.toFixed(1)} Editor's Rating</span>
                                     <span className="product-summary__star-rating">
                                         <StarRatings

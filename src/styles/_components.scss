@@ -2,7 +2,7 @@
 
 .nav-logo {
     .nav-logo__wide {
-        @include screen--phone {
+        @include screen--mobile {
             display: none;
         }
     }
@@ -31,19 +31,28 @@
 }
 
 .product-card {
-    border: 1px solid #d8d9da;
     background-color: #ffffff;
     margin-bottom: 24px;
     display: block;
+
+    @include screen--desktop {
+        border: 1px solid #d8d9da;
+    }
+
+    @include screen--mobile {
+        margin-bottom: 48px;
+    }
 }
 
 .product-summary {
-    padding: 32px;
+    @include screen--desktop {
+        padding: 32px;
+    }
 
     .product-summary__cta-column {
         padding-right: 36px;
 
-        @include screen--phone {
+        @include screen--mobile {
             padding-right: 0;
         }
     }
@@ -62,9 +71,19 @@
         }
     }
 
+    .product-summary__mobile-text {
+        text-align: center;
+        margin: 16px 0;
+    }
+
     .product-summary__cta-button {
+        text-align: center;
+
         .callout-button {
             width: 100%;
+            @include screen--mobile {
+                max-width: 220px;
+            }
         }
         margin-bottom: 8px;
     }
@@ -76,16 +95,18 @@
     }
 
     .product-summary__text-column {
+        .link-button--read-more {
+
+            @include screen--mobile {
+                margin-left: 16px;
+                margin-bottom: 16px;
+            }
+        }
     }
 
     .product-summary__heading {
         font-size: 24px;
         margin: 8px 0;
-    }
-
-    .product-summary__keypoint-list {
-        padding-left: 0;
-        margin-left: 16px;
     }
 
     .product-summary__rating {
@@ -95,14 +116,29 @@
     .product-summary__star-rating {
         margin-left: 8px;
     }
+
+    .product-summary__keypoint-list {
+        padding-left: 0;
+        margin-left: 16px;
+    }
 }
 
 .product-key-details {
-    padding: 16px;
-    background-color: #f5f5f5;
+    @include screen--desktop {
+        padding: 16px;
+        background-color: #f5f5f5;
+    }
 
     .product-key-details__column {
         padding: 16px;
+        @include screen--mobile {
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            margin: 6px 0;
+        }
+        .product-key-details__text:last-child {
+            margin-bottom: 0;
+        }
     }
 
     .product-key-details__heading {
@@ -115,6 +151,10 @@
 
         &.product-key-details__heading--interest-rate {
             color: $primary-color;
+        }
+
+        @include screen--mobile {
+            margin-bottom: 4px;
         }
     }
 

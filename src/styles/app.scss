@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 16px;
     padding-bottom: 16px;
 
-    @include screen--phone {
+    @include screen--mobile {
         padding-left: 20px;
         padding-right: 20px;
     }
@@ -47,20 +47,8 @@ h1, h2, h3, h4, h5, h6 {
         padding: 0 40px 40px 40px;
     }
 
-    @include screen--phone {
+    @include screen--mobile {
         margin: 0px 20px;
-    }
-}
-
-@media only screen and (max-width : 575px) {
-    .hide-mobile {
-        display: none;
-    }
-}
-
-@media only screen and (min-width : 576px) {
-    .hide-desktop {
-        display: none;
     }
 }
 
