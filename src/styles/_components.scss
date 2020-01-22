@@ -1,5 +1,18 @@
 @import 'base';
 
+.nav-logo {
+    .nav-logo__wide {
+        @include screen--phone {
+            display: none;
+        }
+    }
+    .nav-logo__fav {
+        @include screen--desktop {
+            display: none;
+        }
+    }
+}
+
 .intro-section {
     margin: 72px 0;
     text-align: center;
@@ -40,10 +53,12 @@
         min-height: 120px;
         display: flex;
         align-items: center;
+        justify-content: space-around;
         img {
             padding: 0px 20px;
             height: auto;
             width: 100%;
+            max-width: 280px;
         }
     }
 

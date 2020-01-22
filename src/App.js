@@ -19,7 +19,10 @@ function App() {
                     <div className="row">
                         <div className="col-xs-6">
                             <Link to="/">
-                                <h1 className="navbar__home-text">Compare Crypto Banks</h1>
+                                <div className="nav-logo">
+                                    <img src="https://dummyimage.com/280x40/008255/ffffff" className="nav-logo__wide" />
+                                    <img src="https://dummyimage.com/40x40/008255/ffffff" className="nav-logo__fav" />
+                                </div>
                             </Link>
                         </div>
                         <div className="col-xs-6" style={{ textAlign: 'right' }}>

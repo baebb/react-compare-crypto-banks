@@ -20,6 +20,7 @@ nav {
 
 body {
     font-family: $gotham400;
+    margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -29,37 +30,35 @@ h1, h2, h3, h4, h5, h6 {
 .navbar {
     max-width: 1200px;
     margin: 0 auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
 
-    .navbar__home-text {
-        margin: 0;
+    @include screen--phone {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 
 .content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem;
-}
 
-.banner {
-    margin-bottom: 32px;
+    @include screen--desktop {
+        padding: 0 40px 40px 40px;
+    }
+
+    @include screen--phone {
+        margin: 0px 20px;
+    }
 }
 
 @media only screen and (max-width : 575px) {
-    .content {
-        margin: 0px 24px;
-    }
-
     .hide-mobile {
         display: none;
     }
 }
 
 @media only screen and (min-width : 576px) {
-    .content {
-        padding: 0 40px 40px 40px;
-    }
-
     .hide-desktop {
         display: none;
     }

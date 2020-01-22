@@ -45,3 +45,9 @@ $desktop-width: 1024px;
         @content;
     }
 }
+
+@mixin screen--desktop {
+    @media (min-width : $tablet-width + 1) {
+        @content;
+    }
+}
