@@ -26,3 +26,6 @@ export const shuffle = (a) => {
     }
     return a;
 };
+
+export const sortAlphabetical = (items, comparator) =>
+    items.sort((a, b) => a[comparator].localeCompare(b[comparator]));
