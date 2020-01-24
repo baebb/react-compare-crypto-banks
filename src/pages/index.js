@@ -13,7 +13,7 @@ import items from '../demoData';
 const sortedProducts = sortAlphabetical(items, 'id');
 const heading = 'Grow your crypto portfolio ';
 const calloutWord = 'passively';
-const subHeading = 'Crypto banks allows crypto investors to earn compound interest on their crypto deposits and grow their wealth. Simply deposit your crypto in the account and start saving right away.';
+const subHeading = 'Crypto banks allows crypto investors to earn compound interest on their crypto assets and grow their wealth. Compare crypto banks to find the best bank for your needs.';
 
 export default () => {
     return (
