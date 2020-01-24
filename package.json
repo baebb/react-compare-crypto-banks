@@ -31,6 +31,7 @@
         "eslint-plugin-import": "2.x",
         "eslint-plugin-jsx-a11y": "6.x",
         "eslint-plugin-react": "7.x",
+        "eslint-plugin-react-hooks": "^2.3.0",
         "firebase-tools": "^7.8.1",
         "serve": "11.3.0"
     }

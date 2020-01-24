@@ -35,13 +35,13 @@ export default {
                 getData: () => ({
                     posts,
                 }),
-                children: posts.map(post => ({
-                    path: `/post/${post.id}`,
-                    template: 'src/containers/Post',
-                    getData: () => ({
-                        post,
-                    }),
-                })),
+                // children: posts.map(post => ({
+                //     path: `/post/${post.id}`,
+                //     template: 'src/containers/Post',
+                //     getData: () => ({
+                //         post,
+                //     }),
+                // })),
             },
         ];
     },
