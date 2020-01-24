@@ -1,3 +1,5 @@
+// NPM Dependencies
+import 'dotenv/config';
 import React from 'react';
 import path from 'path';
 import axios from 'axios';
@@ -25,6 +27,8 @@ export default {
         </Html>
     ),
     getRoutes: async () => {
+        console.log('CONTENTFUL_KEY', process.env.CONTENTFUL_KEY);
+
         const { data: posts } = await axios.get(
             'https://jsonplaceholder.typicode.com/posts'
         );
