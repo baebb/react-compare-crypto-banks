@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "@reach/router": "^1.2.1",
-        "axios": "^0.18.0",
+        "axios": "^0.19.2",
         "react": "^16.8.2",
         "react-dom": "^16.8.2",
         "react-star-ratings": "^2.3.0",
@@ -23,15 +23,15 @@
         "reactjs-popup": "^1.5.0"
     },
     "devDependencies": {
-        "babel-eslint": "9.x",
-        "eslint": "5.x",
-        "eslint-config-react-app": "^3.0.8",
+        "babel-eslint": "10.0.3",
+        "eslint": "6.8.0",
+        "eslint-config-react-app": "^5.1.0",
         "eslint-config-react-tools": "1.x.x",
-        "eslint-plugin-flowtype": "2.x",
+        "eslint-plugin-flowtype": "4.6.0",
         "eslint-plugin-import": "2.x",
         "eslint-plugin-jsx-a11y": "6.x",
         "eslint-plugin-react": "7.x",
         "firebase-tools": "^7.8.1",
-        "serve": "10.1.2"
+        "serve": "11.3.0"
     }
 }
