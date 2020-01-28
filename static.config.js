@@ -27,7 +27,7 @@ export default {
         </Html>
     ),
     getRoutes: async () => {
-        console.log('CONTENTFUL_KEY', process.env.CONTENTFUL_KEY);
+        console.log('CONTENTFUL_KEY', process.env.CONTENTFUL_KEY_PROD);
 
         const { data: posts } = await axios.get(
             'https://jsonplaceholder.typicode.com/posts'
