@@ -5,6 +5,7 @@ import { Link } from 'components/Router';
 
 export default function Blog() {
     const { posts } = useRouteData();
+
     return (
         <div>
             <h1>It's blog time.</h1>
@@ -16,9 +17,9 @@ export default function Blog() {
             <br />
             All Posts:
             <ul>
-                {posts.map(post => (
-                    <li key={post.id}>
-                        <Link to={`/blog/post/${post.id}/`}>{post.title}</Link>
+                {posts.map(({ fields }) => (
+                    <li key={fields.slug}>
+                        <Link to={`/blog/${fields.slug}/`}>{fields.title}</Link>
                     </li>
                 ))}
             </ul>

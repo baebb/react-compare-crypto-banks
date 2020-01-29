@@ -28,8 +28,6 @@ export default {
         </Html>
     ),
     getRoutes: async () => {
-        console.log('CONTENTFUL_KEY', process.env.CONTENTFUL_KEY_PROD);
-
         const contentAPI = contentful.createClient({
             space: process.env.CONTENTFUL_SPACE_ID_PROD,
             environment: process.env.CONTENTFUL_ENVIRONMENT_ID_PROD,
@@ -40,9 +38,9 @@ export default {
         //     'https://jsonplaceholder.typicode.com/posts'
         // );
 
-        const { items: posts } = await contentAPI.getEntries();
-
-
+        const { items: posts } = await contentAPI.getEntries({
+            content_type: 'blogPost'
+        });
 
         return [
             {
@@ -50,8 +48,8 @@ export default {
                 getData: () => ({
                     posts,
                 }),
-                children: posts.map(post => ({
-                    path: `/post/${post.id}`,
+                children: posts.map(({ fields: post }) => ({
+                    path: `/${post.slug}`,
                     template: 'src/containers/Post',
                     getData: () => ({
                         post,

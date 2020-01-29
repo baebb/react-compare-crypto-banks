@@ -5,6 +5,7 @@ import { Link } from 'components/Router';
 
 export default function Post() {
     const { post } = useRouteData();
+
     return (
         <div>
             <Link to="/blog/">{'<'} Back</Link>
