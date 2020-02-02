@@ -1,0 +1,6 @@
+.blog-post-section {
+    margin: 0 180px;
+    @include screen--mobile {
+        margin: 0;
+    }
+}

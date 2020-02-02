@@ -10,11 +10,12 @@ export default function Post() {
     const { title, body } = post;
 
     return (
-        <div>
+        <div className="content">
             <Link to="/blog/">{'<'} Back</Link>
             <br />
-            <h3>{title}</h3>
-            <ReactMarkdown source={body} />
+            <div className="blog-post-section">
+                <ReactMarkdown source={body} />
+            </div>
         </div>
     );
 }
