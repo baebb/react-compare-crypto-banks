@@ -5,6 +5,23 @@
 .nav-button {
     @extend .wide-text;
     font-family: $gotham400;
+    text-transform: uppercase;
+    background-color: transparent;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 0.125rem;
+    border: none;
+    color: black;
+    padding: 6px 16px;
+
+    &:hover {
+        color: $primary-color-1;
+    }
+}
+
+.nav-button-alt {
+    @extend .wide-text;
+    font-family: $gotham400;
     background-color: $primary-color;
     font-size: 12px;
     cursor: pointer;

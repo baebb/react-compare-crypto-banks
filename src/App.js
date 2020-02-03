@@ -20,12 +20,14 @@ function App() {
                 <div className="navbar">
                     <div className="row">
                         <div className="col-xs-6">
-                            <Link to="/">
-                                <div className="nav-logo">
+                            <div className="nav-logo">
+                                <Link to="/">
                                     <img src={LogoV1} className="nav-logo__wide" />
+                                </Link>
+                                <Link to="/">
                                     <img src={IconLogo} className="nav-logo__fav" />
-                                </div>
-                            </Link>
+                                </Link>
+                            </div>
                         </div>
                         <div className="col-xs-6">
                             <div className="nav-buttons">
