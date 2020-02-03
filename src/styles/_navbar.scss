@@ -1,0 +1,33 @@
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+    @include screen--mobile {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.nav-logo {
+    .nav-logo__wide {
+        height: 50px;
+        @include screen--mobile {
+            display: none;
+        }
+    }
+    .nav-logo__fav {
+        height: 50px;
+        @include screen--desktop {
+            display: none;
+        }
+    }
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    height: 100%;
+}

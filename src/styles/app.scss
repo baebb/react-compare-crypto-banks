@@ -1,5 +1,6 @@
 @import 'base';
 @import 'common';
+@import 'navbar';
 @import 'components';
 @import 'blog';
 
@@ -26,18 +27,6 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: $gotham600;
-}
-
-.navbar {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 16px;
-    padding-bottom: 16px;
-
-    @include screen--mobile {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
 }
 
 .content {

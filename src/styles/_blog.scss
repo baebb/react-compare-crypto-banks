@@ -3,4 +3,7 @@
     @include screen--mobile {
         margin: 0;
     }
+    th {
+        width: 50%;
+    }
 }

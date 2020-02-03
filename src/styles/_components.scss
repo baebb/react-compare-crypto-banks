@@ -1,18 +1,5 @@
 @import 'base';
 
-.nav-logo {
-    .nav-logo__wide {
-        @include screen--mobile {
-            display: none;
-        }
-    }
-    .nav-logo__fav {
-        @include screen--desktop {
-            display: none;
-        }
-    }
-}
-
 .intro-section {
     margin: 72px 0;
     text-align: center;
