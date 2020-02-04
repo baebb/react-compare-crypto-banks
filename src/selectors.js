@@ -1,12 +1,12 @@
 // Local Dependencies
-import nexoLogo from '../public/images/nexoLogo.svg';
-import blockFiLogo from '../public/images/blockfi.png';
-import youHodlerLogo from '../public/images/youHodlerLogo.svg';
-import lednLogo from '../public/images/lednLogo.svg';
-import hodlnautLogo from '../public/images/hodlnautLogo.svg';
-import cryptoDotComLogo from '../public/images/cryptoDotComLogo.webp';
-import bitrueLogo from '../public/images/bitrueLogo.svg';
-import celciusNetworkLogo from '../public/images/celciusNetworkLogo.svg';
+import nexoLogo from '../public/images/bankLogos/nexoLogo.svg';
+import blockFiLogo from '../public/images/bankLogos/blockfi.png';
+import youHodlerLogo from '../public/images/bankLogos/youHodlerLogo.svg';
+import lednLogo from '../public/images/bankLogos/lednLogo.svg';
+import hodlnautLogo from '../public/images/bankLogos/hodlnautLogo.svg';
+import cryptoDotComLogo from '../public/images/bankLogos/cryptoDotComLogo.webp';
+import bitrueLogo from '../public/images/bankLogos/bitrueLogo.svg';
+import celciusNetworkLogo from '../public/images/bankLogos/celciusNetworkLogo.svg';
 
 export const productLogos = {
     nexo: nexoLogo,
