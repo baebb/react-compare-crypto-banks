@@ -43,12 +43,14 @@ function App() {
                     </div>
                 </div>
             </nav>
-            <React.Suspense fallback={<em>Loading...</em>}>
-                <Router>
-                    {/*<Dynamic path="dynamic" />*/}
-                    <Routes path="*" />
-                </Router>
-            </React.Suspense>
+            <div className="content">
+                <React.Suspense fallback={<em>Loading...</em>}>
+                    <Router>
+                        {/*<Dynamic path="dynamic" />*/}
+                        <Routes path="*" />
+                    </Router>
+                </React.Suspense>
+            </div>
         </Root>
     );
 }

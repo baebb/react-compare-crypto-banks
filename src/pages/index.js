@@ -17,7 +17,7 @@ const subHeading = 'Crypto banks allows crypto investors to earn compound intere
 
 export default () => {
     return (
-        <div className="content">
+        <div className="home-page">
             <div className="intro-section">
                 <div className="intro-section__heading">
                     <h2>

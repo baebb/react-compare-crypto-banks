@@ -55,7 +55,7 @@ export default {
                 }),
                 children: posts.map(({ fields: post }) => ({
                     path: `/${post.slug}`,
-                    template: 'src/containers/Post',
+                    template: 'src/containers/review-page',
                     getData: () => ({
                         post,
                     }),
