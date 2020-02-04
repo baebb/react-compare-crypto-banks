@@ -1,8 +1,8 @@
 // NPM Dependencies
 import 'dotenv/config';
 import React from 'react';
-import path from 'path';
-import axios from 'axios';
+// import path from 'path';
+// import axios from 'axios';
 const contentful = require('contentful');
 
 export default {
@@ -44,7 +44,12 @@ export default {
 
         return [
             {
-                path: '/blog',
+                path: '/',
+                template: 'src/pages/index'
+            },
+            {
+                path: 'blog',
+                template: 'src/pages/blog',
                 getData: () => ({
                     posts,
                 }),
@@ -56,15 +61,20 @@ export default {
                     }),
                 })),
             },
+            // A 404 component
+            {
+                path: '404',
+                template: 'src/pages/404',
+            }
         ];
     },
     plugins: [
-        [
-            require.resolve('react-static-plugin-source-filesystem'),
-            {
-                location: path.resolve('./src/pages'),
-            },
-        ],
+        // [
+        //     require.resolve('react-static-plugin-source-filesystem'),
+        //     {
+        //         location: path.resolve('./src/pages'),
+        //     },
+        // ],
         [
             require.resolve('react-static-plugin-google-tag-manager'),
             {
