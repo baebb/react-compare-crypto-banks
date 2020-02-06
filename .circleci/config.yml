@@ -31,23 +31,24 @@ jobs:
             - run:
                 name: Build
                 command: |
+                    if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                        BUILD_ENV=prod yarn build
+                    fi
                     if [ "${CIRCLE_BRANCH}" == "staging" ]; then
-#                        echo BUILD_ENV=staging
-                        yarn build
-                    else if [ "${CIRCLE_BRANCH}" == "test" ]; then
-#                        echo BUILD_ENV=test
-                        yarn build
-                    else
-#                        echo BUILD_ENV=prod
-                        yarn build
+                        BUILD_ENV=staging yarn build
+                    fi
+                    if [ "${CIRCLE_BRANCH}" == "test" ]; then
+                        BUILD_ENV=test yarn build
                     fi
             - run:
                 name: Firebase Deploy
                 command: |
                     if [ "${CIRCLE_BRANCH}" == "master" ]; then
                       ./node_modules/.bin/firebase deploy --project=prod --token "$FIREBASE_TOKEN_PROD"
-                    else if [ "${CIRCLE_BRANCH}" == "staging" ]; then
+                    fi
+                    if [ "${CIRCLE_BRANCH}" == "staging" ]; then
                       ./node_modules/.bin/firebase deploy --project=staging --token "$FIREBASE_TOKEN_STAGING"
-                    else if [ "${CIRCLE_BRANCH}" == "test" ]; then
+                    fi
+                    if [ "${CIRCLE_BRANCH}" == "test" ]; then
                       ./node_modules/.bin/firebase deploy --project=test --token "$FIREBASE_TOKEN_TEST"
                     fi
