@@ -7,6 +7,7 @@ jobs:
             only:
                 - master
                 - staging
+                - test
         docker:
             - image: circleci/node:10.17.0
             # Specify service dependencies here if necessary
@@ -29,13 +30,22 @@ jobs:
                 key: v1-dependencies-{{ checksum "package.json" }}
             - run:
                 name: Build
-                command: yarn build
+                environment: |
+                    if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                        BUILD_ENV=prod
+                    else if [ "${CIRCLE_BRANCH}" == "staging" ]; then
+                        BUILD_ENV=staging
+                    else if [ "${CIRCLE_BRANCH}" == "test" ]; then
+                        BUILD_ENV=test
+                command:
+                    yarn build
             - run:
                 name: Firebase Deploy
                 command: |
                     if [ "${CIRCLE_BRANCH}" == "master" ]; then
                       ./node_modules/.bin/firebase deploy --project=prod --token "$FIREBASE_TOKEN_PROD"
-                    else
+                    else if [ "${CIRCLE_BRANCH}" == "staging" ]; then
                       ./node_modules/.bin/firebase deploy --project=staging --token "$FIREBASE_TOKEN_STAGING"
+                    else if [ "${CIRCLE_BRANCH}" == "test" ]; then
                       ./node_modules/.bin/firebase deploy --project=test --token "$FIREBASE_TOKEN_TEST"
                     fi

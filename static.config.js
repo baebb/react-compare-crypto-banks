@@ -5,6 +5,23 @@ import React from 'react';
 // import axios from 'axios';
 const contentful = require('contentful');
 
+const buildEnv = process.env.BUILD_ENV || 'prod';
+
+const config = {
+    prod: {
+        CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_PROD,
+        CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_PROD
+    },
+    staging: {
+        CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_PROD,
+        CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_PROD
+    },
+    test: {
+        CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_TEST,
+        CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_TEST
+    }
+};
+
 export default {
     Document: ({
         Html,
@@ -28,9 +45,11 @@ export default {
         </Html>
     ),
     getRoutes: async () => {
+        console.log('env key', config[buildEnv].CONTENTFUL_KEY);
+
         const contentAPI = contentful.createClient({
-            accessToken: process.env.CONTENTFUL_KEY_PROD,
-            space: process.env.CONTENTFUL_SPACE_ID_PROD,
+            accessToken: config[buildEnv].CONTENTFUL_KEY,
+            space: config[buildEnv].CONTENTFUL_SPACE_ID,
             environment: 'master',
             // environment: process.env.CONTENTFUL_ENVIRONMENT_ID_PROD,
         });
@@ -40,7 +59,7 @@ export default {
         // );
 
         const { items: posts } = await contentAPI.getEntries({
-            content_type: 'blogPost'
+            content_type: 'review'
         });
 
         return [
