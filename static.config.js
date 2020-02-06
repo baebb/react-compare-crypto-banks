@@ -45,8 +45,6 @@ export default {
         </Html>
     ),
     getRoutes: async () => {
-        console.log('env key', config[buildEnv].CONTENTFUL_KEY);
-
         const contentAPI = contentful.createClient({
             accessToken: config[buildEnv].CONTENTFUL_KEY,
             space: config[buildEnv].CONTENTFUL_SPACE_ID,
