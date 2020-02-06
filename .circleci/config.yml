@@ -32,11 +32,14 @@ jobs:
                 name: Build
                 command: |
                     if [ "${CIRCLE_BRANCH}" == "staging" ]; then
-                        BUILD_ENV=staging yarn build
+                        echo BUILD_ENV=staging
+                        yarn build
                     else if [ "${CIRCLE_BRANCH}" == "test" ]; then
-                        BUILD_ENV=test yarn build
+                        echo BUILD_ENV=test
+                        yarn build
                     else
-                        BUILD_ENV=prod yarn build
+                        echo BUILD_ENV=prod
+                        yarn build
                     fi
             - run:
                 name: Firebase Deploy
