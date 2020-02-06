@@ -30,15 +30,17 @@ jobs:
                 key: v1-dependencies-{{ checksum "package.json" }}
             - run:
                 name: Build
-                environment: |
+                command: |
                     if [ "${CIRCLE_BRANCH}" == "master" ]; then
                         BUILD_ENV=prod
+                        yarn build
                     else if [ "${CIRCLE_BRANCH}" == "staging" ]; then
                         BUILD_ENV=staging
+                        yarn build
                     else if [ "${CIRCLE_BRANCH}" == "test" ]; then
                         BUILD_ENV=test
-                command:
-                    yarn build
+                        yarn build
+                    fi
             - run:
                 name: Firebase Deploy
                 command: |
