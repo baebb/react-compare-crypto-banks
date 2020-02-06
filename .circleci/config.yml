@@ -32,13 +32,13 @@ jobs:
                 name: Build
                 command: |
                     if [ "${CIRCLE_BRANCH}" == "staging" ]; then
-                        echo BUILD_ENV=staging
+#                        echo BUILD_ENV=staging
                         yarn build
                     else if [ "${CIRCLE_BRANCH}" == "test" ]; then
-                        echo BUILD_ENV=test
+#                        echo BUILD_ENV=test
                         yarn build
                     else
-                        echo BUILD_ENV=prod
+#                        echo BUILD_ENV=prod
                         yarn build
                     fi
             - run:
