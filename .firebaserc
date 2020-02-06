@@ -1,6 +1,7 @@
 {
   "projects": {
     "prod": "compare-crypto-banks-prod",
-    "staging": "compare-crypto-banks-staging"
+    "staging": "compare-crypto-banks-staging",
+    "test": "compare-crypto-banks-test"
   }
 }

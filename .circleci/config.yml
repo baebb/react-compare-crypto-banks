@@ -37,4 +37,5 @@ jobs:
                       ./node_modules/.bin/firebase deploy --project=prod --token "$FIREBASE_TOKEN_PROD"
                     else
                       ./node_modules/.bin/firebase deploy --project=staging --token "$FIREBASE_TOKEN_STAGING"
+                      ./node_modules/.bin/firebase deploy --project=test --token "$FIREBASE_TOKEN_TEST"
                     fi

@@ -29,9 +29,10 @@ export default {
     ),
     getRoutes: async () => {
         const contentAPI = contentful.createClient({
+            accessToken: process.env.CONTENTFUL_KEY_PROD,
             space: process.env.CONTENTFUL_SPACE_ID_PROD,
-            environment: process.env.CONTENTFUL_ENVIRONMENT_ID_PROD,
-            accessToken: process.env.CONTENTFUL_KEY_PROD
+            environment: 'master',
+            // environment: process.env.CONTENTFUL_ENVIRONMENT_ID_PROD,
         });
 
         // const { data: posts } = await axios.get(
