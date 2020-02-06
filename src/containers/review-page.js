@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown';
 
 export default function ReviewPage() {
     const { post } = useRouteData();
-    const { title, description, body } = post;
+    const { title, description, rating, pros, cons, body } = post;
 
     return (
         <div className="review-page">
@@ -18,7 +18,20 @@ export default function ReviewPage() {
                     <ReactMarkdown source={description} />
                 </div>
             </header>
-            <div className="post-body">
+            <div className="pros-cons-section">
+                <h2 className="pros-cons-section__title">Pros & Cons</h2>
+                <div className="row">
+                    <div className="col-xs-12 col-sm-6 pros-cons-section__list">
+                        <h4>Pros</h4>
+                        <ReactMarkdown source={pros} />
+                    </div>
+                    <div className="col-xs-12 col-sm-6 pros-cons-section__list">
+                        <h4>Cons</h4>
+                        <ReactMarkdown source={cons} />
+                    </div>
+                </div>
+            </div>
+            <div className="review-body-section">
                 <ReactMarkdown source={body} />
             </div>
         </div>
