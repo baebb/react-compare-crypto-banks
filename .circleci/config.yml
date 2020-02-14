@@ -2,53 +2,53 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 version: 2.0
 jobs:
-    build:
-        branches:
-            only:
-                - master
-                - staging
-                - test
-        docker:
-            - image: circleci/node:10.17.0
-            # Specify service dependencies here if necessary
-            # CircleCI maintains a library of pre-built images
-            # documented at https://circleci.com/docs/2.0/circleci-images/
-            # - image: circleci/mongo:3.4.4
-        working_directory: ~/repo
-        steps:
-            - checkout
-            - restore_cache:
-                keys:
-                  - v1-dependencies-{{ checksum "package.json" }}
-                  - v1-dependencies-
-            - run:
-                name: Install Dependencies
-                command: yarn install
-            - save_cache:
-                paths:
-                  - node_modules
-                key: v1-dependencies-{{ checksum "package.json" }}
-            - run:
-                name: Build
-                command: |
-                    if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                        BUILD_ENV=prod yarn build
-                    fi
-                    if [ "${CIRCLE_BRANCH}" == "staging" ]; then
-                        BUILD_ENV=staging yarn build
-                    fi
-                    if [ "${CIRCLE_BRANCH}" == "test" ]; then
-                        BUILD_ENV=test yarn build
-                    fi
-            - run:
-                name: Firebase Deploy
-                command: |
-                    if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                      ./node_modules/.bin/firebase deploy --project=prod --token "$FIREBASE_TOKEN_PROD"
-                    fi
-                    if [ "${CIRCLE_BRANCH}" == "staging" ]; then
-                      ./node_modules/.bin/firebase deploy --project=staging --token "$FIREBASE_TOKEN_STAGING"
-                    fi
-                    if [ "${CIRCLE_BRANCH}" == "test" ]; then
-                      ./node_modules/.bin/firebase deploy --project=test --token "$FIREBASE_TOKEN_TEST"
-                    fi
+  build:
+    branches:
+      only:
+        - master
+        - staging
+        - test
+    docker:
+      - image: circleci/node:10.17.0
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install Dependencies
+          command: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Build
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                BUILD_ENV=prod yarn build
+            fi
+            if [ "${CIRCLE_BRANCH}" == "staging" ]; then
+                BUILD_ENV=staging yarn build
+            fi
+            if [ "${CIRCLE_BRANCH}" == "test" ]; then
+                BUILD_ENV=test yarn build
+            fi
+      - run:
+          name: Firebase Deploy
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ./node_modules/.bin/firebase deploy --project=prod --token "$FIREBASE_TOKEN_PROD"
+            fi
+            if [ "${CIRCLE_BRANCH}" == "staging" ]; then
+              ./node_modules/.bin/firebase deploy --project=staging --token "$FIREBASE_TOKEN_STAGING"
+            fi
+            if [ "${CIRCLE_BRANCH}" == "test" ]; then
+              ./node_modules/.bin/firebase deploy --project=test --token "$FIREBASE_TOKEN_TEST"
+            fi
