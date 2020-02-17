@@ -2,6 +2,12 @@
     letter-spacing: 0.0625em;
 }
 
+.secondary-heading {
+    @extend .wide-text;
+    text-transform: uppercase;
+    font-family: $gotham600;
+}
+
 .nav-button {
     @extend .wide-text;
     font-family: $gotham400;
