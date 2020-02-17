@@ -3,17 +3,22 @@ import React from 'react';
 import { useRouteData } from 'react-static';
 import ReactMarkdown from 'react-markdown';
 
-// import { Link } from 'components/Router';
+// Component Dependencies
+import ProductCardMini from '../components/product-card-mini';
+
+// Data
+import items from '../demoData';
 
 // Utility Dependencies
 import { formatPublishDate } from '../selectors';
 
 export default function ReviewPage() {
     const { post } = useRouteData();
-    const { title, description, author, publishDate, rating, pros, cons, body } = post;
+    const { productId, title, description, author, publishDate, rating, pros, cons, body } = post;
 
     const { name: authorName } = author.fields;
 
+    const productData = items.find(product => productId === product.id);
     const cleanPublishDate = formatPublishDate(publishDate);
 
     return (
@@ -33,6 +38,10 @@ export default function ReviewPage() {
                     </span>
                 </div>
             </header>
+            <div className="review-summary-section">
+                <h2>Our Take</h2>
+                <ProductCardMini product={productData} />
+            </div>
             <div className="pros-cons-section">
                 <h2 className="pros-cons-section__title">Pros & Cons</h2>
                 <div className="row">

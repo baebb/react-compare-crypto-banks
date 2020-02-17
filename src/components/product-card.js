@@ -56,7 +56,7 @@ class ProductCard extends Component {
                         <div className="col-xs-12 col-sm-3">
                             <div className="product-summary__cta-column">
                                 <div className="product-summary__logo-img">
-                                    <img src={productLogos[id]} />
+                                    <img alt={`${title}-logo`} src={productLogos[id]} />
                                 </div>
                                 <div className="product-summary__mobile-text hide-desktop">
                                     <h3 className="product-summary__heading">{title}</h3>
@@ -73,7 +73,7 @@ class ProductCard extends Component {
                                     </div>
                                 </div>
                                 <div className="product-summary__cta-button">
-                                    <a href="http://rossdyson.com" target="_blank">
+                                    <a href="https://www.rossdyson.com" target="_blank">
                                         <button  type="button" className="callout-button callout-button--primary">
                                             Apply now
                                         </button>

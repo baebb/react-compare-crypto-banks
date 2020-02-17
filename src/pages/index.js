@@ -7,7 +7,6 @@ import ProductCard from '../components/product-card';
 // Utility Dependencies
 import { sortAlphabetical } from '../selectors';
 
-
 // Data
 import items from '../demoData';
 const sortedProducts = sortAlphabetical(items, 'id');

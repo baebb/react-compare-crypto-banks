@@ -29,6 +29,33 @@
     @include screen--mobile {
         margin-bottom: 48px;
     }
+
+    &.product-card--mini {
+        .product-summary {
+            .product-summary__heading {
+                font-size: 20px;
+            }
+            .product-summary__logo-img {
+                min-height: 90px;
+                img {
+                    max-width: 210px;
+                }
+            }
+        }
+
+        .product-key-details {
+            margin-top: 20px;
+            padding: 0;
+            background-color: transparent;
+
+            .product-key-details__column {
+                padding: 0;
+                @include screen--mobile {
+                    padding: 16px;
+                }
+            }
+        }
+    }
 }
 
 .product-summary {
@@ -101,7 +128,7 @@
     }
 
     .product-summary__star-rating {
-        margin-left: 8px;
+        margin-right: 8px;
     }
 
     .product-summary__keypoint-list {
