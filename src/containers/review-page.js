@@ -12,9 +12,9 @@ export default function ReviewPage() {
     const { post } = useRouteData();
     const { title, description, author, publishDate, rating, pros, cons, body } = post;
 
+    const { name: authorName } = author.fields;
+
     const cleanPublishDate = formatPublishDate(publishDate);
-    // console.log('author', author);
-    // console.log('cleanPublishDate', cleanPublishDate);
 
     return (
         <div className="review-page">
@@ -23,6 +23,14 @@ export default function ReviewPage() {
                 <h1 className="header-section__title-text">{title}</h1>
                 <div className="header-section__description-text">
                     <ReactMarkdown source={description} />
+                </div>
+                <div className="header-section__review-details">
+                    <span className="header-section__author-name">
+                        {authorName}
+                    </span>
+                    <span className="header-section__publish-time">
+                        {cleanPublishDate}
+                    </span>
                 </div>
             </header>
             <div className="pros-cons-section">

@@ -37,5 +37,5 @@ export const formatPublishDate = (publishDate) => {
     const month = objDate.toLocaleString("en", { month: "long"  });
     const year = objDate.toLocaleString("en", { year: "numeric"});
 
-    return `${day} ${month} ${year}`;
+    return `${month} ${day}, ${year}`;
 };
