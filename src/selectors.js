@@ -29,3 +29,13 @@ export const shuffle = (a) => {
 
 export const sortAlphabetical = (items, comparator) =>
     items.sort((a, b) => a[comparator].localeCompare(b[comparator]));
+
+export const formatPublishDate = (publishDate) => {
+    const objDate = new Date(publishDate);
+
+    const day = objDate.toLocaleString("en", { day: "numeric" });
+    const month = objDate.toLocaleString("en", { month: "long"  });
+    const year = objDate.toLocaleString("en", { year: "numeric"});
+
+    return `${day} ${month} ${year}`;
+};

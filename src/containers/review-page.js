@@ -2,12 +2,19 @@
 import React from 'react';
 import { useRouteData } from 'react-static';
 import ReactMarkdown from 'react-markdown';
-//
+
 // import { Link } from 'components/Router';
+
+// Utility Dependencies
+import { formatPublishDate } from '../selectors';
 
 export default function ReviewPage() {
     const { post } = useRouteData();
-    const { title, description, rating, pros, cons, body } = post;
+    const { title, description, author, publishDate, rating, pros, cons, body } = post;
+
+    const cleanPublishDate = formatPublishDate(publishDate);
+    // console.log('author', author);
+    // console.log('cleanPublishDate', cleanPublishDate);
 
     return (
         <div className="review-page">
