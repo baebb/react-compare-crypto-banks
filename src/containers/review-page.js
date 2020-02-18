@@ -2,6 +2,7 @@
 import React from 'react';
 import { useRouteData } from 'react-static';
 import ReactMarkdown from 'react-markdown';
+import StarRatings from 'react-star-ratings';
 
 // Component Dependencies
 import ProductCardMini from '../components/product-card-mini';
@@ -40,7 +41,23 @@ export default function ReviewPage() {
             </header>
             <div className="review-summary-section">
                 <h2>Our Take</h2>
-                <ProductCardMini product={productData} />
+                <div className="review-summary-section__rating-wrapper">
+                    <div className="review-summary-section__rating-number">
+                        {rating.toFixed(1)}
+                    </div>
+                    <div>
+                        <div className="review-summary-section__rating-text">
+                            Editor's rating
+                        </div>
+                        <StarRatings
+                            rating={rating}
+                            starDimension="22px"
+                            starSpacing="1px"
+                            starRatedColor="#008255"
+                        />
+                    </div>
+                </div>
+                <ProductCardMini product={productData} rating={rating} />
             </div>
             <div className="pros-cons-section">
                 <h2 className="pros-cons-section__title">Pros & Cons</h2>

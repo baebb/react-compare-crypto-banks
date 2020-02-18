@@ -15,11 +15,11 @@ class ProductCardMini extends Component {
     // static defaultProps = {
     // };
     render() {
+        const { product, rating } = this.props;
         const {
             id,
             title,
             companyName,
-            editorRating,
             geoAvailability,
             geoAvailabilityExceptions,
             interestPayout,
@@ -27,7 +27,7 @@ class ProductCardMini extends Component {
             security,
             savingsInterestRate,
             displayCurrencies
-        } = this.props.product;
+        } = product;
 
         return (
             <div className="product-card product-card--mini" key={title}>
@@ -43,14 +43,14 @@ class ProductCardMini extends Component {
                                     <div className="product-summary__rating">
                                         <span className="product-summary__star-rating">
                                             <StarRatings
-                                                rating={editorRating}
+                                                rating={rating}
                                                 starDimension="18px"
                                                 starSpacing="1px"
                                                 starRatedColor="#008255"
                                             />
                                         </span>
                                         <span className="product-summary__star-rating-text">
-                                            {editorRating.toFixed(1)} Editor's Rating
+                                            {rating.toFixed(1)} Editor's Rating
                                         </span>
                                     </div>
                                 </div>
@@ -72,14 +72,14 @@ class ProductCardMini extends Component {
                                 <div className="product-summary__rating hide-mobile">
                                     <span className="product-summary__star-rating">
                                         <StarRatings
-                                            rating={editorRating}
+                                            rating={rating}
                                             starDimension="18px"
                                             starSpacing="1px"
                                             starRatedColor="#008255"
                                         />
                                     </span>
                                     <span className="product-summary__star-rating-text">
-                                        {editorRating.toFixed(1)} Editor's Rating
+                                        {rating.toFixed(1)} Editor's Rating
                                     </span>
                                 </div>
                             </div>

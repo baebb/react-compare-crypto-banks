@@ -40,9 +40,27 @@
     }
 }
 
+.review-summary-section {
+    .review-summary-section__rating-number {
+        font-family: $gotham600;
+        font-size: 52px;
+        margin-right: 12px;
+        line-height: 1;
+    }
+    .review-summary-section__rating-wrapper {
+        align-items: flex-end;
+        display: flex;
+        margin-bottom: 24px;
+    }
+    .review-summary-section__rating-text {
+        font-size: 0.8125rem;
+        line-height: 1.5;
+    }
+}
+
 .pros-cons-section {
-    margin-bottom: 40px;
     .pros-cons-section__list {
+        margin-bottom: 24px;
         line-height: 1.5;
         h4 {
             margin: 0;
