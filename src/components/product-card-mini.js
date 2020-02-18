@@ -44,12 +44,14 @@ class ProductCardMini extends Component {
                                         <span className="product-summary__star-rating">
                                             <StarRatings
                                                 rating={editorRating}
-                                                starDimension="22px"
+                                                starDimension="18px"
                                                 starSpacing="1px"
                                                 starRatedColor="#008255"
                                             />
                                         </span>
-                                        <span>{editorRating.toFixed(1)} Editor's Rating</span>
+                                        <span className="product-summary__star-rating-text">
+                                            {editorRating.toFixed(1)} Editor's Rating
+                                        </span>
                                     </div>
                                 </div>
                                 <div className="product-summary__cta-button">
@@ -71,12 +73,14 @@ class ProductCardMini extends Component {
                                     <span className="product-summary__star-rating">
                                         <StarRatings
                                             rating={editorRating}
-                                            starDimension="22px"
+                                            starDimension="18px"
                                             starSpacing="1px"
                                             starRatedColor="#008255"
                                         />
                                     </span>
-                                    <span>{editorRating.toFixed(1)} Editor's Rating</span>
+                                    <span className="product-summary__star-rating-text">
+                                        {editorRating.toFixed(1)} Editor's Rating
+                                    </span>
                                 </div>
                             </div>
                             <div className="product-key-details">

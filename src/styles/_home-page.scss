@@ -32,8 +32,16 @@
 
     &.product-card--mini {
         .product-summary {
+            .product-summary__text-column {
+                margin-bottom: 24px;
+            }
             .product-summary__heading {
-                font-size: 20px;
+                @include screen--mobile {
+                    font-size: 20px;
+                }
+            }
+            .product-summary__star-rating-text {
+                font-size: 0.8125rem;
             }
             .product-summary__logo-img {
                 min-height: 90px;
@@ -41,10 +49,12 @@
                     max-width: 210px;
                 }
             }
+            .product-summary__cta-column {
+                padding-right: 16px;
+            }
         }
 
         .product-key-details {
-            margin-top: 20px;
             padding: 0;
             background-color: transparent;
 
