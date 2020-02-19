@@ -61,7 +61,6 @@ class ProductCard extends Component {
                                 <div className="product-summary__mobile-text hide-desktop">
                                     <h3 className="product-summary__heading">{title}</h3>
                                     <div className="product-summary__rating">
-                                        <span>{editorRating.toFixed(1)} Editor's Rating</span>
                                         <span className="product-summary__star-rating">
                                             <StarRatings
                                                 rating={editorRating}
@@ -70,6 +69,7 @@ class ProductCard extends Component {
                                                 starRatedColor="#008255"
                                             />
                                         </span>
+                                        <span>{editorRating.toFixed(1)} Editor's Rating</span>
                                     </div>
                                 </div>
                                 <div className="product-summary__cta-button">
@@ -88,7 +88,6 @@ class ProductCard extends Component {
                             <div className="product-summary__text-column">
                                 <h3 className="product-summary__heading hide-mobile">{title}</h3>
                                 <div className="product-summary__rating hide-mobile">
-                                    <span>{editorRating.toFixed(1)} Editor's Rating</span>
                                     <span className="product-summary__star-rating">
                                         <StarRatings
                                             rating={editorRating}
@@ -97,6 +96,7 @@ class ProductCard extends Component {
                                             starRatedColor="#008255"
                                         />
                                     </span>
+                                    <span>{editorRating.toFixed(1)} Editor's Rating</span>
                                 </div>
                                 <ul className="product-summary__keypoint-list">
                                     {displayKeyPoints.map((item, id) =>
