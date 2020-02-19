@@ -7,10 +7,12 @@
     .intro-section__heading {
         margin-bottom: 40px;
         font-size: 28px;
+
         .calloutText {
             color: $primary-color;
         }
     }
+
     .intro-section__sub-heading {
         font-size: 1rem;
         line-height: 1.75;
@@ -21,11 +23,9 @@
     background-color: #ffffff;
     margin-bottom: 24px;
     display: block;
-
     @include screen--desktop {
         border: 1px solid #d8d9da;
     }
-
     @include screen--mobile {
         margin-bottom: 48px;
     }
@@ -35,20 +35,25 @@
             .product-summary__text-column {
                 margin-bottom: 24px;
             }
+
             .product-summary__heading {
                 @include screen--mobile {
                     font-size: 20px;
                 }
             }
+
             .product-summary__star-rating-text {
                 font-size: 0.8125rem;
             }
+
             .product-summary__logo-img {
                 min-height: 90px;
+
                 img {
                     max-width: 210px;
                 }
             }
+
             .product-summary__cta-column {
                 padding-right: 16px;
             }
@@ -75,7 +80,6 @@
 
     .product-summary__cta-column {
         padding-right: 36px;
-
         @include screen--mobile {
             padding-right: 0;
         }
@@ -87,6 +91,7 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
+
         img {
             padding: 0px 20px;
             height: auto;
@@ -102,6 +107,7 @@
 
     .product-summary__cta-button {
         text-align: center;
+        margin-bottom: 8px;
 
         .callout-button {
             width: 100%;
@@ -109,7 +115,6 @@
                 max-width: 220px;
             }
         }
-        margin-bottom: 8px;
     }
 
     .product-summary__muted-cta-text {
@@ -120,7 +125,6 @@
 
     .product-summary__text-column {
         .link-button--read-more {
-
             @include screen--mobile {
                 margin-left: 16px;
                 margin-bottom: 16px;
@@ -135,6 +139,11 @@
 
     .product-summary__rating {
         margin-top: 0;
+    }
+
+    .product-summary__rating-number {
+        font-family: $gotham600;
+        margin-right: 8px;
     }
 
     .product-summary__star-rating {
@@ -160,6 +169,7 @@
             border-radius: 5px;
             margin: 6px 0;
         }
+
         .product-key-details__text:last-child {
             margin-bottom: 0;
         }
@@ -172,13 +182,12 @@
         font-size: 0.8125rem;
         margin: 0;
         margin-bottom: 1rem;
+        @include screen--mobile {
+            margin-bottom: 4px;
+        }
 
         &.product-key-details__heading--interest-rate {
             color: $primary-color;
-        }
-
-        @include screen--mobile {
-            margin-bottom: 4px;
         }
     }
 

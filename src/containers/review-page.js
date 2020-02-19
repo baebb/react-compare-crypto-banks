@@ -8,7 +8,7 @@ import StarRatings from 'react-star-ratings';
 import ProductCardMini from '../components/product-card-mini';
 
 // Data
-import items from '../demoData';
+import { items } from '../demoData';
 
 // Utility Dependencies
 import { formatPublishDate } from '../selectors';

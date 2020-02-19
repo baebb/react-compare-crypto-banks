@@ -9,8 +9,7 @@ import ProductCard from '../components/product-card';
 import { sortAlphabetical, getReviewScores, getReviewLinks } from '../selectors';
 
 // Data
-import items from '../demoData';
-const sortedProducts = sortAlphabetical(items, 'id');
+import { sortedProducts } from '../demoData';
 const heading = 'Grow your crypto portfolio ';
 const calloutWord = 'passively';
 const subHeading = 'Crypto banks allows crypto investors to earn compound interest on their crypto assets and grow their wealth. Compare crypto banks to find the best bank for your needs.';

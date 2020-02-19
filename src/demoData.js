@@ -1,5 +1,7 @@
 /* eslint-disable */
-const items = [
+import { sortAlphabetical } from "./selectors";
+
+export const items = [
     {
         "id": "blockFi",
         "url": "https://blockfi.com",
@@ -340,4 +342,4 @@ const items = [
     }
 ];
 
-export default items;
+export const sortedProducts = sortAlphabetical(items, 'id');

@@ -10,6 +10,14 @@
 
 a {
     text-decoration: none;
+    color: $blue-2;
+    cursor: pointer;
+    &.text-link {
+        &:hover {
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+        }
+    }
 }
 
 img {

@@ -1,6 +1,7 @@
 // NPM Dependencies
 import React, { Component } from 'react';
 import StarRatings from 'react-star-ratings';
+import { Link } from 'components/Router';
 
 // Component Dependencies
 import AllCryptoRatesPopup from './all-crypto-rates-popup';
@@ -31,7 +32,7 @@ class ProductCard extends Component {
 
     render() {
         const { keyPointsExpand } = this.state;
-        const { product, rating = 0, reviewLink } = this.props;
+        const { product, rating = 0, reviewLink = 'no' } = this.props;
         const {
             id,
             title,
@@ -67,7 +68,14 @@ class ProductCard extends Component {
                                                 starRatedColor="#008255"
                                             />
                                         </span>
-                                        <span>{rating.toFixed(1)} Editor's Rating</span>
+                                        <span className="product-summary__rating-number">
+                                            {rating.toFixed(1)}
+                                        </span>
+                                        <span className="product-summary__review-link">
+                                            <Link to={`/blog/${reviewLink}`} className="text-link">
+                                                Editor's Rating
+                                            </Link>
+                                        </span>
                                     </div>
                                 </div>
                                 <div className="product-summary__cta-button">
@@ -94,7 +102,14 @@ class ProductCard extends Component {
                                             starRatedColor="#008255"
                                         />
                                     </span>
-                                    <span>{rating.toFixed(1)} Editor's Rating</span>
+                                    <span className="product-summary__rating-number">
+                                        {rating.toFixed(1)}
+                                    </span>
+                                    <span className="product-summary__review-link">
+                                        <Link to={`/blog/${reviewLink}`} className="text-link">
+                                            Editor's Rating
+                                        </Link>
+                                    </span>
                                 </div>
                                 <ul className="product-summary__keypoint-list">
                                     {displayKeyPoints.map((item, id) =>
