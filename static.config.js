@@ -1,8 +1,7 @@
 // NPM Dependencies
 import 'dotenv/config';
 import React from 'react';
-// import path from 'path';
-// import axios from 'axios';
+
 const contentful = require('contentful');
 
 const buildEnv = process.env.BUILD_ENV || 'staging';
@@ -64,26 +63,29 @@ export default {
         //     'https://jsonplaceholder.typicode.com/posts'
         // );
 
-        const { items: posts } = await contentAPI.getEntries({
+        const { items: reviews } = await contentAPI.getEntries({
             content_type: 'review'
         });
 
         return [
             {
                 path: '/',
-                template: 'src/pages/index'
+                template: 'src/pages/index',
+                getData: () => ({
+                    reviews,
+                }),
             },
             {
                 path: 'blog',
                 template: 'src/pages/blog',
                 getData: () => ({
-                    posts,
+                    reviews,
                 }),
-                children: posts.map(({ fields: post }) => ({
-                    path: `/${post.slug}`,
+                children: reviews.map(({ fields: review }) => ({
+                    path: `/${review.slug}`,
                     template: 'src/containers/review-page',
                     getData: () => ({
-                        post,
+                        review,
                     }),
                 })),
             },

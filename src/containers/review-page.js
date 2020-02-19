@@ -14,8 +14,8 @@ import items from '../demoData';
 import { formatPublishDate } from '../selectors';
 
 export default function ReviewPage() {
-    const { post } = useRouteData();
-    const { productId, title, description, author, publishDate, rating, pros, cons, body } = post;
+    const { review } = useRouteData();
+    const { productId, title, description, author, publishDate, rating, pros, cons, body } = review;
 
     const { name: authorName } = author.fields;
 

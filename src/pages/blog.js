@@ -4,7 +4,7 @@ import { useRouteData } from 'react-static';
 import { Link } from 'components/Router';
 
 export default function Blog() {
-    const { posts } = useRouteData();
+    const { reviews } = useRouteData();
 
     return (
         <div>
@@ -17,9 +17,9 @@ export default function Blog() {
             <br />
             All Posts:
             <ul>
-                {posts.map(({ fields }) => (
-                    <li key={fields.slug}>
-                        <Link to={`/blog/${fields.slug}/`}>{fields.title}</Link>
+                {reviews.map(({ fields: review }) => (
+                    <li key={review.slug}>
+                        <Link to={`/blog/${review.slug}/`}>{review.title}</Link>
                     </li>
                 ))}
             </ul>
