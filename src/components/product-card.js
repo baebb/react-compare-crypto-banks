@@ -30,15 +30,13 @@ class ProductCard extends Component {
     }
 
     render() {
-        const {
-            keyPointsExpand
-        } = this.state;
+        const { keyPointsExpand } = this.state;
+        const { product, rating = 0, reviewLink } = this.props;
         const {
             id,
             title,
             companyName,
             keyPoints,
-            editorRating,
             geoAvailability,
             geoAvailabilityExceptions,
             interestPayout,
@@ -46,7 +44,7 @@ class ProductCard extends Component {
             security,
             savingsInterestRate,
             displayCurrencies
-        } = this.props.product;
+        } = product;
         const displayKeyPoints = keyPointsExpand ? keyPoints : keyPoints.slice(0, 3);
 
         return (
@@ -63,13 +61,13 @@ class ProductCard extends Component {
                                     <div className="product-summary__rating">
                                         <span className="product-summary__star-rating">
                                             <StarRatings
-                                                rating={editorRating}
+                                                rating={rating}
                                                 starDimension="22px"
                                                 starSpacing="1px"
                                                 starRatedColor="#008255"
                                             />
                                         </span>
-                                        <span>{editorRating.toFixed(1)} Editor's Rating</span>
+                                        <span>{rating.toFixed(1)} Editor's Rating</span>
                                     </div>
                                 </div>
                                 <div className="product-summary__cta-button">
@@ -90,13 +88,13 @@ class ProductCard extends Component {
                                 <div className="product-summary__rating hide-mobile">
                                     <span className="product-summary__star-rating">
                                         <StarRatings
-                                            rating={editorRating}
+                                            rating={rating}
                                             starDimension="22px"
                                             starSpacing="1px"
                                             starRatedColor="#008255"
                                         />
                                     </span>
-                                    <span>{editorRating.toFixed(1)} Editor's Rating</span>
+                                    <span>{rating.toFixed(1)} Editor's Rating</span>
                                 </div>
                                 <ul className="product-summary__keypoint-list">
                                     {displayKeyPoints.map((item, id) =>

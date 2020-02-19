@@ -39,3 +39,25 @@ export const formatPublishDate = (publishDate) => {
 
     return `${month} ${day}, ${year}`;
 };
+
+export const getReviewScores = (reviews) => {
+    const scores = {};
+
+    reviews.forEach(({ fields: review }) => {
+        const { productId, rating } = review;
+        scores[productId] = rating;
+    });
+
+    return scores;
+};
+
+export const getReviewLinks = (reviews) => {
+    const links = {};
+
+    reviews.forEach(({ fields: review }) => {
+        const { productId, slug } = review;
+        links[productId] = slug;
+    });
+
+    return links;
+};

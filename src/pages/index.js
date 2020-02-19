@@ -6,7 +6,7 @@ import { useRouteData } from 'react-static';
 import ProductCard from '../components/product-card';
 
 // Utility Dependencies
-import { sortAlphabetical } from '../selectors';
+import { sortAlphabetical, getReviewScores, getReviewLinks } from '../selectors';
 
 // Data
 import items from '../demoData';
@@ -17,6 +17,12 @@ const subHeading = 'Crypto banks allows crypto investors to earn compound intere
 
 export default function HomePage() {
     const { reviews } = useRouteData();
+
+    const reviewScores = getReviewScores(reviews);
+    const reviewLinks = getReviewLinks(reviews);
+
+    // console.log('reviewScores', reviewScores);
+    // console.log('reviewLinks', reviewLinks);
 
     return (
         <div className="home-page">
@@ -39,7 +45,12 @@ export default function HomePage() {
             </div>
             <div className="products-section">
                 {sortedProducts.map(product =>
-                    <ProductCard product={product} key={product.title} />
+                    <ProductCard
+                        product={product}
+                        key={product.id}
+                        rating={reviewScores[product.id]}
+                        reviewLink={reviewLinks[product.id]}
+                    />
                 )}
             </div>
         </div>
