@@ -32,7 +32,7 @@ class ProductCard extends Component {
 
     render() {
         const { keyPointsExpand } = this.state;
-        const { product, rating = 0, reviewLink = 'no' } = this.props;
+        const { product, rating = 0, reviewLink = null } = this.props;
         const {
             id,
             title,
@@ -60,27 +60,35 @@ class ProductCard extends Component {
                                 <div className="product-summary__mobile-text hide-desktop">
                                     <h3 className="product-summary__heading">{title}</h3>
                                     <div className="product-summary__rating">
-                                        <span className="product-summary__star-rating">
-                                            <StarRatings
-                                                rating={rating}
-                                                starDimension="22px"
-                                                starSpacing="1px"
-                                                starRatedColor="#008255"
-                                            />
-                                        </span>
-                                        <span className="product-summary__rating-number">
-                                            {rating.toFixed(1)}
-                                        </span>
-                                        <span className="product-summary__review-link">
-                                            <Link to={`/blog/${reviewLink}`} className="text-link">
-                                                Editor's Rating
-                                            </Link>
-                                        </span>
+                                        {reviewLink ?
+                                            <>
+                                                <span className="product-summary__star-rating">
+                                                    <StarRatings
+                                                        rating={rating}
+                                                        starDimension="22px"
+                                                        starSpacing="1px"
+                                                        starRatedColor="#008255"
+                                                    />
+                                                </span>
+                                                <span className="product-summary__rating-number">
+                                                    {rating.toFixed(1)}
+                                                </span>
+                                                <span className="product-summary__review-link">
+                                                    <Link to={`/blog/${reviewLink}`} className="text-link">
+                                                        Editor's Rating
+                                                    </Link>
+                                                </span>
+                                            </>
+                                            :
+                                            <div className="product-summary__rating-placeholder">
+                                                Review coming soon
+                                            </div>
+                                        }
                                     </div>
                                 </div>
                                 <div className="product-summary__cta-button">
                                     <a href="https://www.rossdyson.com" target="_blank">
-                                        <button  type="button" className="callout-button callout-button--primary">
+                                        <button type="button" className="callout-button callout-button--primary">
                                             Apply now
                                         </button>
                                     </a>
@@ -94,22 +102,30 @@ class ProductCard extends Component {
                             <div className="product-summary__text-column">
                                 <h3 className="product-summary__heading hide-mobile">{title}</h3>
                                 <div className="product-summary__rating hide-mobile">
-                                    <span className="product-summary__star-rating">
-                                        <StarRatings
-                                            rating={rating}
-                                            starDimension="22px"
-                                            starSpacing="1px"
-                                            starRatedColor="#008255"
-                                        />
-                                    </span>
-                                    <span className="product-summary__rating-number">
-                                        {rating.toFixed(1)}
-                                    </span>
-                                    <span className="product-summary__review-link">
-                                        <Link to={`/blog/${reviewLink}`} className="text-link">
-                                            Editor's Rating
-                                        </Link>
-                                    </span>
+                                    {reviewLink ?
+                                        <>
+                                            <span className="product-summary__star-rating">
+                                                <StarRatings
+                                                    rating={rating}
+                                                    starDimension="22px"
+                                                    starSpacing="1px"
+                                                    starRatedColor="#008255"
+                                                />
+                                            </span>
+                                            <span className="product-summary__rating-number">
+                                                {rating.toFixed(1)}
+                                            </span>
+                                            <span className="product-summary__review-link">
+                                                <Link to={`/blog/${reviewLink}`} className="text-link">
+                                                    Editor's Rating
+                                                </Link>
+                                            </span>
+                                        </>
+                                        :
+                                        <div className="product-summary__rating-placeholder">
+                                            Review coming soon
+                                        </div>
+                                    }
                                 </div>
                                 <ul className="product-summary__keypoint-list">
                                     {displayKeyPoints.map((item, id) =>

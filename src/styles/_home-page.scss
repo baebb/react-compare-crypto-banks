@@ -138,6 +138,7 @@
     }
 
     .product-summary__rating {
+        height: 26px;
         margin-top: 0;
     }
 
@@ -148,6 +149,11 @@
 
     .product-summary__star-rating {
         margin-right: 8px;
+    }
+
+    .product-summary__rating-placeholder {
+        font-style: italic;
+        color: $grey-2;
     }
 
     .product-summary__keypoint-list {
