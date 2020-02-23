@@ -59,13 +59,15 @@ export default {
             // environment: process.env.CONTENTFUL_ENVIRONMENT_ID_PROD,
         });
 
-        // const { data: posts } = await axios.get(
-        //     'https://jsonplaceholder.typicode.com/posts'
-        // );
-
         const { items: reviews } = await contentAPI.getEntries({
             content_type: 'review'
         });
+
+        const { items: legalPages } = await contentAPI.getEntries({
+            content_type: 'legalTextPage'
+        });
+
+        const privacyPage = legalPages.find(({ fields }) => fields.pageType === 'privacy');
 
         return [
             {
@@ -74,6 +76,13 @@ export default {
                 getData: () => ({
                     reviews,
                 }),
+            },
+            {
+                path: 'privacy',
+                template: 'src/pages/privacy',
+                getData: () => ({
+                    privacyPage,
+                })
             },
             {
                 path: 'blog',

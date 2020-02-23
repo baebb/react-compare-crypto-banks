@@ -1,0 +1,15 @@
+.content {
+    .static-page {
+        margin: 0 180px;
+        @include screen--mobile {
+            margin: 0;
+        }
+        line-height: 1.5;
+        li {
+            margin-bottom: 8px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
