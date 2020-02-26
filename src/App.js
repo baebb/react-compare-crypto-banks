@@ -4,7 +4,8 @@ import { Root, Routes } from 'react-static';
 
 // Local Dependencies
 import { Router } from 'components/Router';
-import NavBar from "./components/navbar";
+import NavBar from 'components/navbar';
+import Footer from 'components/footer';
 
 // Styles
 import './styles/app.scss';
@@ -25,9 +26,7 @@ function App() {
                     </Router>
                 </React.Suspense>
             </div>
-            <footer>
-
-            </footer>
+            <Footer />
         </Root>
     );
 }
