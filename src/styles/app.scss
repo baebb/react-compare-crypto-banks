@@ -20,6 +20,14 @@ a {
             border-bottom-width: 1px;
         }
     }
+    &.text-link--hover-green {
+        color: black;
+        &:hover {
+            color: $primary-color;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+        }
+    }
 }
 
 img {
