@@ -4,7 +4,9 @@
     "scripts": {
         "start": "react-static start",
         "stage": "react-static build --staging",
-        "build": "react-static build",
+        "build": "BUILD_ENV=test react-static build",
+        "build:staging": "BUILD_ENV=staging react-static build",
+        "build:prod": "BUILD_ENV=prod react-static build",
         "analyze": "react-static build --analyze",
         "serve": "serve dist -p 3000"
     },

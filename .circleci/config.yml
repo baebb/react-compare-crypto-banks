@@ -33,13 +33,13 @@ jobs:
           name: Build
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                BUILD_ENV=prod yarn build
+                yarn build:prod
             fi
             if [ "${CIRCLE_BRANCH}" == "staging" ]; then
-                BUILD_ENV=staging yarn build
+                yarn build:staging
             fi
             if [ "${CIRCLE_BRANCH}" == "test" ]; then
-                BUILD_ENV=test yarn build
+                yarn build:test
             fi
       - run:
           name: Firebase Deploy
