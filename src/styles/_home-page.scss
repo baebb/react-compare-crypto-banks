@@ -135,6 +135,9 @@
     .product-summary__heading {
         font-size: 24px;
         margin: 8px 0;
+        @include screen--mobile {
+            margin: 16px 0;
+        }
     }
 
     .product-summary__rating {

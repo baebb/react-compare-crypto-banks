@@ -42,7 +42,7 @@ export default function Footer() {
                         </Link>
                     </div>
                     <div className="footer-content__brand-text">
-                        <div>© 2020 Baebb OU, trading as Compare Crypto Banks</div>
+                        <div>© 2020 Compare Crypto Banks</div>
                         <div className="footer-content__brand-legal-links">
                             <Link to="/privacy" className="text-link text-link--hover-green">
                                 Privacy Policy

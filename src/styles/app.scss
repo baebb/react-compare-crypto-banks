@@ -10,6 +10,23 @@
     scroll-behavior: smooth;
 }
 
+body {
+    font-family: $gotham400;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+nav {
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $gotham600;
+}
+
 a {
     text-decoration: none;
     color: $blue-2;
@@ -27,36 +44,6 @@ a {
             border-bottom-style: solid;
             border-bottom-width: 1px;
         }
-    }
-}
-
-img {
-    max-width: 100%;
-}
-
-nav {
-    width: 100%;
-}
-
-body {
-    font-family: $gotham400;
-    margin: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: $gotham600;
-}
-
-.content {
-    max-width: 1200px;
-    margin: 0 auto;
-
-    @include screen--desktop {
-        padding: 0 40px 40px 40px;
-    }
-
-    @include screen--mobile {
-        margin: 0px 20px;
     }
 }
 

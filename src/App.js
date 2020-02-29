@@ -17,16 +17,20 @@ import './flexboxgrid.min.css';
 function App() {
     return (
         <Root>
-            <NavBar />
-            <div className="content">
-                <React.Suspense fallback={<em>Loading...</em>}>
-                    <Router>
-                        {/*<Dynamic path="dynamic" />*/}
-                        <Routes path="*" />
-                    </Router>
-                </React.Suspense>
+            <div className="body-wrapper">
+                <div className="content-wrapper">
+                    <NavBar />
+                    <div className="content">
+                        <React.Suspense fallback={<em>Loading...</em>}>
+                            <Router>
+                                {/*<Dynamic path="dynamic" />*/}
+                                <Routes path="*" />
+                            </Router>
+                        </React.Suspense>
+                    </div>
+                </div>
+                <Footer />
             </div>
-            <Footer />
         </Root>
     );
 }
