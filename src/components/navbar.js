@@ -24,9 +24,9 @@ export default function NavBar() {
                     <div className="col-xs-6">
                         <div className="nav-buttons">
                             <div>
-                                <Link to="/blog">
+                                <Link to="/reviews">
                                     <button  type="button" className="nav-button">
-                                        Blog
+                                        Reviews
                                     </button>
                                 </Link>
                             </div>

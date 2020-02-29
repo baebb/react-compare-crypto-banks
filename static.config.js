@@ -79,14 +79,14 @@ export default {
             },
             {
                 path: 'privacy',
-                template: 'src/pages/privacy',
+                template: 'src/pages/privacy-page',
                 getData: () => ({
                     privacyPage,
                 })
             },
             {
-                path: 'blog',
-                template: 'src/pages/blog',
+                path: 'reviews',
+                template: 'src/pages/reviews-page',
                 getData: () => ({
                     reviews,
                 }),

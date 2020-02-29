@@ -3,7 +3,7 @@ import { useRouteData } from 'react-static';
 //
 import { Link } from 'components/Router';
 
-export default function Blog() {
+export default function ReviewsPage() {
     const { reviews } = useRouteData();
 
     return (
@@ -19,7 +19,7 @@ export default function Blog() {
             <ul>
                 {reviews.map(({ fields: review }) => (
                     <li key={review.slug}>
-                        <Link to={`/blog/${review.slug}/`}>{review.title}</Link>
+                        <Link to={`/reviews/${review.slug}/`}>{review.title}</Link>
                     </li>
                 ))}
             </ul>

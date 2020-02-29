@@ -74,7 +74,7 @@ class ProductCard extends Component {
                                                     {rating.toFixed(1)}
                                                 </span>
                                                 <span className="product-summary__review-link">
-                                                    <Link to={`/blog/${reviewLink}`} className="text-link">
+                                                    <Link to={`/reviews/${reviewLink}`} className="text-link">
                                                         Editor's Rating
                                                     </Link>
                                                 </span>
@@ -116,7 +116,7 @@ class ProductCard extends Component {
                                                 {rating.toFixed(1)}
                                             </span>
                                             <span className="product-summary__review-link">
-                                                <Link to={`/blog/${reviewLink}`} className="text-link">
+                                                <Link to={`/reviews/${reviewLink}`} className="text-link">
                                                     Editor's Rating
                                                 </Link>
                                             </span>

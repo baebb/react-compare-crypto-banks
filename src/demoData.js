@@ -4,7 +4,8 @@ import { sortAlphabetical } from "./selectors";
 export const items = [
     {
         "id": "blockFi",
-        "url": "https://blockfi.com",
+        "interestLandingUrl": "https://blockfi.mxuy67.net/dz312",
+        "interestReviewUrl": "https://blockfi.mxuy67.net/ANkzN",
         "title": "Block Fi Interest Account",
         "companyName": "Block Fi",
         "exampleType": "",
@@ -45,7 +46,8 @@ export const items = [
     },
     {
         "id": "hodlnaut",
-        "url": "https://www.hodlnaut.com",
+        "interestLandingUrl": "https://www.hodlnaut.com",
+        "interestReviewUrl": "https://www.google.com",
         "title": "Hodlnaut Bitcoin Interest Account",
         "companyName": "Hodlnaut",
         "exampleType": "",
@@ -72,7 +74,8 @@ export const items = [
     },
     {
         "id": "ledn",
-        "url": "https://www.ledn.io",
+        "interestLandingUrl": "https://www.ledn.io",
+        "interestReviewUrl": "https://www.google.com",
         "title": "Ledn Bitcoin Savings Account",
         "companyName": "Ledn",
         "exampleType": "",
@@ -99,7 +102,8 @@ export const items = [
     },
     {
         "id": "bitrue",
-        "url": "https://www.bitrue.com",
+        "interestLandingUrl": "https://www.bitrue.com",
+        "interestReviewUrl": "https://www.google.com",
         "title": "Bitrue Power Piggy",
         "companyName": "Bitrue",
         "exampleType": "",
@@ -155,7 +159,8 @@ export const items = [
     },
     {
         "id": "cryptoDotCom",
-        "url": "https://crypto.com",
+        "interestLandingUrl": "https://crypto.com",
+        "interestReviewUrl": "https://www.google.com",
         "title": "Crypto.com Earn",
         "companyName": "Crypto.com",
         "exampleType": "3 month term",
@@ -218,7 +223,8 @@ export const items = [
     },
     {
         "id": "nexo",
-        "url": "https://nexo.io",
+        "interestLandingUrl": "https://nexo.io",
+        "interestReviewUrl": "https://www.google.com",
         "title": "Nexo High-Yield Interest Account",
         "companyName": "Nexo",
         "exampleType": "",
@@ -252,7 +258,8 @@ export const items = [
     },
     {
         "id": "celciusNetwork",
-        "url": "https://celsius.network",
+        "interestLandingUrl": "https://celsius.onelink.me/pYBy?pid=AFFILIATE&c=Ross%20Dyson_E5g6&af_dp=celsius%3A%2F%2F",
+        "interestReviewUrl": "https://celsius.onelink.me/pYBy?pid=AFFILIATE&c=Ross%20Dyson_E5g6&af_dp=celsius%3A%2F%2F",
         "title": "Celsius Network Earn Coins",
         "companyName": "Celsius Network",
         "exampleType": "",
@@ -301,7 +308,8 @@ export const items = [
     },
     {
         "id": "youHodler",
-        "url": "https://www.youhodler.com",
+        "interestLandingUrl": "https://youhodler.g2afse.com/click?pid=33&offer_id=2&l=1582027398&sub1=landing",
+        "interestReviewUrl": "https://youhodler.g2afse.com/click?pid=33&offer_id=2&l=1582027398&sub2=review",
         "title": "YouHodler Savings Account",
         "companyName": "YouHodler",
         "exampleType": "",
