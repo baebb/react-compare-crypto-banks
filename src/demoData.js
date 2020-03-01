@@ -25,7 +25,7 @@ export const items = [
         "displayCurrencies": ["BTC", "ETH", "USDC"],
         "interestPayout": "Paid monthly",
         "lockUpPeriod": "Withdraw anytime",
-        "geoAvailability": "US only",
+        "geoAvailability": "USA-only",
         "geoAvailabilityExceptions": ["New York", "Connecticut", "Washington", "Wyoming"],
         "keyPoints": [
             "Earn compound interest. Unlike other crypto storage methods, BlockFi pays interest on your deposit and savings, up to 6.2% APY",

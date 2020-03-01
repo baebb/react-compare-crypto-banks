@@ -150,11 +150,13 @@ class ProductCard extends Component {
                             <div className="product-key-details__column">
                                 <h5 className="product-key-details__heading">Availability</h5>
                                 <div className="product-key-details__text">
-                                    <span>{geoAvailability} </span>
-                                    {geoAvailabilityExceptions.length > 1 &&
+                                    {geoAvailabilityExceptions.length > 1 ?
                                         <span>
-                                            (<GeoExceptionsPopup geoAvailabilityExceptions={geoAvailabilityExceptions} />)
+                                            {`${geoAvailability} except `}
+                                            {geoAvailabilityExceptions.join(', ')}
                                         </span>
+                                        :
+                                        <span>{geoAvailability}</span>
                                     }
                                 </div>
                             </div>

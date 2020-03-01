@@ -10,7 +10,13 @@ import { items } from '../demoData';
 const ReviewListItem = ({ review }) => {
     const { productId, slug, rating } = review;
     const productData = items.find(product => productId === product.id);
-    const { title, displayCurrencies, savingsInterestRate, geoAvailabilityExceptions } = productData;
+    const {
+        title,
+        displayCurrencies,
+        savingsInterestRate,
+        geoAvailability,
+        geoAvailabilityExceptions
+    } = productData;
 
     return (
         <div className="interest-accounts-section__review-list-item">
@@ -35,9 +41,12 @@ const ReviewListItem = ({ review }) => {
                             Availability:
                         </span>&nbsp;
                         {geoAvailabilityExceptions.length > 1 ?
-                            <span>Not available in {geoAvailabilityExceptions.join(', ')}</span>
+                            <span>
+                                {`${geoAvailability} except `}
+                                {geoAvailabilityExceptions.join(', ')}
+                            </span>
                             :
-                            <span>Anywhere</span>
+                            <span>{geoAvailability}</span>
                         }
                     </div>
                 </div>
