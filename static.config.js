@@ -9,19 +9,23 @@ const buildEnv = process.env.BUILD_ENV || 'staging';
 const config = {
     prod: {
         CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_PROD,
-        CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_PROD
+        CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_PROD,
+        GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_PROD
     },
     staging: {
         CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_PROD,
-        CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_PROD
+        CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_PROD,
+        GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_STAGING
     },
     test: {
         CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_TEST,
-        CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_TEST
+        CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_TEST,
+        GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_STAGING
     }
 };
 
 export default {
+    ...(buildEnv === 'prod' && { siteRoot: 'https://www.comparecryptobanks.com' }),
     Document: ({
         Html,
         Head,
@@ -114,9 +118,7 @@ export default {
         // ],
         [
             require.resolve('react-static-plugin-google-tag-manager'),
-            {
-                id: 'GTM-NXRNKXK'
-            }
+            { id: config[buildEnv].GOOGLE_TAG_MANAGER_ID }
         ],
         require.resolve('react-static-plugin-sass'),
         require.resolve('react-static-plugin-reach-router'),
