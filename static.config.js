@@ -86,7 +86,7 @@ export default {
             },
             {
                 path: 'reviews',
-                template: 'src/pages/reviews-page',
+                template: 'src/pages/reviews-home-page',
                 getData: () => ({
                     reviews,
                 }),
@@ -101,7 +101,7 @@ export default {
             // A 404 component
             {
                 path: '404',
-                template: 'src/pages/404',
+                template: 'src/pages/404-page',
             }
         ];
     },

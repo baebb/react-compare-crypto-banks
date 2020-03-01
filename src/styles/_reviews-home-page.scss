@@ -1,0 +1,46 @@
+.content {
+    .reviews-home-page {
+        margin: 0 180px;
+        @include screen--mobile {
+            margin: 0;
+        }
+    }
+}
+
+.reviews-home-page {
+    .header-section {
+        .header-section__title-text {
+            @include screen--mobile {
+                margin-bottom: 20px;
+                font-size: 1.75rem;
+            }
+        }
+        .header-section__description-text {
+            font-size: 18px;
+            display: inline;
+            line-height: 1.5;
+            border-bottom: 2px dotted rgba(0,0,0,.4);
+        }
+    }
+    .interest-accounts-section {
+        .interest-accounts-section__reviews-list-column-titles {
+            font-size: 0.8125rem;
+            @extend .secondary-heading;
+            margin-bottom: 16px;
+        }
+        .interest-accounts-section__review-list-item {
+            line-height: 1.5;
+            padding-bottom: 16px;
+            font-size: 14px;
+            @include screen--mobile {
+                font-size: 0.8125rem;
+            }
+        }
+        .interest-accounts-section__review-list-item-score {
+            @extend .secondary-heading;
+        }
+        .interest-accounts-section__review-list-item-details-title {
+            font-family: $gotham600;
+        }
+    }
+}

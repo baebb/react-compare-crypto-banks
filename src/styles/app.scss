@@ -1,8 +1,9 @@
 @import 'base';
 @import 'common';
-@import 'home-page';
 @import 'navbar';
 @import 'footer';
+@import 'home-page';
+@import 'reviews-home-page';
 @import 'review-page';
 @import 'static-pages';
 
@@ -25,6 +26,10 @@ nav {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: $gotham600;
+}
+
+h1 {
+    font-size: 40px;
 }
 
 a {

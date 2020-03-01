@@ -309,7 +309,7 @@ export const items = [
     {
         "id": "youHodler",
         "interestLandingUrl": "https://youhodler.g2afse.com/click?pid=33&offer_id=2&l=1582027398&sub1=landing",
-        "interestReviewUrl": "https://youhodler.g2afse.com/click?pid=33&offer_id=2&l=1582027398&sub2=review",
+        "interestReviewUrl": "https://youhodler.g2afse.com/click?pid=33&offer_id=2&l=1582027398&sub1=review",
         "title": "YouHodler Savings Account",
         "companyName": "YouHodler",
         "exampleType": "",
