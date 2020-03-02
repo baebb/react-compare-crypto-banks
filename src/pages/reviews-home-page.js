@@ -14,8 +14,8 @@ export default function ReviewsHomePage() {
     return (
         <div className="reviews-home-page">
             <header className="header-section">
-                <h1 className="header-section__title-text">Reviews by Compare Crypto Banks experts</h1>
-                <div className="header-section__description-text">Our Compare Crypto Banks experts break down the most popular crypto financial service products on the market — and turn up a few gems you may never have heard of</div>
+                <h1 className="header-section__title-text">Reviews by DeFi Nerd experts</h1>
+                <div className="header-section__description-text">Our DeFi Nerd experts break down the most popular crypto financial service products on the market — and turn up a few gems you may never have heard of</div>
             </header>
             <div className="interest-accounts-section">
                 <h2>Interest account reviews</h2>

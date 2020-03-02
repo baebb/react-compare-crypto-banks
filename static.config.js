@@ -25,7 +25,7 @@ const config = {
 };
 
 export default {
-    ...(buildEnv === 'prod' && { siteRoot: 'https://www.comparecryptobanks.com' }),
+    ...(buildEnv === 'prod' && { siteRoot: 'https://www.defi-nerd.com' }),
     Document: ({
         Html,
         Head,
@@ -37,9 +37,9 @@ export default {
             <Head>
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <title>Compare Crypto Banks</title>
-                <meta property="og:title" content="Compare Crypto Banks" />
-                <meta property="og:url" content="https://www.comparecryptobanks.com" />
+                <title>DeFi Nerd</title>
+                <meta property="og:title" content="DeFi Nerd" />
+                <meta property="og:url" content="https://www.defi-nerd.com" />
                 <meta property="og:type" content="website" />
                 <meta property="og:description" content="Easily compare crypto finance: Compare all crypto saving accounts and crypto loans" />
                 {/*<meta property="og:image" content="http://some-react-static-website/img/OG_thumb.jpg" />*/}
@@ -48,8 +48,6 @@ export default {
                 <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png" />
                 <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png" />
                 <link rel="manifest" href="./favicon/site.webmanifest" />
-                <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5" />
-                <meta name="msapplication-TileColor" content="#00a300" />
                 <meta name="theme-color" content="#ffffff" />
             </Head>
             <Body>{children}</Body>

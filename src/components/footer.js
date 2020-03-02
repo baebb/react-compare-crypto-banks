@@ -3,7 +3,7 @@ import React from 'react';
 
 // Local Dependencies
 import { Link } from 'components/Router';
-import IconLogo from '../../public/images/logo/icon01.svg';
+import IconLogo from '../../public/images/logo/ccb-temp-icon.svg';
 
 export default function Footer() {
     return (
@@ -31,7 +31,7 @@ export default function Footer() {
                     </div>
                     <div className="col-xs-12 col-sm-6">
                         <p className="footer-content__disclaimer-text">
-                            Disclaimer: Compare Crypto Banks strives to keep its information accurate and up to date. This information may be different than what you see when you visit a financial institution, service provider or specific product’s site. All financial products, shopping products and services are presented without warranty. When evaluating offers, please review the financial institution’s Terms and Conditions.
+                            Disclaimer: DeFi Nerd strives to keep its information accurate and up to date. This information may be different than what you see when you visit a financial institution, service provider or specific product’s site. All financial products, shopping products and services are presented without warranty. When evaluating offers, please review the financial institution’s Terms and Conditions.
                         </p>
                     </div>
                 </div>
@@ -42,7 +42,7 @@ export default function Footer() {
                         </Link>
                     </div>
                     <div className="footer-content__brand-text">
-                        <div>© 2020 Compare Crypto Banks</div>
+                        <div>© 2020 DeFi Nerd</div>
                         <div className="footer-content__brand-legal-links">
                             <Link to="/privacy" className="text-link text-link--hover-green">
                                 Privacy Policy

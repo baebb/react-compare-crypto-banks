@@ -12,7 +12,7 @@ import { sortAlphabetical, getReviewScores, getReviewLinks } from '../selectors'
 import { sortedProducts } from '../demoData';
 const heading = 'Grow your crypto portfolio ';
 const calloutWord = 'passively';
-const subHeading = 'Crypto banks allows crypto investors to earn compound interest on their crypto assets and grow their wealth. Compare crypto banks to find the best bank for your needs.';
+const subHeading = 'Crypto banks allows crypto investors to earn compound interest on their crypto assets and grow their wealth. DeFi Nerd to find the best bank for your needs.';
 
 export default function HomePage() {
     const { reviews } = useRouteData();

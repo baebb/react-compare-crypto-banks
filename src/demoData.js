@@ -210,11 +210,11 @@ export const items = [
         "interestPayout": "Paid weekly",
         "lockUpPeriod": "1 month, 3 month, Flexible term",
         "geoAvailability": "Worldwide",
-        "geoAvailabilityExceptions": ["Hong Kong", "Switzerland", "Malta"],
+        "geoAvailabilityExceptions": ["Hong Kong", "Switzerland", "Malta", "Bulgaria"],
         "keyPoints": [
-            "Increase your earning with MCO staking. Get an extra 2% p.a. your intrest rate with by staking 500 MCO tokens.",
+            "Increase your earning with MCO staking. Get an extra 2% p.a. your intrest rate by staking 500 MCO tokens.",
             "Get your rewards faster. Interest earnings are paid out every 7 days.",
-            "Earn interest off all of your coin. Crypto.com Earn boasts the largest range of supported cryptocurrencies for interest earning."
+            "Earn interest off all of your coins. Crypto.com Earn boasts one of the largest range of supported cryptocurrencies for interest earning."
         ],
         "editorRating": 0,
         "security": [
