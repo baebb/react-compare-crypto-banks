@@ -4,7 +4,7 @@ import React from 'react';
 
 const contentful = require('contentful');
 
-const buildEnv = process.env.BUILD_ENV || 'staging';
+const buildEnv = process.env.BUILD_ENV || 'prod';
 
 const config = {
     prod: {
@@ -13,8 +13,8 @@ const config = {
         GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_PROD
     },
     staging: {
-        CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_PROD,
-        CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_PROD,
+        CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_STAGING,
+        CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_STAGING,
         GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_STAGING
     },
     test: {
