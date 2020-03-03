@@ -32,6 +32,13 @@ export default function NavBar() {
                     <div className="col-xs-6">
                         <div className="nav-buttons">
                             <div>
+                                <Link to="/crypto-interest-accounts">
+                                    <button  type="button" className="nav-button">
+                                        Interest Accounts
+                                    </button>
+                                </Link>
+                            </div>
+                            <div>
                                 <Link to="/reviews">
                                     <button  type="button" className="nav-button">
                                         Reviews
