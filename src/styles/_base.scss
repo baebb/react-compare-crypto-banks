@@ -3,6 +3,7 @@
     src: url("../../public/Gotham400.woff") format("woff");
     font-style: normal;
     font-weight: 400;
+    font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
     src: url("../../public/Gotham600.woff") format("woff");
     font-style: normal;
     font-weight: 600;
+    font-display: swap;
 }
 
 @font-face {
@@ -17,6 +19,7 @@
     src: url("../../public/GothamBody.woff") format("woff");
     font-style: normal;
     font-weight: 400;
+    font-display: swap;
 }
 
 $gotham400: Gotham400,system-ui,sans-serif;
