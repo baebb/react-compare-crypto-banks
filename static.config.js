@@ -39,11 +39,8 @@ export default {
                 <Head>
                     <meta charSet="UTF-8" />
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
-                    <title>DeFi Nerd</title>
-                    <meta property="og:title" content="DeFi Nerd" />
                     <meta property="og:url" content="https://www.defi-nerd.com" />
                     <meta property="og:type" content="website" />
-                    <meta property="og:description" content="Easily compare crypto finance: Compare all crypto saving accounts and crypto loans" />
                     {/*<meta property="og:image" content="http://some-react-static-website/img/OG_thumb.jpg" />*/}
 
                     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
@@ -77,7 +74,7 @@ export default {
         return [
             {
                 path: '/',
-                template: 'src/pages/index',
+                template: 'src/pages/home-page',
             },
             {
                 path: 'crypto-interest-accounts',
