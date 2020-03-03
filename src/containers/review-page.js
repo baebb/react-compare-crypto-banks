@@ -32,12 +32,15 @@ export default function ReviewPage() {
     const productData = items.find(product => productId === product.id);
     const { title: productTitle } = productData;
     const cleanPublishDate = formatPublishDate(publishDate);
+    const metaTitle = `Review: ${productTitle} | DeFi Nerd`;
 
     return (
         <div className="review-page">
             <Head>
-                <title>Review: {productTitle} | DeFi Nerd</title>
+                <title>{metaTitle}</title>
                 <meta name="description" content={metaDescription} />
+                <meta property="og:title" content={metaTitle} />
+                <meta property="og:description" content={metaDescription} />
             </Head>
             <header className="header-section">
                 <h5 className="header-section__editorial-text">Editorial Review</h5>
