@@ -25,7 +25,7 @@ export const items = [
         "displayCurrencies": ["BTC", "ETH", "USDC"],
         "interestPayout": "Paid monthly",
         "lockUpPeriod": "Withdraw anytime",
-        "geoAvailability": "USA-only",
+        "geoAvailability": "Worldwide",
         "geoAvailabilityExceptions": ["New York", "Connecticut", "Washington", "Wyoming"],
         "keyPoints": [
             "Earn compound interest. Unlike other crypto storage methods, BlockFi pays interest on your deposit and savings, up to 6.2% APY",
@@ -36,12 +36,6 @@ export const items = [
         "security": [
             "Bitgo Insured Custody",
             "2FA"
-        ],
-        "requirements": [
-            "Email address",
-            "US phone number",
-            "Photo of your passport, driver’s license or other ID card",
-            "Live in any of the permitted countries"
         ]
     },
     {

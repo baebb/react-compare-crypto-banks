@@ -13,20 +13,25 @@ export default function Footer() {
                     <div className="col-xs-12 col-sm-6">
                         <div className="footer-content__links">
                             <div>
+                                <Link to="/crypto-interest-accounts" className="text-link text-link--hover-green">
+                                    Interest Accounts
+                                </Link>
+                            </div>
+                            <div>
                                 <Link to="/reviews" className="text-link text-link--hover-green">
                                     Reviews
                                 </Link>
                             </div>
-                            <div>
-                                <Link to="/blog" className="text-link text-link--hover-green">
-                                    Blog
-                                </Link>
-                            </div>
-                            <div>
-                                <Link to="/about" className="text-link text-link--hover-green">
-                                    About
-                                </Link>
-                            </div>
+                            {/*<div>*/}
+                            {/*    <Link to="/blog" className="text-link text-link--hover-green">*/}
+                            {/*        Blog*/}
+                            {/*    </Link>*/}
+                            {/*</div>*/}
+                            {/*<div>*/}
+                            {/*    <Link to="/about" className="text-link text-link--hover-green">*/}
+                            {/*        About*/}
+                            {/*    </Link>*/}
+                            {/*</div>*/}
                         </div>
                     </div>
                     <div className="col-xs-12 col-sm-6">
@@ -38,7 +43,10 @@ export default function Footer() {
                 <div className="footer-content__brand-container">
                     <div className="footer-content__brand-img">
                         <Link to="/">
-                            <img src={IconLogo} />
+                            <img
+                                src={IconLogo}
+                                alt="DeFi Nerd favicon logo"
+                            />
                         </Link>
                     </div>
                     <div className="footer-content__brand-text">

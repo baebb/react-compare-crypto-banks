@@ -32,27 +32,27 @@ export default {
         Body,
         children,
         state: { siteData, renderMeta },
-    }) => (
-        <Html lang="en-US">
-            <Head>
-                <meta charSet="UTF-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <title>DeFi Nerd</title>
-                <meta property="og:title" content="DeFi Nerd" />
-                <meta property="og:url" content="https://www.defi-nerd.com" />
-                <meta property="og:type" content="website" />
-                <meta property="og:description" content="Easily compare crypto finance: Compare all crypto saving accounts and crypto loans" />
-                {/*<meta property="og:image" content="http://some-react-static-website/img/OG_thumb.jpg" />*/}
+    }) => {
+        console.log('siteData', siteData);
+        return (
+            <Html lang="en-US">
+                <Head>
+                    <meta charSet="UTF-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1" />
+                    <meta property="og:url" content="https://www.defi-nerd.com" />
+                    <meta property="og:type" content="website" />
+                    {/*<meta property="og:image" content="http://some-react-static-website/img/OG_thumb.jpg" />*/}
 
-                <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
-                <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png" />
-                <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png" />
-                <link rel="manifest" href="./favicon/site.webmanifest" />
-                <meta name="theme-color" content="#ffffff" />
-            </Head>
-            <Body>{children}</Body>
-        </Html>
-    ),
+                    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
+                    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png" />
+                    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png" />
+                    <link rel="manifest" href="./favicon/site.webmanifest" />
+                    <meta name="theme-color" content="#ffffff" />
+                </Head>
+                <Body>{children}</Body>
+            </Html>
+        );
+    },
     getRoutes: async () => {
         const contentAPI = contentful.createClient({
             accessToken: config[buildEnv].CONTENTFUL_KEY,
@@ -74,7 +74,11 @@ export default {
         return [
             {
                 path: '/',
-                template: 'src/pages/index',
+                template: 'src/pages/home-page',
+            },
+            {
+                path: 'crypto-interest-accounts',
+                template: 'src/pages/interest-accounts-page',
                 getData: () => ({
                     reviews,
                 }),
@@ -84,7 +88,7 @@ export default {
                 template: 'src/pages/privacy-page',
                 getData: () => ({
                     privacyPage,
-                })
+                }),
             },
             {
                 path: 'reviews',

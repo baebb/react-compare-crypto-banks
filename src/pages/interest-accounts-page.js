@@ -6,7 +6,7 @@ import { useRouteData } from 'react-static';
 import ProductCard from '../components/product-card';
 
 // Utility Dependencies
-import { sortAlphabetical, getReviewScores, getReviewLinks } from '../selectors';
+import { getReviewScores, getReviewLinks } from '../selectors';
 
 // Data
 import { sortedProducts } from '../demoData';
@@ -14,17 +14,14 @@ const heading = 'Grow your crypto portfolio ';
 const calloutWord = 'passively';
 const subHeading = 'Crypto banks allows crypto investors to earn compound interest on their crypto assets and grow their wealth. DeFi Nerd to find the best bank for your needs.';
 
-export default function HomePage() {
+export default function InterestAccountsPage() {
     const { reviews } = useRouteData();
 
     const reviewScores = getReviewScores(reviews);
     const reviewLinks = getReviewLinks(reviews);
 
-    // console.log('reviewScores', reviewScores);
-    // console.log('reviewLinks', reviewLinks);
-
     return (
-        <div className="home-page">
+        <div className="interest-accounts-page">
             <div className="intro-section">
                 <div className="intro-section__heading">
                     <h2>
@@ -55,4 +52,3 @@ export default function HomePage() {
         </div>
     );
 };
-
