@@ -1,6 +1,6 @@
 // NPM Dependencies
 import React from 'react';
-import { useRouteData } from 'react-static';
+import { useRouteData, Head } from 'react-static';
 import ReactMarkdown from 'react-markdown';
 import StarRatings from 'react-star-ratings';
 
@@ -15,18 +15,33 @@ import { formatPublishDate } from '../selectors';
 
 export default function ReviewPage() {
     const { review } = useRouteData();
-    const { productId, title, description, author, publishDate, rating, pros, cons, body } = review;
-
+    const {
+        productId,
+        title: reviewTitle,
+        metaDescription = '',
+        description,
+        author,
+        publishDate,
+        rating,
+        pros,
+        cons,
+        body
+    } = review;
     const { name: authorName } = author.fields;
 
     const productData = items.find(product => productId === product.id);
+    const { title: productTitle } = productData;
     const cleanPublishDate = formatPublishDate(publishDate);
 
     return (
         <div className="review-page">
+            <Head>
+                <title>Review: {productTitle} | DeFi Nerd</title>
+                <meta name="description" content={metaDescription} />
+            </Head>
             <header className="header-section">
                 <h5 className="header-section__editorial-text">Editorial Review</h5>
-                <h1 className="header-section__title-text">{title}</h1>
+                <h1 className="header-section__title-text">{reviewTitle}</h1>
                 <div className="header-section__description-text">
                     <ReactMarkdown source={description} />
                 </div>

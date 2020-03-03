@@ -38,7 +38,10 @@ export default function Footer() {
                 <div className="footer-content__brand-container">
                     <div className="footer-content__brand-img">
                         <Link to="/">
-                            <img src={IconLogo} />
+                            <img
+                                src={IconLogo}
+                                alt="DeFi Nerd favicon logo"
+                            />
                         </Link>
                     </div>
                     <div className="footer-content__brand-text">

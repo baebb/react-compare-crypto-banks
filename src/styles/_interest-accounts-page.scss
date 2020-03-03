@@ -1,0 +1,225 @@
+.interest-accounts-page {
+    .intro-section {
+        margin: 72px 0;
+        text-align: center;
+
+        .intro-section__heading {
+            margin-bottom: 40px;
+            font-size: 28px;
+
+            .calloutText {
+                color: $primary-color;
+            }
+        }
+
+        .intro-section__sub-heading {
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+    }
+
+    .product-card {
+        background-color: #ffffff;
+        margin-bottom: 24px;
+        display: block;
+        @include screen--desktop {
+            border: 1px solid #d8d9da;
+        }
+        @include screen--mobile {
+            margin-bottom: 48px;
+        }
+
+        &.product-card--mini {
+            .product-summary {
+                .product-summary__text-column {
+                    margin-bottom: 24px;
+                }
+
+                .product-summary__heading {
+                    @include screen--mobile {
+                        font-size: 20px;
+                    }
+                }
+
+                .product-summary__star-rating-text {
+                    font-size: 0.8125rem;
+                }
+
+                .product-summary__logo-img {
+                    min-height: 90px;
+
+                    img {
+                        max-width: 210px;
+                    }
+                }
+
+                .product-summary__cta-column {
+                    padding-right: 16px;
+                }
+            }
+
+            .product-key-details {
+                padding: 0;
+                background-color: transparent;
+
+                .product-key-details__column {
+                    padding: 0;
+                    @include screen--mobile {
+                        padding: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    .product-summary {
+        @include screen--desktop {
+            padding: 32px;
+        }
+
+        .product-summary__cta-column {
+            padding-right: 36px;
+            @include screen--mobile {
+                padding-right: 0;
+            }
+        }
+
+        .product-summary__logo-img {
+            margin-bottom: 16px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            img {
+                padding: 0px 20px;
+                height: auto;
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+
+        .product-summary__mobile-text {
+            text-align: center;
+            margin: 16px 0;
+        }
+
+        .product-summary__cta-button {
+            text-align: center;
+            margin-bottom: 8px;
+
+            .callout-button {
+                width: 100%;
+                @include screen--mobile {
+                    max-width: 220px;
+                }
+            }
+        }
+
+        .product-summary__muted-cta-text {
+            color: $grey-2;
+            text-align: center;
+            font-size: 0.8125rem;
+        }
+
+        .product-summary__text-column {
+            .link-button--read-more {
+                @include screen--mobile {
+                    margin-left: 16px;
+                    margin-bottom: 16px;
+                }
+            }
+        }
+
+        .product-summary__heading {
+            font-size: 24px;
+            margin: 8px 0;
+            @include screen--mobile {
+                margin: 16px 0;
+            }
+        }
+
+        .product-summary__rating {
+            height: 26px;
+            margin-top: 0;
+        }
+
+        .product-summary__rating-number {
+            font-family: $gotham600;
+            margin-right: 8px;
+        }
+
+        .product-summary__star-rating {
+            margin-right: 8px;
+        }
+
+        .product-summary__rating-placeholder {
+            font-style: italic;
+            color: $grey-2;
+        }
+
+        .product-summary__keypoint-list {
+            padding-left: 0;
+            margin-left: 16px;
+            line-height: 1.5;
+        }
+    }
+
+    .product-key-details {
+        @include screen--desktop {
+            padding: 16px;
+            background-color: #f5f5f5;
+        }
+
+        .product-key-details__column {
+            padding: 16px;
+            @include screen--mobile {
+                background-color: #f5f5f5;
+                border-radius: 5px;
+                margin: 6px 0;
+            }
+
+            .product-key-details__text:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .product-key-details__heading {
+            @extend .wide-text;
+            text-transform: uppercase;
+            font-family: $gotham600;
+            font-size: 0.8125rem;
+            margin: 0;
+            margin-bottom: 1rem;
+            @include screen--mobile {
+                margin-bottom: 4px;
+            }
+
+            &.product-key-details__heading--interest-rate {
+                color: $primary-color;
+            }
+        }
+
+        .product-key-details__text {
+            font-size: 0.8125rem;
+            line-height: 1.5;
+            margin: 0;
+            margin-bottom: 6px;
+        }
+
+        .product-key-details__rate {
+            float: right;
+            color: $primary-color;
+        }
+
+        .product-key-details__more-info-wrapper {
+            font-size: 0.8125rem;
+            text-align: center;
+        }
+
+        .product-key-details__more-info-content {
+            padding: 10px;
+            text-align: left;
+        }
+    }
+}

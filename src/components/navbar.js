@@ -24,7 +24,7 @@ export default function NavBar() {
                                 <img
                                     src={IconLogo}
                                     className="nav-logo__fav"
-                                    alt="DeFi Nerd Favicon"
+                                    alt="DeFi Nerd favicon logo"
                                 />
                             </Link>
                         </div>
