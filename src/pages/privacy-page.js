@@ -1,7 +1,11 @@
 // NPM Dependencies
 import React from 'react';
-import { useRouteData } from 'react-static';
+import { useRouteData, Head } from 'react-static';
 import ReactMarkdown from 'react-markdown';
+
+// Data
+const metaTitle = 'Privacy Policy | DeFi Nerd';
+const metaDescription = '';
 
 export default function PrivacyPage() {
     const { privacyPage } = useRouteData();
@@ -10,6 +14,12 @@ export default function PrivacyPage() {
 
     return (
         <div className="static-page">
+            <Head>
+                <title>{metaTitle}</title>
+                <meta name="description" content={metaDescription} />
+                <meta property="og:title" content={metaTitle} />
+                <meta property="og:description" content={metaDescription} />
+            </Head>
             <ReactMarkdown source={body} />
         </div>
     );

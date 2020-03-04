@@ -1,20 +1,29 @@
 // NPM Dependencies
 import React from 'react';
-import { useRouteData } from 'react-static';
+import { useRouteData, Head } from 'react-static';
 
 // Local Dependencies
-import { Link } from 'components/Router';
 import ReviewListItem from 'components/review-list-item';
+
+// Data
+const metaTitle = 'Reviews | Crypto Interest Accounts, Loans and Credit Cards';
+const metaDescription = 'Our DeFi Nerd experts review the most popular crypto interest accounts, loans and credit cards on the market - and turn up a few gems you may never have heard of';
 
 export default function ReviewsHomePage() {
     const { reviews } = useRouteData();
 
     return (
         <div className="reviews-home-page">
-            <header className="header-section">
+            <Head>
+                <title>{metaTitle}</title>
+                <meta name="description" content={metaDescription} />
+                <meta property="og:title" content={metaTitle} />
+                <meta property="og:description" content={metaDescription} />
+            </Head>
+            <div className="header-section">
                 <h1 className="header-section__title-text">Reviews by DeFi Nerd experts</h1>
-                <div className="header-section__description-text">Our DeFi Nerd experts break down the most popular crypto financial service products on the market — and turn up a few gems you may never have heard of</div>
-            </header>
+                <div className="header-section__description-text">Our DeFi Nerd experts break down the most popular crypto interest accounts, loans, and credit cards on the market — and turn up a few gems you may never have heard of</div>
+            </div>
             <div className="interest-accounts-section">
                 <h2>Interest account reviews</h2>
                 <div className="interest-accounts-section__reviews-list">

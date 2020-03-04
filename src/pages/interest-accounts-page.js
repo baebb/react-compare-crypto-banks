@@ -1,6 +1,6 @@
 // NPM Dependencies
 import React from 'react';
-import { useRouteData } from 'react-static';
+import { useRouteData, Head } from 'react-static';
 
 // Component Dependencies
 import ProductCard from '../components/product-card';
@@ -12,16 +12,25 @@ import { getReviewScores, getReviewLinks } from '../selectors';
 import { sortedProducts } from '../demoData';
 const heading = 'Grow your crypto portfolio ';
 const calloutWord = 'passively';
-const subHeading = 'Crypto banks allows crypto investors to earn compound interest on their crypto assets and grow their wealth. DeFi Nerd to find the best bank for your needs.';
 
 export default function InterestAccountsPage() {
     const { reviews } = useRouteData();
 
     const reviewScores = getReviewScores(reviews);
     const reviewLinks = getReviewLinks(reviews);
+    const productsCount = sortedProducts.length;
+
+    const metaTitle = `Crypto Interest Accounts | Up to 12% p.a. (Compare ${productsCount} Offers)`;
+    const metaDescription = `DeFi Nerd ranks ${productsCount} of the highest earning crypto interest accounts. Apply and earn up to 12% p.a. on your crypto today`;
 
     return (
         <div className="interest-accounts-page">
+            <Head>
+                <title>{metaTitle}</title>
+                <meta name="description" content={metaDescription} />
+                <meta property="og:title" content={metaTitle} />
+                <meta property="og:description" content={metaDescription} />
+            </Head>
             <div className="intro-section">
                 <div className="intro-section__heading">
                     <h2>
@@ -32,7 +41,7 @@ export default function InterestAccountsPage() {
                 <div className="intro-section__sub-heading">
                     <div className="row">
                         <div className="col-xs-12 col-sm-8 col-sm-offset-2">
-                            {subHeading}
+                            {metaDescription}
                         </div>
                     </div>
                 </div>
