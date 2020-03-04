@@ -8,16 +8,19 @@ const buildEnv = process.env.BUILD_ENV || 'prod';
 
 const config = {
     prod: {
+        SITE_URL: 'https://www.defi-nerd.com',
         CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_PROD,
         CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_PROD,
         GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_PROD
     },
     staging: {
+        SITE_URL: 'https://compare-crypto-banks-staging.firebaseapp.com/',
         CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_STAGING,
         CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_STAGING,
         GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_STAGING
     },
     test: {
+        SITE_URL: 'https://compare-crypto-banks-test.firebaseapp.com/',
         CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_TEST,
         CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_TEST,
         GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_STAGING
@@ -25,7 +28,7 @@ const config = {
 };
 
 export default {
-    ...(buildEnv === 'prod' && { siteRoot: 'https://www.defi-nerd.com' }),
+    siteRoot: config[buildEnv].SITE_URL,
     Document: ({
         Html,
         Head,
