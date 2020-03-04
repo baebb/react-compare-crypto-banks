@@ -9,8 +9,6 @@ import ReviewListItem from 'components/review-list-item';
 export default function ReviewsHomePage() {
     const { reviews } = useRouteData();
 
-    console.log('reviews', reviews);
-
     return (
         <div className="reviews-home-page">
             <header className="header-section">

@@ -1,8 +1,8 @@
 // NPM Dependencies
 import 'dotenv/config';
 import React from 'react';
-
 const contentful = require('contentful');
+const path = require('path');
 
 const buildEnv = process.env.BUILD_ENV || 'prod';
 
@@ -33,7 +33,6 @@ export default {
         children,
         state: { siteData, renderMeta },
     }) => {
-        console.log('siteData', siteData);
         return (
             <Html lang="en-US">
                 <Head>
@@ -42,12 +41,6 @@ export default {
                     <meta property="og:url" content="https://www.defi-nerd.com" />
                     <meta property="og:type" content="website" />
                     {/*<meta property="og:image" content="http://some-react-static-website/img/OG_thumb.jpg" />*/}
-
-                    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
-                    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png" />
-                    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png" />
-                    <link rel="manifest" href="./favicon/site.webmanifest" />
-                    <meta name="theme-color" content="#ffffff" />
                 </Head>
                 <Body>{children}</Body>
             </Html>
@@ -112,12 +105,10 @@ export default {
         ];
     },
     plugins: [
-        // [
-        //     require.resolve('react-static-plugin-source-filesystem'),
-        //     {
-        //         location: path.resolve('./src/pages'),
-        //     },
-        // ],
+        [
+            'react-static-plugin-favicons',
+            { inputFile: path.resolve('./public/images/logo/ccb-temp-icon.svg') },
+        ],
         [
             require.resolve('react-static-plugin-google-tag-manager'),
             { id: config[buildEnv].GOOGLE_TAG_MANAGER_ID }
