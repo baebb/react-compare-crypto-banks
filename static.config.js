@@ -108,10 +108,16 @@ export default {
         ];
     },
     plugins: [
-        // [
-        //     'react-static-plugin-favicons',
-        //     { inputFile: path.resolve('./public/images/logo/ccb-temp-icon.svg') },
-        // ],
+        [
+            'react-static-plugin-favicons',
+            {
+                inputFile: path.resolve('./public/images/logo/ccb-temp-icon.svg'),
+                configuration: {
+                    start_url: '/',
+
+                }
+            },
+        ],
         [
             require.resolve('react-static-plugin-google-tag-manager'),
             { id: config[buildEnv].GOOGLE_TAG_MANAGER_ID }
