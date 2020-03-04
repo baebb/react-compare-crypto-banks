@@ -114,7 +114,16 @@ export default {
                 inputFile: path.resolve('./public/images/logo/ccb-temp-icon.svg'),
                 configuration: {
                     start_url: '/',
-
+                    icons: {
+                        android: true,
+                        appleIcon: true,
+                        appleStartup: false,
+                        coast: false,
+                        favicons: true,
+                        firefox: false,
+                        windows: false,
+                        yandex: false
+                    }
                 }
             },
         ],
