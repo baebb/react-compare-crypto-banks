@@ -3,7 +3,7 @@ import React from 'react';
 import { Head } from 'react-static';
 
 // Data
-const metaTitle = 'DeFi Nerd: Easily compare DeFi and crypto financial services';
+const metaTitle = 'DeFi Nerd: Easily Compare DeFi and Crypto Financial Services';
 const heading = 'Make all the right money moves.';
 const subHeading = 'Need expert advice, helpful tools and tailored insights to answer your DeFi questions? Turn to the Nerds.';
 

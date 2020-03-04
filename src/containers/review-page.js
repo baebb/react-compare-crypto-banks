@@ -32,7 +32,7 @@ export default function ReviewPage() {
     const productData = items.find(product => productId === product.id);
     const { title: productTitle } = productData;
     const cleanPublishDate = formatPublishDate(publishDate);
-    const metaTitle = `Review: ${productTitle} | DeFi Nerd`;
+    const metaTitle = `${productTitle} Review | DeFi Nerd`;
 
     return (
         <div className="review-page">
