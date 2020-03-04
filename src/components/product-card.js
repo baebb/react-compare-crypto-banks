@@ -5,7 +5,6 @@ import { Link } from 'components/Router';
 
 // Component Dependencies
 import AllCryptoRatesPopup from './all-crypto-rates-popup';
-import GeoExceptionsPopup from './geo-exceptions-popup';
 
 // Utility Dependencies
 import { productLogos } from '../selectors';
