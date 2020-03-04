@@ -46,11 +46,14 @@ export const items = [
         "companyName": "Hodlnaut",
         "exampleType": "",
         "savingsInterestRate": {
-            "BTC": 6
+            "BTC": 6,
+            "USDT": 8,
+            "USDC": 8
+
         },
         "minimums": "none",
         "fees": "none",
-        "displayCurrencies": ["BTC"],
+        "displayCurrencies": ["BTC", "USDT", "USDC"],
         "interestPayout": "Paid monthly",
         "lockUpPeriod": "Withdraw anytime",
         "geoAvailability": "Worldwide",
@@ -157,7 +160,6 @@ export const items = [
         "interestReviewUrl": "https://www.google.com",
         "title": "Crypto.com Earn",
         "companyName": "Crypto.com",
-        "exampleType": "3 month term",
         "savingsInterestRate": {
             "BTC": 4,
             "ETH": 3,
