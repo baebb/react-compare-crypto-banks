@@ -14,6 +14,11 @@ import './flexboxgrid.min.css';
 // Any routes that start with 'dynamic' will be treated as non-static routes
 // addPrefetchExcludes(['dynamic']);
 
+export const ScrollToTop = ({ children, location }) => {
+    React.useEffect(() => window.scrollTo(0, 0), [location.pathname]);
+    return children;
+};
+
 function App() {
     return (
         <Root>
@@ -22,9 +27,11 @@ function App() {
                     <NavBar />
                     <div className="content">
                         <React.Suspense fallback={<em>Loading...</em>}>
-                            <Router>
+                            <Router primary={false}>
                                 {/*<Dynamic path="dynamic" />*/}
-                                <Routes path="*" />
+                                <ScrollToTop path="/">
+                                    <Routes path="*" />
+                                </ScrollToTop>
                             </Router>
                         </React.Suspense>
                     </div>
