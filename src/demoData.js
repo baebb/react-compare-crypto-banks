@@ -41,7 +41,7 @@ export const items = [
     {
         "id": "hodlnaut",
         "interestLandingUrl": "https://www.hodlnaut.com",
-        "interestReviewUrl": "https://www.google.com",
+        "interestReviewUrl": "https://www.hodlnaut.com",
         "title": "Hodlnaut Bitcoin Interest Account",
         "companyName": "Hodlnaut",
         "exampleType": "",
@@ -72,7 +72,7 @@ export const items = [
     {
         "id": "ledn",
         "interestLandingUrl": "https://www.ledn.io",
-        "interestReviewUrl": "https://www.google.com",
+        "interestReviewUrl": "https://www.ledn.io",
         "title": "Ledn Bitcoin Savings Account",
         "companyName": "Ledn",
         "exampleType": "",
@@ -100,7 +100,7 @@ export const items = [
     {
         "id": "bitrue",
         "interestLandingUrl": "https://www.bitrue.com",
-        "interestReviewUrl": "https://www.google.com",
+        "interestReviewUrl": "https://www.bitrue.com",
         "title": "Bitrue Power Piggy",
         "companyName": "Bitrue",
         "exampleType": "",
@@ -157,7 +157,7 @@ export const items = [
     {
         "id": "cryptoDotCom",
         "interestLandingUrl": "https://crypto.com",
-        "interestReviewUrl": "https://www.google.com",
+        "interestReviewUrl": "https://crypto.com",
         "title": "Crypto.com Earn",
         "companyName": "Crypto.com",
         "savingsInterestRate": {
@@ -220,7 +220,7 @@ export const items = [
     {
         "id": "nexo",
         "interestLandingUrl": "https://nexo.io",
-        "interestReviewUrl": "https://www.google.com",
+        "interestReviewUrl": "https://nexo.io",
         "title": "Nexo High-Yield Interest Account",
         "companyName": "Nexo",
         "exampleType": "",

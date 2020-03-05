@@ -90,7 +90,7 @@ export default function ReviewPage() {
                     </div>
                 </div>
             </div>
-            <div className="review-body-section">
+            <div className="body-section">
                 <ReactMarkdown source={body} />
             </div>
         </div>
