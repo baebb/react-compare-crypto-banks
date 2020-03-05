@@ -85,7 +85,7 @@ export const items = [
         "interestPayout": "Paid monthly",
         "lockUpPeriod": "Withdraw anytime",
         "geoAvailability": "Worldwide",
-        "geoAvailabilityExceptions": ["Canada", "New York", "Connecticut", "Washington", "Wyoming"],
+        "geoAvailabilityExceptions": ["New York", "Connecticut", "Washington", "Wyoming"],
         "keyPoints": [
             "Fully Compliant in Canada. Ledn Bitcoin Savings Accounts are fully compliant with the laws of Canada. As such, Ledn is held to the highest standards of consumer protection, data privacy, and customer service.",
             "Interest payments are calculated and paid out in bitcoin. Interest payments are issued at the start of every month and deposited back into the savings account where they can keep growing.",
