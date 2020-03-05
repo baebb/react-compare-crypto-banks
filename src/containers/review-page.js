@@ -42,7 +42,7 @@ export default function ReviewPage() {
                 <meta property="og:title" content={metaTitle} />
                 <meta property="og:description" content={metaDescription} />
             </Head>
-            <header className="header-section">
+            <div className="header-section">
                 <h5 className="header-section__editorial-text">Editorial Review</h5>
                 <h1 className="header-section__title-text">{reviewTitle}</h1>
                 <div className="header-section__description-text">
@@ -56,7 +56,7 @@ export default function ReviewPage() {
                         {cleanPublishDate}
                     </span>
                 </div>
-            </header>
+            </div>
             <div className="review-summary-section">
                 <h2>Our Take</h2>
                 <div className="review-summary-section__rating-wrapper">
@@ -90,7 +90,7 @@ export default function ReviewPage() {
                     </div>
                 </div>
             </div>
-            <div className="review-body-section">
+            <div className="body-section">
                 <ReactMarkdown source={body} />
             </div>
         </div>

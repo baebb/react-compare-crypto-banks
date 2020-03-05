@@ -3,7 +3,7 @@
     margin-bottom: 24px;
     display: block;
     @include screen--desktop {
-        border: 1px solid #d8d9da;
+        border: 1px solid $border-1;
     }
     @include screen--mobile {
         margin-bottom: 48px;
@@ -148,13 +148,13 @@
 .product-key-details {
     @include screen--desktop {
         padding: 16px;
-        background-color: #f5f5f5;
+        background-color: $background-2;
     }
 
     .product-key-details__column {
         padding: 16px;
         @include screen--mobile {
-            background-color: #f5f5f5;
+            background-color: $background-2;
             border-radius: 5px;
             margin: 6px 0;
         }

@@ -65,6 +65,10 @@ export default {
             content_type: 'legalTextPage'
         });
 
+        const { items: blogPosts } = await contentAPI.getEntries({
+            content_type: 'blogPost'
+        });
+
         const privacyPage = legalPages.find(({ fields }) => fields.pageType === 'privacy');
 
         return [
@@ -73,7 +77,7 @@ export default {
                 template: 'src/pages/home-page',
             },
             {
-                path: 'crypto-interest-accounts',
+                path: 'compare-crypto-interest-accounts',
                 template: 'src/pages/interest-accounts-page',
                 getData: () => ({
                     reviews,
@@ -97,6 +101,17 @@ export default {
                     template: 'src/containers/review-page',
                     getData: () => ({
                         review,
+                    }),
+                })),
+            },
+            {
+                path: 'blog',
+                redirect: '404',
+                children: blogPosts.map(({ fields: blogPost }) => ({
+                    path: `/${blogPost.slug}`,
+                    template: 'src/containers/blog-post-page',
+                    getData: () => ({
+                        blogPost,
                     }),
                 })),
             },
