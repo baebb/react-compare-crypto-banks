@@ -65,6 +65,7 @@ export const items = [
         ],
         "editorRating": 0,
         "security": [
+            "BitGo Insured Custody",
             "2FA",
             "Email confirmation withdraw"
         ]
@@ -296,6 +297,7 @@ export const items = [
         ],
         "editorRating": 0,
         "security": [
+            "BitGo Insured Custody",
             "Email confirmation withdraw",
             "Photo and video verification",
             "2FA"
