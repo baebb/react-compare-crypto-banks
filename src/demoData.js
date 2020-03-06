@@ -34,7 +34,7 @@ export const items = [
         ],
         "editorRating": 0,
         "security": [
-            "Bitgo Insured Custody",
+            "Gemini Insured Custody",
             "2FA"
         ]
     },
@@ -94,7 +94,7 @@ export const items = [
         "editorRating": 0,
         "security": [
             "SMS 2FA",
-            "Bitgo Insured Custody"
+            "BitGo Insured Custody"
         ]
     },
     {
@@ -249,7 +249,7 @@ export const items = [
         "editorRating": 0,
         "security": [
             "2FA",
-            "Bitgo Insured Custody"
+            "BitGo Insured Custody"
         ]
     },
     {
@@ -298,7 +298,6 @@ export const items = [
         "security": [
             "Email confirmation withdraw",
             "Photo and video verification",
-            "Bitgo Insured Custody",
             "2FA"
         ]
     },
