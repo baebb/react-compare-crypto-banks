@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { sortAlphabetical } from "./selectors";
+import { sortForMoney } from "./selectors";
 
 export const items = [
     {
@@ -254,7 +254,7 @@ export const items = [
         ]
     },
     {
-        "id": "celciusNetwork",
+        "id": "celsiusNetwork",
         "interestLandingUrl": "https://celsius.onelink.me/pYBy?pid=AFFILIATE&c=Ross%20Dyson_E5g6&af_dp=celsius%3A%2F%2F",
         "interestReviewUrl": "https://celsius.onelink.me/pYBy?pid=AFFILIATE&c=Ross%20Dyson_E5g6&af_dp=celsius%3A%2F%2F",
         "title": "Celsius Network Earn Coins",
@@ -299,7 +299,6 @@ export const items = [
         "security": [
             "BitGo Insured Custody",
             "Email confirmation withdraw",
-            "Photo and video verification",
             "2FA"
         ]
     },
@@ -347,4 +346,4 @@ export const items = [
     }
 ];
 
-export const sortedProducts = sortAlphabetical(items, 'id');
+export const sortedProducts = sortForMoney(items, 'id');

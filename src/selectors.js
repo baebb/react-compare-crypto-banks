@@ -19,12 +19,27 @@ export const productLogos = {
     ledn: lednLogo
 };
 
-export const shuffle = (a) => {
-    for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
+export const specialIds = ['blockFi', 'youHodler', 'ledn', 'celsiusNetwork'];
+
+export const sortForMoney = (items, comparator) => {
+    const sortedArray = [];
+    const specialItems = [];
+    const nonSpecialItems = [];
+
+    items.forEach(item => {
+        const orderLocation = specialIds.indexOf(item[comparator]);
+
+        if (orderLocation !== -1) {
+            specialItems[orderLocation] = item;
+        } else {
+            nonSpecialItems.push(item);
+        }
+    });
+
+    sortedArray.push(...specialItems);
+    sortedArray.push(...nonSpecialItems);
+
+    return sortedArray;
 };
 
 export const sortAlphabetical = (items, comparator) =>
