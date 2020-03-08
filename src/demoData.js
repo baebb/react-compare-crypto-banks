@@ -222,7 +222,7 @@ export const items = [
         "id": "nexo",
         "interestLandingUrl": "https://nexo.io",
         "interestReviewUrl": "https://nexo.io",
-        "title": "Nexo High-Yield Interest Account",
+        "title": "Nexo Interest Account",
         "companyName": "Nexo",
         "exampleType": "",
         "savingsInterestRate": {
