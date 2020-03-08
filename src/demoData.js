@@ -42,14 +42,13 @@ export const items = [
         "id": "hodlnaut",
         "interestLandingUrl": "https://www.hodlnaut.com",
         "interestReviewUrl": "https://www.hodlnaut.com",
-        "title": "Hodlnaut Bitcoin Interest Account",
+        "title": "Hodlnaut Interest Account",
         "companyName": "Hodlnaut",
         "exampleType": "",
         "savingsInterestRate": {
             "BTC": 6,
             "USDT": 8,
             "USDC": 8
-
         },
         "minimums": "none",
         "fees": "none",

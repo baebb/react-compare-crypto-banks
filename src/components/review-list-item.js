@@ -24,34 +24,38 @@ const ReviewListItem = ({ review }) => {
                 <div className="col-xs-4">
                     <Link to={`/reviews/${slug}/`}>{title}</Link>
                 </div>
-                <div className="col-xs-5 col-sm-6 interest-accounts-section__review-list-item-details">
+                <div className="col-xs-2 col-sm-1 interest-accounts-section__review-list-item-score">
+                    {rating}
+                </div>
+                <div className="col-xs-6 col-sm-7 interest-accounts-section__review-list-item-details">
                     <div className="interest-accounts-section__review-list-item-rates">
-                        <span className="interest-accounts-section__review-list-item-details-title">
+                        <div className="interest-accounts-section__review-list-item-details-title">
                             Interest rates:
-                        </span>&nbsp;
-                        {displayCurrencies.map((currency) => (
-                            <span key={currency}>{`${currency}: ${savingsInterestRate[currency]}% `}</span>
-                        ))}
-                        {Object.keys(savingsInterestRate).length > 3 &&
-                            <span>+more</span>
-                        }
+                        </div>
+                        <div>
+                            {displayCurrencies.map((currency) => (
+                                <span key={currency}>{`${currency}: ${savingsInterestRate[currency]}% `}</span>
+                            ))}
+                            {Object.keys(savingsInterestRate).length > 3 &&
+                                <span>+more</span>
+                            }
+                        </div>
                     </div>
                     <div className="interest-accounts-section__review-list-item-availability">
-                        <span className="interest-accounts-section__review-list-item-details-title">
+                        <div className="interest-accounts-section__review-list-item-details-title">
                             Availability:
-                        </span>&nbsp;
-                        {geoAvailabilityExceptions.length > 1 ?
-                            <span>
-                                {`${geoAvailability} except `}
-                                {geoAvailabilityExceptions.join(', ')}
-                            </span>
-                            :
-                            <span>{geoAvailability}</span>
-                        }
+                        </div>
+                        <div>
+                            {geoAvailabilityExceptions.length > 1 ?
+                                <span>
+                                    {`${geoAvailability} except `}
+                                    {geoAvailabilityExceptions.join(', ')}
+                                </span>
+                                :
+                                <span>{geoAvailability}</span>
+                            }
+                        </div>
                     </div>
-                </div>
-                <div className="col-xs-3 col-sm-2 interest-accounts-section__review-list-item-score">
-                    {rating}
                 </div>
             </div>
         </div>

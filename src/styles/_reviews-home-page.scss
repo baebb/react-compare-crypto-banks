@@ -39,6 +39,9 @@
         .interest-accounts-section__review-list-item-score {
             @extend .secondary-heading;
         }
+        .interest-accounts-section__review-list-item-rates {
+            margin-bottom: 8px;
+        }
         .interest-accounts-section__review-list-item-details-title {
             font-family: $gotham600;
         }
