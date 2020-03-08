@@ -24,10 +24,10 @@ const ReviewListItem = ({ review }) => {
                 <div className="col-xs-4">
                     <Link to={`/reviews/${slug}/`}>{title}</Link>
                 </div>
-                <div className="col-xs-2 col-sm-1 interest-accounts-section__review-list-item-score">
+                <div className="col-xs-3 col-sm-1 interest-accounts-section__review-list-item-score">
                     {rating}
                 </div>
-                <div className="col-xs-6 col-sm-7 interest-accounts-section__review-list-item-details">
+                <div className="col-xs-5 col-sm-7 interest-accounts-section__review-list-item-details">
                     <div className="interest-accounts-section__review-list-item-rates">
                         <div className="interest-accounts-section__review-list-item-details-title">
                             Interest rates:

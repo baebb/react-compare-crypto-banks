@@ -29,8 +29,8 @@ export default function ReviewsHomePage() {
                 <div className="interest-accounts-section__reviews-list">
                     <div className="row interest-accounts-section__reviews-list-column-titles">
                         <div className="col-xs-4">Name</div>
-                        <div className="col-xs-2 col-sm-1">Score</div>
-                        <div className="col-xs-6 col-sm-7">Details</div>
+                        <div className="col-xs-3 col-sm-1">Score</div>
+                        <div className="col-xs-5 col-sm-7">Details</div>
                     </div>
                     {reviews.map(({ fields: review }) => (
                         <ReviewListItem review={review} key={review.slug} />
