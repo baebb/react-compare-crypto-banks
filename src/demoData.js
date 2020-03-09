@@ -40,8 +40,8 @@ export const items = [
     },
     {
         "id": "hodlnaut",
-        "interestLandingUrl": "https://www.hodlnaut.com",
-        "interestReviewUrl": "https://www.hodlnaut.com",
+        "interestLandingUrl": "https://app.hodlnaut.com/signup?r=s8Q9APyy",
+        "interestReviewUrl": "https://app.hodlnaut.com/signup?r=s8Q9APyy",
         "title": "Hodlnaut Interest Account",
         "companyName": "Hodlnaut",
         "exampleType": "",

@@ -6,13 +6,13 @@ import lednLogo from '../public/images/bankLogos/lednLogo.png';
 import hodlnautLogo from '../public/images/bankLogos/hodlnautLogo.svg';
 import cryptoDotComLogo from '../public/images/bankLogos/cryptoDotComLogo.webp';
 import bitrueLogo from '../public/images/bankLogos/bitrueLogo.svg';
-import celciusNetworkLogo from '../public/images/bankLogos/celciusNetworkLogo.svg';
+import celsiusNetworkLogo from '../public/images/bankLogos/celsiusNetworkLogo.svg';
 
 export const productLogos = {
     nexo: nexoLogo,
     bitrue: bitrueLogo,
     blockFi: blockFiLogo,
-    celciusNetwork: celciusNetworkLogo,
+    celsiusNetwork: celsiusNetworkLogo,
     cryptoDotCom: cryptoDotComLogo,
     hodlnaut: hodlnautLogo,
     youHodler: youHodlerLogo,
