@@ -10,18 +10,13 @@ export const items = [
         "companyName": "Block Fi",
         "exampleType": "",
         "savingsInterestRate": {
-            "BTC": 6.2,
-            "ETH": 4.2,
+            "BTC": 5.1,
+            "ETH": 3.6,
+            "LTC": 3.8,
             "GUSD": 8.6,
             "USDC": 8.6
         },
         "minimums": "none",
-        "fees": {
-            "BTC": 0.0025,
-            "ETH": 0.0015,
-            "GUSD": 5,
-            "USDC": 5
-        },
         "displayCurrencies": ["BTC", "ETH", "USDC"],
         "interestPayout": "Paid monthly",
         "lockUpPeriod": "Withdraw anytime",
@@ -87,14 +82,14 @@ export const items = [
         "geoAvailability": "Worldwide",
         "geoAvailabilityExceptions": ["New York", "Connecticut", "Washington", "Wyoming"],
         "keyPoints": [
-            "Fully Compliant in Canada. Ledn Bitcoin Savings Accounts are fully compliant with the laws of Canada. As such, Ledn is held to the highest standards of consumer protection, data privacy, and customer service.",
+            "Fully Compliant in Canada. Ledn Bitcoin Savings Accounts are fully compliant with the laws of Canada. As such, Ledn is held to the high standards of consumer protection, data privacy, and customer service.",
             "Interest payments are calculated and paid out in bitcoin. Interest payments are issued at the start of every month and deposited back into the savings account where they can keep growing.",
             "Fast. Simply deposit your bitcoins in the account and start saving right away. Opening an account takes 2 minutes."
         ],
         "editorRating": 0,
         "security": [
-            "SMS 2FA",
-            "BitGo Insured Custody"
+            "2FA",
+            "BitGo $100M Insured Custody"
         ]
     },
     {
@@ -161,25 +156,24 @@ export const items = [
         "title": "Crypto.com Earn",
         "companyName": "Crypto.com",
         "savingsInterestRate": {
-            "BTC": 4,
-            "ETH": 3,
-            "LTC": 3,
-            "XRP": 3,
-            "BNB": 6,
-            "LINK": 6,
-            "MKR": 6,
-            "BAT": 6,
-            "EOS": 6,
-            "MCO": 4,
-            "CRO": 16,
-            "PAXG": 6,
-            "XLM": 6,
-            "USDT": 10,
-            "TUSD": 10,
-            "USDC": 10,
-            "PAX": 10,
-            "SAI": 10,
-            "DAI": 10
+            "BTC": 2,
+            "ETH": 2,
+            "LTC": 2,
+            "XRP": 2,
+            "BNB": 2,
+            "LINK": 2,
+            "MKR": 2,
+            "BAT": 2,
+            "EOS": 2,
+            "MCO": 2,
+            "CRO": 14,
+            "PAXG": 2,
+            "XLM": 2,
+            "USDT": 8,
+            "TUSD": 8,
+            "USDC": 8,
+            "PAX": 8,
+            "DAI": 8
         },
         "minimums": {
             "BTC": 0.05,
@@ -199,7 +193,7 @@ export const items = [
             "TUSD": 250,
             "USDC": 250,
             "PAX": 250,
-            "SAI": 250
+            "DAI": 250
         },
         "fees": "none",
         "displayCurrencies": ["BTC", "ETH", "USDT"],
@@ -249,7 +243,7 @@ export const items = [
         "editorRating": 0,
         "security": [
             "2FA",
-            "BitGo Insured Custody"
+            "BitGo $100M Insured Custody"
         ]
     },
     {
@@ -296,7 +290,7 @@ export const items = [
         ],
         "editorRating": 0,
         "security": [
-            "BitGo Insured Custody",
+            "BitGo $100M Insured Custody",
             "Email confirmation withdraw",
             "2FA"
         ]
@@ -332,7 +326,7 @@ export const items = [
         "geoAvailabilityExceptions": ["USA", "Bangladesh", "China", "Iraq", "Pakistan"],
         "keyPoints": [
             "Industry-highest returns. Get a huge 12% interest rate on stablecoin deposits.",
-            "Earn Bitcoin, BNB, USDT, USDC, PAX, TUSD. Turn your cold assets into hot profit instantly by depositing crypto in your YouHodler wallet. Interest payments are deposited directly into your wallet every month.",
+            "Get your gains however you like. You can withdraw your stablecoins to a credit card or bank account (SWIFT or SEPA).",
             "Multiply your funds with Multi HODL™. Boost your savings and keep your daily interest. Play with your crypto and find the right balance: take a limited risk VS an asymmetrical high level of potential profit.",
             "Get your crypto anytime. Withdraw your funds at any time with zero fees.",
             "Protected. All savings protected with our own security fund of $1M."
