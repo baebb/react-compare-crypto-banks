@@ -11,15 +11,15 @@
 }
 
 .nav-logo {
-    height: 50px;
+    height: 40px;
     .nav-logo__wide {
-        height: 50px;
+        height: 40px;
         @include screen--mobile {
             display: none;
         }
     }
     .nav-logo__fav {
-        height: 50px;
+        height: 40px;
         @include screen--desktop {
             display: none;
         }

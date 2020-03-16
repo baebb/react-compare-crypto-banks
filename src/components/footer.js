@@ -3,7 +3,7 @@ import React from 'react';
 
 // Local Dependencies
 import { Link } from 'components/Router';
-import IconLogo from '../../public/images/logo/ccb-temp-icon.svg';
+import IconLogo from '../../public/images/logo/DN-logo-icon.png';
 
 export default function Footer() {
     return (
