@@ -57,6 +57,10 @@ export default {
             // environment: process.env.CONTENTFUL_ENVIRONMENT_ID_PROD,
         });
 
+        const { items: interestAccounts } = await contentAPI.getEntries({
+            content_type: 'interestAccount'
+        });
+
         const { items: reviews } = await contentAPI.getEntries({
             content_type: 'review'
         });
@@ -81,6 +85,7 @@ export default {
                 template: 'src/pages/interest-accounts-page',
                 getData: () => ({
                     reviews,
+                    interestAccounts
                 }),
             },
             {

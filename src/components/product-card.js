@@ -7,7 +7,7 @@ import { Link } from 'components/Router';
 import AllCryptoRatesPopup from './all-crypto-rates-popup';
 
 // Utility Dependencies
-import { productLogos } from '../selectors';
+import { chooseDisplayCurrencies } from '../selectors';
 
 class ProductCard extends Component {
     // static propTypes = {
@@ -33,31 +33,48 @@ class ProductCard extends Component {
         const { keyPointsExpand } = this.state;
         const { product, rating = 0, reviewLink = null } = this.props;
         const {
-            id,
-            title,
-            companyName,
+            productTitle,
+            company,
+            links,
             keyPoints,
-            geoAvailability,
-            geoAvailabilityExceptions,
-            interestPayout,
-            lockUpPeriod,
+            geoExceptions = [],
             security,
-            savingsInterestRate,
-            displayCurrencies
+            interestPayout,
+            compounding,
+            terms,
+            interestRates
         } = product;
+        const { fields: companyData } = company;
+        const {
+            name: companyName,
+            id,
+            logo
+        } = companyData;
+
+        const logoUrl = logo.fields.file.url;
+        const logoName = logo.fields.title;
+        const productLink = links.default;
+
         const displayKeyPoints = keyPointsExpand ? keyPoints : keyPoints.slice(0, 3);
+        const displayCurrencies = chooseDisplayCurrencies(interestRates);
+
+        // console.log('product', product);
+
+        // return (
+        //     <div></div>
+        // );
 
         return (
-            <div className="product-card" key={title}>
+            <div className="product-card" key={productTitle}>
                 <div className="product-summary">
                     <div className="row">
                         <div className="col-xs-12 col-sm-3">
                             <div className="product-summary__cta-column">
                                 <div className="product-summary__logo-img">
-                                    <img alt={`${title}-logo`} src={productLogos[id]} />
+                                    <img alt={logoName} src={logoUrl} />
                                 </div>
                                 <div className="product-summary__mobile-text hide-desktop">
-                                    <h3 className="product-summary__heading">{title}</h3>
+                                    <h3 className="product-summary__heading">{productTitle}</h3>
                                     <div className="product-summary__rating">
                                         {reviewLink ?
                                             <>
@@ -86,7 +103,7 @@ class ProductCard extends Component {
                                     </div>
                                 </div>
                                 <div className="product-summary__cta-button">
-                                    <a href="https://www.rossdyson.com" target="_blank">
+                                    <a href={productLink} target="_blank">
                                         <button type="button" className="callout-button callout-button--primary">
                                             Apply now
                                         </button>
@@ -99,7 +116,7 @@ class ProductCard extends Component {
                         </div>
                         <div className="col-xs-12 col-sm-9">
                             <div className="product-summary__text-column">
-                                <h3 className="product-summary__heading hide-mobile">{title}</h3>
+                                <h3 className="product-summary__heading hide-mobile">{productTitle}</h3>
                                 <div className="product-summary__rating hide-mobile">
                                     {reviewLink ?
                                         <>
@@ -149,13 +166,14 @@ class ProductCard extends Component {
                             <div className="product-key-details__column">
                                 <h5 className="product-key-details__heading">Availability</h5>
                                 <div className="product-key-details__text">
-                                    {geoAvailabilityExceptions.length > 1 ?
-                                        <span>
-                                            {`${geoAvailability} except `}
-                                            {geoAvailabilityExceptions.join(', ')}
-                                        </span>
+                                    {geoExceptions.length > 1 ?
+                                        <div>
+                                            <b>Worldwide</b>
+                                            <span>, excluding: </span>
+                                            {geoExceptions.join(', ')}
+                                        </div>
                                         :
-                                        <span>{geoAvailability}</span>
+                                        <div><b>Worldwide</b></div>
                                     }
                                 </div>
                             </div>
@@ -163,8 +181,11 @@ class ProductCard extends Component {
                         <div className="col-xs-12 col-sm-3">
                             <div className="product-key-details__column">
                                 <h5 className="product-key-details__heading">Interest details</h5>
-                                <p className="product-key-details__text">{interestPayout}</p>
-                                <p className="product-key-details__text">{lockUpPeriod}</p>
+                                <p className="product-key-details__text">
+                                    {compounding ? 'Compounding' : 'Non-compounding'}
+                                </p>
+                                <p className="product-key-details__text">{`Paid ${interestPayout}`}</p>
+                                <p className="product-key-details__text">{`Terms: ${terms.join(', ')}`}</p>
                             </div>
                         </div>
                         <div className="col-xs-12 col-sm-3">
@@ -177,15 +198,15 @@ class ProductCard extends Component {
                         </div>
                         <div className="col-xs-12 col-sm-3">
                             <div className="product-key-details__column">
-                                <h5 className="product-key-details__heading product-key-details__heading--interest-rate">Interest rate</h5>
+                                <h5 className="product-key-details__heading product-key-details__heading--interest-rate">Interest rates</h5>
                                 {displayCurrencies.map((currency) => (
                                     <p className="product-key-details__text" key={currency}>
                                         <span>{`${currency}: `}</span>
-                                        <span className="product-key-details__rate">{`${savingsInterestRate[currency]}%`}</span>
+                                        <span className="product-key-details__rate">{`${interestRates[currency]}%`}</span>
                                     </p>
                                 ))}
-                                {Object.keys(savingsInterestRate).length > 3 &&
-                                    <AllCryptoRatesPopup savingsInterestRate={savingsInterestRate} />
+                                {Object.keys(interestRates).length > 3 &&
+                                    <AllCryptoRatesPopup savingsInterestRate={interestRates} />
                                 }
                             </div>
                         </div>

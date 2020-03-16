@@ -19,15 +19,15 @@ export const productLogos = {
     ledn: lednLogo
 };
 
-export const specialIds = ['blockFi', 'youHodler', 'ledn', 'celsiusNetwork'];
+export const specialIds = ['blockFi', 'youHodler', 'ledn', 'coinloan', 'hodlnaut', 'celsiusNetwork'];
 
-export const sortForMoney = (items, comparator) => {
+export const sortForMoney = (items) => {
     const sortedArray = [];
     const specialItems = [];
     const nonSpecialItems = [];
 
     items.forEach(item => {
-        const orderLocation = specialIds.indexOf(item[comparator]);
+        const orderLocation = specialIds.indexOf(item.fields.company.fields.id);
 
         if (orderLocation !== -1) {
             specialItems[orderLocation] = item;
@@ -75,4 +75,43 @@ export const getReviewLinks = (reviews) => {
     });
 
     return links;
+};
+
+export const chooseDisplayCurrencies = interestRates => {
+    const displayCount = 3;
+    let displayCurrencies = [];
+
+    if (interestRates['BTC'] && displayCurrencies.length < displayCount) {
+        displayCurrencies.push('BTC');
+    }
+
+    if (interestRates['ETH'] && displayCurrencies.length < displayCount) {
+        displayCurrencies.push('ETH');
+    }
+
+    if (interestRates['USDT'] && displayCurrencies.length < displayCount) {
+        displayCurrencies.push('USDT');
+    }
+
+    if (interestRates['USDC'] && displayCurrencies.length < displayCount) {
+        displayCurrencies.push('USDC');
+    }
+
+    if (interestRates['DAI'] && displayCurrencies.length < displayCount) {
+        displayCurrencies.push('DAI');
+    }
+
+    if (interestRates['TUSD'] && displayCurrencies.length < displayCount) {
+        displayCurrencies.push('TUSD');
+    }
+
+    if (interestRates['PAX'] && displayCurrencies.length < displayCount) {
+        displayCurrencies.push('PAX');
+    }
+
+    if (interestRates['BUSD'] && displayCurrencies.length < displayCount) {
+        displayCurrencies.push('BUSD');
+    }
+
+    return displayCurrencies;
 };

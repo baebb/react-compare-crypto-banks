@@ -339,4 +339,4 @@ export const items = [
     }
 ];
 
-export const sortedProducts = sortForMoney(items, 'id');
+// export const sortedProducts = sortForMoney(items, 'id');

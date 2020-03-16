@@ -6,7 +6,7 @@ const AllCryptoRatesPopup = ({ savingsInterestRate }) => {
     return (
         <div className="product-key-details__more-info-wrapper">
             <Popup
-                trigger={<button className="link-button">See all currencies</button>}
+                trigger={<button className="link-button">See all rates</button>}
                 position="top center"
                 on="hover"
             >

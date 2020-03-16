@@ -6,19 +6,19 @@ import { useRouteData, Head } from 'react-static';
 import ProductCard from '../components/product-card';
 
 // Utility Dependencies
-import { getReviewScores, getReviewLinks } from '../selectors';
+import { getReviewScores, getReviewLinks, sortForMoney } from '../selectors';
 
 // Data
-import { sortedProducts } from '../demoData';
 const heading = 'Grow your crypto portfolio ';
 const calloutWord = 'passively';
 
 export default function InterestAccountsPage() {
-    const { reviews } = useRouteData();
+    const { reviews, interestAccounts } = useRouteData();
 
     const reviewScores = getReviewScores(reviews);
     const reviewLinks = getReviewLinks(reviews);
-    const productsCount = sortedProducts.length;
+    const productsCount = interestAccounts.length;
+    const sortedInterestAccounts = sortForMoney(interestAccounts);
 
     const metaTitle = `Crypto Interest Accounts | Up to 12% p.a. (Compare ${productsCount} Offers)`;
     const metaDescription = `DeFi Nerd ranks ${productsCount} of the highest earning crypto interest accounts. Apply and earn up to 12% p.a. on your crypto today`;
@@ -49,12 +49,12 @@ export default function InterestAccountsPage() {
             <div className="banner-section">
             </div>
             <div className="products-section">
-                {sortedProducts.map(product =>
+                {sortedInterestAccounts.map(({ fields: interestAccount }) =>
                     <ProductCard
-                        product={product}
-                        key={product.id}
-                        rating={reviewScores[product.id]}
-                        reviewLink={reviewLinks[product.id]}
+                        product={interestAccount}
+                        key={interestAccount.productTitle}
+                        rating={reviewScores[interestAccount.company.fields.id]}
+                        reviewLink={reviewLinks[interestAccount.company.fields.id]}
                     />
                 )}
             </div>
