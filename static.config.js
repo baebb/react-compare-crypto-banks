@@ -8,7 +8,7 @@ const buildEnv = process.env.BUILD_ENV || 'prod';
 
 const config = {
     prod: {
-        SITE_URL: 'https://www.defi-nerd.com',
+        SITE_URL: 'https://www.defi-nerd.com/',
         CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_PROD,
         CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_PROD,
         GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_PROD
@@ -23,6 +23,12 @@ const config = {
         SITE_URL: 'https://compare-crypto-banks-test.firebaseapp.com/',
         CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_TEST,
         CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_TEST,
+        GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_STAGING
+    },
+    local: {
+        SITE_URL: 'http://localhost:3000/',
+        CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_PROD,
+        CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_PROD,
         GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_STAGING
     }
 };
@@ -131,7 +137,7 @@ export default {
         [
             'react-static-plugin-favicons',
             {
-                inputFile: path.resolve('./public/images/logo/ccb-temp-icon.svg'),
+                inputFile: path.resolve('./public/images/logo/DN-logo-icon.png'),
                 configuration: {
                     start_url: '/',
                     icons: {
