@@ -117,6 +117,7 @@ export default {
                     template: 'src/containers/review-page',
                     getData: () => ({
                         review,
+                        interestAccounts
                     }),
                 })),
             },

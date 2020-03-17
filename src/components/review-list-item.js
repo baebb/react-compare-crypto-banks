@@ -16,7 +16,7 @@ const ReviewListItem = ({ review, interestAccount }) => {
         <div className="interest-accounts-section__review-list-item">
             <div className="row">
                 <div className="col-xs-4">
-                    <Link to={`/reviews/${slug}/`}>{productTitle}</Link>
+                    <Link to={`/reviews/${slug}`}>{productTitle}</Link>
                 </div>
                 <div className="col-xs-3 col-sm-1 interest-accounts-section__review-list-item-score">
                     {rating}

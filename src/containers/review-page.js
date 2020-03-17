@@ -7,16 +7,12 @@ import StarRatings from 'react-star-ratings';
 // Component Dependencies
 import ProductCardMini from '../components/product-card-mini';
 
-// Data
-import { items } from '../demoData';
-
 // Utility Dependencies
-import { formatPublishDate } from '../selectors';
+import { formatPublishDate, safeGet } from '../selectors';
 
 export default function ReviewPage() {
-    const { review } = useRouteData();
+    const { review, interestAccounts } = useRouteData();
     const {
-        productId,
         title: reviewTitle,
         metaDescription = '',
         description,
@@ -29,8 +25,10 @@ export default function ReviewPage() {
     } = review;
     const { name: authorName } = author.fields;
 
-    const productData = items.find(product => productId === product.id);
-    const { title: productTitle } = productData;
+    const companyId = safeGet(['company', 'sys', 'id'], review);
+    const { fields: interestAccount } = interestAccounts.find(({ fields: item }) =>
+        safeGet(['company', 'sys', 'id'], item) === companyId);
+    const { productTitle } = interestAccount;
     const cleanPublishDate = formatPublishDate(publishDate);
     const metaTitle = `${productTitle} Review | DeFi Nerd`;
 
@@ -75,7 +73,7 @@ export default function ReviewPage() {
                         />
                     </div>
                 </div>
-                <ProductCardMini product={productData} rating={rating} />
+                <ProductCardMini product={interestAccount} rating={rating} />
             </div>
             <div className="pros-cons-section">
                 <h2 className="pros-cons-section__title">Pros & Cons</h2>

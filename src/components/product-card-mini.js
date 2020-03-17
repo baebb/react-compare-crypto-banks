@@ -4,10 +4,9 @@ import StarRatings from 'react-star-ratings';
 
 // Component Dependencies
 import AllCryptoRatesPopup from './all-crypto-rates-popup';
-import GeoExceptionsPopup from './geo-exceptions-popup';
 
 // Utility Dependencies
-import { productLogos } from '../selectors';
+import { chooseDisplayCurrencies, safeGet } from '../selectors';
 
 class ProductCardMini extends Component {
     // static propTypes = {
@@ -17,29 +16,39 @@ class ProductCardMini extends Component {
     render() {
         const { product, rating } = this.props;
         const {
-            id,
-            title,
-            companyName,
-            geoAvailability,
-            geoAvailabilityExceptions,
-            interestPayout,
-            lockUpPeriod,
+            productTitle,
+            company,
+            links,
+            geoExceptions = [],
             security,
-            savingsInterestRate,
-            displayCurrencies
+            interestPayout,
+            compounding,
+            terms,
+            interestRates
         } = product;
+        const { fields: companyData } = company;
+        const {
+            name: companyName,
+            logo
+        } = companyData;
+
+        const logoUrl = safeGet(['fields', 'file', 'url'], logo);
+        const logoName = safeGet(['fields', 'title'], logo);
+        const displayCurrencies = chooseDisplayCurrencies(interestRates);
+        const productLink = links.default;
+
 
         return (
-            <div className="product-card product-card--mini" key={title}>
+            <div className="product-card product-card--mini" key={productTitle}>
                 <div className="product-summary">
                     <div className="row">
                         <div className="col-xs-12 col-sm-3">
                             <div className="product-summary__cta-column">
                                 <div className="product-summary__logo-img">
-                                    <img alt={`${title}-logo`} src={productLogos[id]} />
+                                    <img alt={logoName} src={logoUrl} />
                                 </div>
                                 <div className="product-summary__mobile-text hide-desktop">
-                                    <h3 className="product-summary__heading">{title}</h3>
+                                    <h3 className="product-summary__heading">{productTitle}</h3>
                                     <div className="product-summary__rating">
                                         <span className="product-summary__star-rating">
                                             <StarRatings
@@ -55,7 +64,7 @@ class ProductCardMini extends Component {
                                     </div>
                                 </div>
                                 <div className="product-summary__cta-button">
-                                    <a href="https://www.rossdyson.com" target="_blank">
+                                    <a href={productLink} target="_blank">
                                         <button  type="button" className="callout-button callout-button--primary">
                                             Apply now
                                         </button>
@@ -68,7 +77,7 @@ class ProductCardMini extends Component {
                         </div>
                         <div className="col-xs-12 col-sm-9">
                             <div className="product-summary__text-column">
-                                <h3 className="product-summary__heading hide-mobile">{title}</h3>
+                                <h3 className="product-summary__heading hide-mobile">{productTitle}</h3>
                                 <div className="product-summary__rating hide-mobile">
                                     <span className="product-summary__star-rating">
                                         <StarRatings
@@ -89,13 +98,14 @@ class ProductCardMini extends Component {
                                         <div className="product-key-details__column">
                                             <h5 className="product-key-details__heading">Availability</h5>
                                             <div className="product-key-details__text">
-                                                {geoAvailabilityExceptions.length > 1 ?
-                                                    <span>
-                                                        {`${geoAvailability} except `}
-                                                        {geoAvailabilityExceptions.join(', ')}
-                                                    </span>
+                                                {geoExceptions.length > 1 ?
+                                                    <div>
+                                                        <b>Worldwide</b>
+                                                        <span>, excluding: </span>
+                                                        {geoExceptions.join(', ')}
+                                                    </div>
                                                     :
-                                                    <span>{geoAvailability}</span>
+                                                    <div><b>Worldwide</b></div>
                                                 }
                                             </div>
                                         </div>
@@ -103,8 +113,11 @@ class ProductCardMini extends Component {
                                     <div className="col-xs-12 col-sm-3">
                                         <div className="product-key-details__column">
                                             <h5 className="product-key-details__heading">Interest details</h5>
-                                            <p className="product-key-details__text">{interestPayout}</p>
-                                            <p className="product-key-details__text">{lockUpPeriod}</p>
+                                            <p className="product-key-details__text">
+                                                {compounding ? 'Compounding' : 'Non-compounding'}
+                                            </p>
+                                            <p className="product-key-details__text">{`Paid ${interestPayout}`}</p>
+                                            <p className="product-key-details__text">{`Terms: ${terms.join(', ')}`}</p>
                                         </div>
                                     </div>
                                     <div className="col-xs-12 col-sm-3">
@@ -121,11 +134,11 @@ class ProductCardMini extends Component {
                                             {displayCurrencies.map((currency) => (
                                                 <p className="product-key-details__text" key={currency}>
                                                     <span>{`${currency}: `}</span>
-                                                    <span className="product-key-details__rate">{`${savingsInterestRate[currency]}%`}</span>
+                                                    <span className="product-key-details__rate">{`${interestRates[currency]}%`}</span>
                                                 </p>
                                             ))}
-                                            {Object.keys(savingsInterestRate).length > 3 &&
-                                                <AllCryptoRatesPopup savingsInterestRate={savingsInterestRate} />
+                                            {Object.keys(interestRates).length > 3 &&
+                                                <AllCryptoRatesPopup savingsInterestRate={interestRates} />
                                             }
                                         </div>
                                     </div>

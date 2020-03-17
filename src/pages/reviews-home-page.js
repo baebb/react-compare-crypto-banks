@@ -37,7 +37,6 @@ export default function ReviewsHomePage() {
                     </div>
                     {reviews.map(({ fields: review }) => {
                         const companyId = safeGet(['company', 'sys', 'id'], review);
-                        // const productData = items.find(product => productId === product.id);
                         const { fields: interestAccount } = interestAccounts.find(({ fields: item }) =>
                             safeGet(['company', 'sys', 'id'], item) === companyId);
 

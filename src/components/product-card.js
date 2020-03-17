@@ -7,7 +7,7 @@ import { Link } from 'components/Router';
 import AllCryptoRatesPopup from './all-crypto-rates-popup';
 
 // Utility Dependencies
-import { chooseDisplayCurrencies } from '../selectors';
+import { chooseDisplayCurrencies, safeGet } from '../selectors';
 
 class ProductCard extends Component {
     // static propTypes = {
@@ -47,12 +47,11 @@ class ProductCard extends Component {
         const { fields: companyData } = company;
         const {
             name: companyName,
-            id,
             logo
         } = companyData;
 
-        const logoUrl = logo.fields.file.url;
-        const logoName = logo.fields.title;
+        const logoUrl = safeGet(['fields', 'file', 'url'], logo);
+        const logoName = safeGet(['fields', 'title'], logo);
         const productLink = links.default;
 
         const displayKeyPoints = keyPointsExpand ? keyPoints : keyPoints.slice(0, 3);
