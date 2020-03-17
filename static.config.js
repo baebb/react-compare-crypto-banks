@@ -137,7 +137,7 @@ export default {
         [
             'react-static-plugin-favicons',
             {
-                inputFile: path.resolve('./public/images/logo/DN-logo-icon.png'),
+                inputFile: path.resolve('./public/images/logo/DN-logo-eye-only.png'),
                 configuration: {
                     start_url: '/',
                     icons: {

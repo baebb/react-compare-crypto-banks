@@ -3,7 +3,6 @@ import React from 'react';
 
 // Local Dependencies
 import { Link } from 'components/Router';
-// import IconLogo from '../../public/images/logo/DN-logo-wide-icon.png';
 import WideIconLogo from '../../public/images/logo/DN-logo-wide-icon.png';
 import WideLogo from '../../public/images/logo/DN-logo-wide.png';
 
