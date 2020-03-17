@@ -3,7 +3,8 @@ import React from 'react';
 
 // Local Dependencies
 import { Link } from 'components/Router';
-import IconLogo from '../../public/images/logo/DN-logo-icon.png';
+// import IconLogo from '../../public/images/logo/DN-logo-wide-icon.png';
+import WideIconLogo from '../../public/images/logo/DN-logo-wide-icon.png';
 import WideLogo from '../../public/images/logo/DN-logo-wide.png';
 
 export default function NavBar() {
@@ -22,7 +23,7 @@ export default function NavBar() {
                             </Link>
                             <Link to="/">
                                 <img
-                                    src={IconLogo}
+                                    src={WideIconLogo}
                                     className="nav-logo nav-logo__fav"
                                     alt="DeFi Nerd favicon logo"
                                 />

@@ -3,7 +3,7 @@ import React from 'react';
 
 // Local Dependencies
 import { Link } from 'components/Router';
-import IconLogo from '../../public/images/logo/DN-logo-icon.png';
+import WideIconLogo from '../../public/images/logo/DN-logo-wide-icon.png';
 
 export default function Footer() {
     return (
@@ -44,7 +44,7 @@ export default function Footer() {
                     <div className="footer-content__brand-img">
                         <Link to="/">
                             <img
-                                src={IconLogo}
+                                src={WideIconLogo}
                                 alt="DeFi Nerd favicon logo"
                             />
                         </Link>
