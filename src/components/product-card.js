@@ -58,12 +58,6 @@ class ProductCard extends Component {
         const displayKeyPoints = keyPointsExpand ? keyPoints : keyPoints.slice(0, 3);
         const displayCurrencies = chooseDisplayCurrencies(interestRates);
 
-        // console.log('product', product);
-
-        // return (
-        //     <div></div>
-        // );
-
         return (
             <div className="product-card" key={productTitle}>
                 <div className="product-summary">

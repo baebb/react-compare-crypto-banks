@@ -21,6 +21,10 @@ export const productLogos = {
 
 export const specialIds = ['blockFi', 'youHodler', 'ledn', 'coinloan', 'hodlnaut', 'celsiusNetwork'];
 
+export const safeGet = (path, object) =>
+    path.reduce((xs, x) =>
+        (xs && xs[x]) ? xs[x] : null, object);
+
 export const sortForMoney = (items) => {
     const sortedArray = [];
     const specialItems = [];

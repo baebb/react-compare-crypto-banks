@@ -4,25 +4,19 @@ import React from 'react';
 // Local Dependencies
 import { Link } from 'components/Router';
 
-// Data
-import { items } from '../demoData';
+// Util Dependencies
+import { chooseDisplayCurrencies } from '../selectors';
 
-const ReviewListItem = ({ review }) => {
-    const { productId, slug, rating } = review;
-    const productData = items.find(product => productId === product.id);
-    const {
-        title,
-        displayCurrencies,
-        savingsInterestRate,
-        geoAvailability,
-        geoAvailabilityExceptions
-    } = productData;
+const ReviewListItem = ({ review, interestAccount }) => {
+    const { slug, rating } = review;
+    const { productTitle, interestRates, geoExceptions = [] } = interestAccount;
+    const displayCurrencies = chooseDisplayCurrencies(interestRates);
 
     return (
         <div className="interest-accounts-section__review-list-item">
             <div className="row">
                 <div className="col-xs-4">
-                    <Link to={`/reviews/${slug}/`}>{title}</Link>
+                    <Link to={`/reviews/${slug}/`}>{productTitle}</Link>
                 </div>
                 <div className="col-xs-3 col-sm-1 interest-accounts-section__review-list-item-score">
                     {rating}
@@ -34,9 +28,9 @@ const ReviewListItem = ({ review }) => {
                         </div>
                         <div>
                             {displayCurrencies.map((currency) => (
-                                <span key={currency}>{`${currency}: ${savingsInterestRate[currency]}% `}</span>
+                                <span key={currency}>{`${currency}: ${interestRates[currency]}% `}</span>
                             ))}
-                            {Object.keys(savingsInterestRate).length > 3 &&
+                            {Object.keys(interestRates).length > 3 &&
                                 <span>+more</span>
                             }
                         </div>
@@ -46,13 +40,13 @@ const ReviewListItem = ({ review }) => {
                             Availability:
                         </div>
                         <div>
-                            {geoAvailabilityExceptions.length > 1 ?
-                                <span>
-                                    {`${geoAvailability} except `}
-                                    {geoAvailabilityExceptions.join(', ')}
-                                </span>
+                            {geoExceptions.length > 1 ?
+                                <div>
+                                    <span>Not available in: </span>
+                                    {geoExceptions.join(', ')}
+                                </div>
                                 :
-                                <span>{geoAvailability}</span>
+                                <div>Worldwide</div>
                             }
                         </div>
                     </div>

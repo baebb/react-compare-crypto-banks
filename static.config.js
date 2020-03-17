@@ -63,6 +63,10 @@ export default {
             // environment: process.env.CONTENTFUL_ENVIRONMENT_ID_PROD,
         });
 
+        // const { items: companies } = await contentAPI.getEntries({
+        //     content_type: 'company'
+        // });
+
         const { items: interestAccounts } = await contentAPI.getEntries({
             content_type: 'interestAccount'
         });
@@ -106,6 +110,7 @@ export default {
                 template: 'src/pages/reviews-home-page',
                 getData: () => ({
                     reviews,
+                    interestAccounts
                 }),
                 children: reviews.map(({ fields: review }) => ({
                     path: `/${review.slug}`,

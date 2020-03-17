@@ -2,6 +2,9 @@
 import React from 'react';
 import { useRouteData, Head } from 'react-static';
 
+// Utility Dependencies
+import { safeGet } from '../selectors';
+
 // Local Dependencies
 import ReviewListItem from 'components/review-list-item';
 
@@ -10,7 +13,7 @@ const metaTitle = 'Reviews | Crypto Interest Accounts, Loans and Credit Cards';
 const metaDescription = 'Our DeFi Nerd experts review the most popular crypto interest accounts, loans and credit cards on the market - and turn up a few gems you may never have heard of';
 
 export default function ReviewsHomePage() {
-    const { reviews } = useRouteData();
+    const { reviews, interestAccounts } = useRouteData();
 
     return (
         <div className="reviews-home-page">
@@ -32,9 +35,20 @@ export default function ReviewsHomePage() {
                         <div className="col-xs-3 col-sm-1">Score</div>
                         <div className="col-xs-5 col-sm-7">Details</div>
                     </div>
-                    {reviews.map(({ fields: review }) => (
-                        <ReviewListItem review={review} key={review.slug} />
-                    ))}
+                    {reviews.map(({ fields: review }) => {
+                        const companyId = safeGet(['company', 'sys', 'id'], review);
+                        // const productData = items.find(product => productId === product.id);
+                        const { fields: interestAccount } = interestAccounts.find(({ fields: item }) =>
+                            safeGet(['company', 'sys', 'id'], item) === companyId);
+
+                        return (
+                            <ReviewListItem
+                                review={review}
+                                interestAccount={interestAccount}
+                                key={review.slug}
+                            />
+                        );
+                    })}
                 </div>
             </div>
         </div>
