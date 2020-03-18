@@ -3,7 +3,9 @@ import React from 'react';
 
 // Local Dependencies
 import { Link } from 'components/Router';
-import WideIconLogo from '../../public/images/logo/DN-logo-wide-icon.png';
+
+// Image Dependencies
+import WideIconLogo from '../../public/images/logo/DN-logo-wide-icon.svg';
 
 export default function Footer() {
     return (
