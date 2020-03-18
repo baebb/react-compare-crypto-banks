@@ -5,8 +5,8 @@ import React from 'react';
 import { Link } from 'components/Router';
 
 // Image Dependencies
-import WideIconLogo from '../../public/images/logo/DN-logo-wide-icon.svg';
 import WideLogo from '../../public/images/logo/DN-logo-wide.svg';
+import WideIconLogo from '../../public/images/logo/DN-logo-wide-icon.svg';
 
 export default function NavBar() {
     return (
