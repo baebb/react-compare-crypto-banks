@@ -1,7 +1,11 @@
 .home-page {
     .intro-section {
-        margin: 96px 0;
+        margin-top: 96px;
         text-align: center;
+
+        @include screen--mobile {
+            margin-top: 48px;
+        }
 
         .intro-section__heading {
             margin-bottom: 40px;
@@ -10,6 +14,59 @@
         .intro-section__sub-heading {
             font-size: 24px;
             line-height: 30px;
+        }
+    }
+
+    .links-section {
+        margin-top: 40px;
+        margin-bottom: 96px;
+
+        .links-section__heading {
+            text-align: center;
+            font-size: 24px;
+        }
+        .links-section__link-tile {
+            box-shadow: 0 4px 8px 0 rgba(108,127,135,.1),0 1px 4px 0 rgba(108,127,135,.36);
+            height: 80px;
+
+            @include screen--desktop {
+                padding-top: 24px;
+                max-width: 160px;
+                height: 160px;
+            }
+        }
+        .links-section__icon-wrapper {
+            display: flex;
+            justify-content: center;
+            @include screen--mobile {
+                padding: 8px 0;
+            }
+        }
+        .links-section__icon-background {
+            background-color: $red-1;
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+        }
+        .links-section__icon {
+            padding: 0.75rem ;
+        }
+        .links-section__link-text-wrapper {
+            display: flex;
+            align-items: center;
+        }
+        .links-section__link-text {
+            @extend .wide-text;
+            color: $grey-2;
+            font-family: $gotham600;
+            text-transform: uppercase;
+            font-size: 0.8125rem;
+            margin-bottom: 0;
+
+            @include screen--mobile {
+                text-align: left;
+                margin: 0;
+            }
         }
     }
 }
