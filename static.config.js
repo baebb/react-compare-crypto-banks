@@ -99,6 +99,10 @@ export default {
                 }),
             },
             {
+                path: 'crypto-interest-accounts',
+                redirect: 'compare-crypto-interest-accounts',
+            },
+            {
                 path: 'privacy',
                 template: 'src/pages/privacy-page',
                 getData: () => ({
