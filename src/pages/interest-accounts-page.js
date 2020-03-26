@@ -13,7 +13,9 @@ const heading = 'Grow your crypto portfolio ';
 const calloutWord = 'passively';
 
 export default function InterestAccountsPage() {
-    const { reviews, interestAccounts } = useRouteData();
+    const { reviews, interestAccounts, rates } = useRouteData();
+
+    // console.log('rates', rates);
 
     const reviewScores = getReviewScores(reviews);
     const reviewLinks = getReviewLinks(reviews);

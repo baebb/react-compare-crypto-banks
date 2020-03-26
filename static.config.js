@@ -1,6 +1,7 @@
 // NPM Dependencies
 import 'dotenv/config';
 import React from 'react';
+import axios from 'axios';
 const contentful = require('contentful');
 const path = require('path');
 
@@ -11,25 +12,29 @@ const config = {
         SITE_URL: 'https://www.defi-nerd.com',
         CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_PROD,
         CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_PROD,
-        GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_PROD
+        GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_PROD,
+        LOANSCAN_KEY_PROD: process.env.LOANSCAN_KEY_PROD
     },
     staging: {
         SITE_URL: 'https://compare-crypto-banks-staging.firebaseapp.com',
         CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_STAGING,
         CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_STAGING,
-        GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_STAGING
+        GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_STAGING,
+        LOANSCAN_KEY_PROD: process.env.LOANSCAN_KEY_PROD
     },
     test: {
         SITE_URL: 'https://compare-crypto-banks-test.firebaseapp.com',
         CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_TEST,
         CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_TEST,
-        GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_STAGING
+        GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_STAGING,
+        LOANSCAN_KEY_PROD: process.env.LOANSCAN_KEY_PROD
     },
     local: {
         SITE_URL: 'http://localhost:3000',
         CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_PROD,
         CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_PROD,
-        GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_STAGING
+        GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_STAGING,
+        LOANSCAN_KEY_PROD: process.env.LOANSCAN_KEY_PROD
     }
 };
 
@@ -59,9 +64,18 @@ export default {
         const contentAPI = contentful.createClient({
             accessToken: config[buildEnv].CONTENTFUL_KEY,
             space: config[buildEnv].CONTENTFUL_SPACE_ID,
-            environment: 'master',
-            // environment: process.env.CONTENTFUL_ENVIRONMENT_ID_PROD,
+            environment: 'master'
         });
+
+        const loanScanApi = axios.create({
+            baseURL: 'https://api.loanscan.io/v1',
+            timeout: 16000,
+            headers: {
+                "x-api-key": config[buildEnv].LOANSCAN_KEY_PROD
+            }
+        });
+
+        const { data: rates } = await loanScanApi.get('/interest-rates');
 
         // const { items: companies } = await contentAPI.getEntries({
         //     content_type: 'company'
@@ -95,7 +109,8 @@ export default {
                 template: 'src/pages/interest-accounts-page',
                 getData: () => ({
                     reviews,
-                    interestAccounts
+                    interestAccounts,
+                    rates
                 }),
             },
             {
