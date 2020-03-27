@@ -1,23 +1,37 @@
-// Local Dependencies
-import nexoLogo from '../public/images/bankLogos/nexoLogo.svg';
-import blockFiLogo from '../public/images/bankLogos/blockfi.png';
-import youHodlerLogo from '../public/images/bankLogos/youHodlerLogo.svg';
-import lednLogo from '../public/images/bankLogos/lednLogo.png';
-import hodlnautLogo from '../public/images/bankLogos/hodlnautLogo.svg';
-import cryptoDotComLogo from '../public/images/bankLogos/cryptoDotComLogo.webp';
-import bitrueLogo from '../public/images/bankLogos/bitrueLogo.svg';
-import celsiusNetworkLogo from '../public/images/bankLogos/celsiusNetworkLogo.svg';
 
-export const productLogos = {
-    nexo: nexoLogo,
-    bitrue: bitrueLogo,
-    blockFi: blockFiLogo,
-    celsiusNetwork: celsiusNetworkLogo,
-    cryptoDotCom: cryptoDotComLogo,
-    hodlnaut: hodlnautLogo,
-    youHodler: youHodlerLogo,
-    ledn: lednLogo
+const loanScanNameMap = {
+    BlockFi: 'blockFi',
+    CryptoCom: 'cryptoDotCom',
+    dYdX: 'dYdX',
+    Celsius: 'celsiusNetwork',
+    CompoundV2: 'compound',
+    Nuo: 'nuo',
+    Hodlonaut: 'hodlnaut',
+    AaveVariable: 'aave',
+    Nexo: 'nexo',
+    Ledn: 'ledn'
 };
+
+
+// import nexoLogo from '../public/images/bankLogos/nexoLogo.svg';
+// import blockFiLogo from '../public/images/bankLogos/blockfi.png';
+// import youHodlerLogo from '../public/images/bankLogos/youHodlerLogo.svg';
+// import lednLogo from '../public/images/bankLogos/lednLogo.png';
+// import hodlnautLogo from '../public/images/bankLogos/hodlnautLogo.svg';
+// import cryptoDotComLogo from '../public/images/bankLogos/cryptoDotComLogo.webp';
+// import bitrueLogo from '../public/images/bankLogos/bitrueLogo.svg';
+// import celsiusNetworkLogo from '../public/images/bankLogos/celsiusNetworkLogo.svg';
+//
+// export const productLogos = {
+//     nexo: nexoLogo,
+//     bitrue: bitrueLogo,
+//     blockFi: blockFiLogo,
+//     celsiusNetwork: celsiusNetworkLogo,
+//     cryptoDotCom: cryptoDotComLogo,
+//     hodlnaut: hodlnautLogo,
+//     youHodler: youHodlerLogo,
+//     ledn: lednLogo
+// };
 
 export const specialIds = ['blockFi', 'youHodler', 'ledn', 'coinloan', 'hodlnaut', 'celsiusNetwork'];
 
@@ -57,6 +71,20 @@ export const formatPublishDate = (publishDate) => {
     const year = objDate.toLocaleString("en", { year: "numeric"});
 
     return `${month} ${day}, ${year}`;
+};
+
+export const getRealTimeInterestRates = (rates) => {
+    const ratesList = {};
+
+    rates.forEach((rate) => {
+        const lsId = rate.provider;
+        if (loanScanNameMap[lsId]) {
+            const dnId = loanScanNameMap[lsId];
+            ratesList[dnId] = rate.supply;
+        }
+    });
+
+    return ratesList;
 };
 
 export const getReviewScores = (reviews) => {

@@ -6,7 +6,7 @@ import { useRouteData, Head } from 'react-static';
 import ProductCard from '../components/product-card';
 
 // Utility Dependencies
-import { getReviewScores, getReviewLinks, sortForMoney } from '../selectors';
+import { getReviewScores, getReviewLinks, getRealTimeInterestRates, sortForMoney } from '../selectors';
 
 // Data
 const heading = 'Grow your crypto portfolio ';
@@ -15,8 +15,7 @@ const calloutWord = 'passively';
 export default function InterestAccountsPage() {
     const { reviews, interestAccounts, rates } = useRouteData();
 
-    // console.log('rates', rates);
-
+    const realTimeRates = getRealTimeInterestRates(rates);
     const reviewScores = getReviewScores(reviews);
     const reviewLinks = getReviewLinks(reviews);
     const productsCount = interestAccounts.length;
@@ -55,6 +54,7 @@ export default function InterestAccountsPage() {
                     <ProductCard
                         product={interestAccount}
                         key={interestAccount.productTitle}
+                        realTimeRate={realTimeRates[interestAccount.company.fields.id]}
                         rating={reviewScores[interestAccount.company.fields.id]}
                         reviewLink={reviewLinks[interestAccount.company.fields.id]}
                     />

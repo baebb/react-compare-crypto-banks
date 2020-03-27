@@ -31,7 +31,7 @@ class ProductCard extends Component {
 
     render() {
         const { keyPointsExpand } = this.state;
-        const { product, rating = 0, reviewLink = null } = this.props;
+        const { product, rating = 0, reviewLink = null, realTimeRate = null } = this.props;
         const {
             productTitle,
             company,
@@ -49,7 +49,7 @@ class ProductCard extends Component {
             name: companyName,
             logo
         } = companyData;
-
+        // console.log('realTimeRate', realTimeRate);
         const logoUrl = safeGet(['fields', 'file', 'url'], logo);
         const logoName = safeGet(['fields', 'title'], logo);
         const productLink = links.default;
