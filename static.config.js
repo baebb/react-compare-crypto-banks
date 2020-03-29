@@ -129,7 +129,8 @@ export default {
                 template: 'src/pages/reviews-home-page',
                 getData: () => ({
                     reviews,
-                    interestAccounts
+                    interestAccounts,
+                    rates
                 }),
                 children: reviews.map(({ fields: review }) => ({
                     path: `/${review.slug}`,

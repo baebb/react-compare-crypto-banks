@@ -3,7 +3,7 @@ import React from 'react';
 import { useRouteData, Head } from 'react-static';
 
 // Utility Dependencies
-import { safeGet } from '../selectors';
+import { getRealTimeInterestRates, safeGet } from '../selectors';
 
 // Local Dependencies
 import ReviewListItem from 'components/review-list-item';
@@ -13,7 +13,8 @@ const metaTitle = 'Reviews | Crypto Interest Accounts, Loans and Credit Cards';
 const metaDescription = 'Our DeFi Nerd experts review the most popular crypto interest accounts, loans and credit cards on the market - and turn up a few gems you may never have heard of';
 
 export default function ReviewsHomePage() {
-    const { reviews, interestAccounts } = useRouteData();
+    const { reviews, interestAccounts, rates } = useRouteData();
+    const realTimeRates = getRealTimeInterestRates(rates);
 
     return (
         <div className="reviews-home-page">
@@ -36,15 +37,18 @@ export default function ReviewsHomePage() {
                         <div className="col-xs-5 col-sm-7">Details</div>
                     </div>
                     {reviews.map(({ fields: review }) => {
-                        const companyId = safeGet(['company', 'sys', 'id'], review);
+                        const companySysId = safeGet(['company', 'sys', 'id'], review);
+                        const companyId = safeGet(['company', 'fields', 'id'], review);
                         const { fields: interestAccount } = interestAccounts.find(({ fields: item }) =>
-                            safeGet(['company', 'sys', 'id'], item) === companyId);
+                            safeGet(['company', 'sys', 'id'], item) === companySysId);
+                        const realTimeRate = realTimeRates[companyId];
 
                         return (
                             <ReviewListItem
+                                key={review.slug}
                                 review={review}
                                 interestAccount={interestAccount}
-                                key={review.slug}
+                                realTimeRate={realTimeRate}
                             />
                         );
                     })}

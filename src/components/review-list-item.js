@@ -5,12 +5,14 @@ import React from 'react';
 import { Link } from 'components/Router';
 
 // Util Dependencies
-import { chooseDisplayCurrencies } from '../selectors';
+import { chooseDisplayCurrencies, formatLoanScanRates } from '../selectors';
 
-const ReviewListItem = ({ review, interestAccount }) => {
+const ReviewListItem = ({ review, interestAccount, realTimeRate = null }) => {
     const { slug, rating } = review;
     const { productTitle, interestRates, geoExceptions = [] } = interestAccount;
-    const displayCurrencies = chooseDisplayCurrencies(interestRates);
+
+    const rates = realTimeRate ? formatLoanScanRates(realTimeRate) : interestRates;
+    const displayCurrencies = chooseDisplayCurrencies(rates);
 
     return (
         <div className="interest-accounts-section__review-list-item">
@@ -28,9 +30,9 @@ const ReviewListItem = ({ review, interestAccount }) => {
                         </div>
                         <div>
                             {displayCurrencies.map((currency) => (
-                                <span key={currency}>{`${currency}: ${interestRates[currency]}% `}</span>
+                                <span key={currency}>{`${currency}: ${rates[currency]}% `}</span>
                             ))}
-                            {Object.keys(interestRates).length > 3 &&
+                            {Object.keys(rates).length > 3 &&
                                 <span>+more</span>
                             }
                         </div>

@@ -28,13 +28,11 @@ export default function ReviewPage() {
     const companySysId = safeGet(['company', 'sys', 'id'], review);
     const companyId = safeGet(['company', 'fields', 'id'], review);
 
+    const realTimeRates = getRealTimeInterestRates(rates);
+    const cleanPublishDate = formatPublishDate(publishDate);
     const { fields: interestAccount } = interestAccounts.find(({ fields: item }) =>
         safeGet(['company', 'sys', 'id'], item) === companySysId);
-    const realTimeRates = getRealTimeInterestRates(rates);
     const { productTitle } = interestAccount;
-    const cleanPublishDate = formatPublishDate(publishDate);
-    // console.log('realTimeRates', realTimeRates);
-    // console.log('const companyId', companyId);
 
     const metaTitle = `${productTitle} Review | DeFi Nerd`;
 
