@@ -34,7 +34,7 @@ export default function NavBar() {
                     <div className="col-xs-6">
                         <div className="nav-buttons">
                             <div>
-                                <Link to="/compare-crypto-interest-accounts">
+                                <Link to="/crypto-interest-accounts">
                                     <button  type="button" className="nav-button">
                                         Interest Accounts
                                     </button>

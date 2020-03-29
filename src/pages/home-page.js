@@ -38,7 +38,7 @@ export default function HomePage() {
                     {subSubHeading}
                 </h4>
                 <div className="row center-xs">
-                    <Link to="/compare-crypto-interest-accounts" className="col-xs-12 links-section__link-tile">
+                    <Link to="/crypto-interest-accounts" className="col-xs-12 links-section__link-tile">
                         <div className="row">
                             <div className="col-xs-4 col-sm-12 links-section__icon-wrapper">
                                 <div className="links-section__icon-background">

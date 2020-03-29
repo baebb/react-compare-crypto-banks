@@ -15,7 +15,7 @@ export default function Footer() {
                     <div className="col-xs-12 col-sm-6">
                         <div className="footer-content__links">
                             <div>
-                                <Link to="/compare-crypto-interest-accounts" className="text-link text-link--hover-green">
+                                <Link to="/crypto-interest-accounts" className="text-link text-link--hover-green">
                                     Interest Accounts
                                 </Link>
                             </div>

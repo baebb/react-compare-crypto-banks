@@ -49,7 +49,7 @@ export default function BlogPostPage() {
             </div>
             <div className="banner-section">
                 <div className="hide-mobile">
-                    <Link to="/compare-crypto-interest-accounts">
+                    <Link to="/crypto-interest-accounts">
                         <div className="banner-card">
                             <div className="row">
                                 <div className="col-xs-12 col-sm-8">
@@ -74,7 +74,7 @@ export default function BlogPostPage() {
                                 <h3 className="banner-card__heading">{bannerTitle}</h3>
                                 <div className="banner-card__text">{bannerText}</div>
                                 <div className="banner-card__text-link">
-                                    <Link to="/compare-crypto-interest-accounts" className="text-link">
+                                    <Link to="/crypto-interest-accounts" className="text-link">
                                         View comparisons →
                                     </Link>
                                 </div>
