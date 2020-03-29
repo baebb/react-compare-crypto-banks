@@ -8,10 +8,10 @@ import StarRatings from 'react-star-ratings';
 import ProductCardMini from '../components/product-card-mini';
 
 // Utility Dependencies
-import { formatPublishDate, safeGet } from '../selectors';
+import { formatPublishDate, getRealTimeInterestRates, safeGet } from '../selectors';
 
 export default function ReviewPage() {
-    const { review, interestAccounts } = useRouteData();
+    const { review, interestAccounts, rates } = useRouteData();
     const {
         title: reviewTitle,
         metaDescription = '',
@@ -21,15 +21,21 @@ export default function ReviewPage() {
         rating,
         pros,
         cons,
-        body
+        body,
     } = review;
     const { name: authorName } = author.fields;
 
-    const companyId = safeGet(['company', 'sys', 'id'], review);
+    const companySysId = safeGet(['company', 'sys', 'id'], review);
+    const companyId = safeGet(['company', 'fields', 'id'], review);
+
     const { fields: interestAccount } = interestAccounts.find(({ fields: item }) =>
-        safeGet(['company', 'sys', 'id'], item) === companyId);
+        safeGet(['company', 'sys', 'id'], item) === companySysId);
+    const realTimeRates = getRealTimeInterestRates(rates);
     const { productTitle } = interestAccount;
     const cleanPublishDate = formatPublishDate(publishDate);
+    // console.log('realTimeRates', realTimeRates);
+    // console.log('const companyId', companyId);
+
     const metaTitle = `${productTitle} Review | DeFi Nerd`;
 
     return (
@@ -73,7 +79,11 @@ export default function ReviewPage() {
                         />
                     </div>
                 </div>
-                <ProductCardMini product={interestAccount} rating={rating} />
+                <ProductCardMini
+                    product={interestAccount}
+                    rating={rating}
+                    realTimeRates={realTimeRates[companyId]}
+                />
             </div>
             <div className="pros-cons-section">
                 <h2 className="pros-cons-section__title">Pros & Cons</h2>

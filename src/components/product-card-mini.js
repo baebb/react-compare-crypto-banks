@@ -6,7 +6,7 @@ import StarRatings from 'react-star-ratings';
 import AllCryptoRatesPopup from './all-crypto-rates-popup';
 
 // Utility Dependencies
-import { chooseDisplayCurrencies, safeGet } from '../selectors';
+import { chooseDisplayCurrencies, formatLoanScanRates, safeGet } from '../selectors';
 
 class ProductCardMini extends Component {
     // static propTypes = {
@@ -14,7 +14,7 @@ class ProductCardMini extends Component {
     // static defaultProps = {
     // };
     render() {
-        const { product, rating } = this.props;
+        const { product, rating, realTimeRates = null } = this.props;
         const {
             productTitle,
             company,
@@ -34,9 +34,10 @@ class ProductCardMini extends Component {
 
         const logoUrl = safeGet(['fields', 'file', 'url'], logo);
         const logoName = safeGet(['fields', 'title'], logo);
-        const displayCurrencies = chooseDisplayCurrencies(interestRates);
-        const productLink = links.default;
 
+        const rates = realTimeRates ? formatLoanScanRates(realTimeRates) : interestRates;
+        const displayCurrencies = chooseDisplayCurrencies(rates);
+        const productLink = links.default;
 
         return (
             <div className="product-card product-card--mini" key={productTitle}>
@@ -134,11 +135,11 @@ class ProductCardMini extends Component {
                                             {displayCurrencies.map((currency) => (
                                                 <p className="product-key-details__text" key={currency}>
                                                     <span>{`${currency}: `}</span>
-                                                    <span className="product-key-details__rate">{`${interestRates[currency]}%`}</span>
+                                                    <span className="product-key-details__rate">{`${rates[currency]}%`}</span>
                                                 </p>
                                             ))}
-                                            {Object.keys(interestRates).length > 3 &&
-                                                <AllCryptoRatesPopup savingsInterestRate={interestRates} />
+                                            {Object.keys(rates).length > 3 &&
+                                                <AllCryptoRatesPopup savingsInterestRate={rates} />
                                             }
                                         </div>
                                     </div>

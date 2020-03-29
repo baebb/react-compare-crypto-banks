@@ -7,7 +7,7 @@ import { Link } from 'components/Router';
 import AllCryptoRatesPopup from './all-crypto-rates-popup';
 
 // Utility Dependencies
-import { chooseDisplayCurrencies, safeGet } from '../selectors';
+import { chooseDisplayCurrencies, safeGet, formatLoanScanRates } from '../selectors';
 
 class ProductCard extends Component {
     // static propTypes = {
@@ -49,13 +49,14 @@ class ProductCard extends Component {
             name: companyName,
             logo
         } = companyData;
-        // console.log('realTimeRate', realTimeRate);
+
         const logoUrl = safeGet(['fields', 'file', 'url'], logo);
         const logoName = safeGet(['fields', 'title'], logo);
         const productLink = links.default;
 
+        const rates = realTimeRate ? formatLoanScanRates(realTimeRate) : interestRates;
         const displayKeyPoints = keyPointsExpand ? keyPoints : keyPoints.slice(0, 3);
-        const displayCurrencies = chooseDisplayCurrencies(interestRates);
+        const displayCurrencies = chooseDisplayCurrencies(rates);
 
         return (
             <div className="product-card" key={productTitle}>
@@ -195,11 +196,11 @@ class ProductCard extends Component {
                                 {displayCurrencies.map((currency) => (
                                     <p className="product-key-details__text" key={currency}>
                                         <span>{`${currency}: `}</span>
-                                        <span className="product-key-details__rate">{`${interestRates[currency]}%`}</span>
+                                        <span className="product-key-details__rate">{`${rates[currency]}%`}</span>
                                     </p>
                                 ))}
-                                {Object.keys(interestRates).length > 3 &&
-                                    <AllCryptoRatesPopup savingsInterestRate={interestRates} />
+                                {Object.keys(rates).length > 3 &&
+                                    <AllCryptoRatesPopup savingsInterestRate={rates} />
                                 }
                             </div>
                         </div>

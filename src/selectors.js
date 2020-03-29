@@ -12,6 +12,19 @@ const loanScanNameMap = {
     Ledn: 'ledn'
 };
 
+export const getRealTimeInterestRates = (rates) => {
+    const ratesList = {};
+
+    rates.forEach((rate) => {
+        const lsId = rate.provider;
+        if (loanScanNameMap[lsId]) {
+            const dnId = loanScanNameMap[lsId];
+            ratesList[dnId] = rate.supply;
+        }
+    });
+
+    return ratesList;
+};
 
 // import nexoLogo from '../public/images/bankLogos/nexoLogo.svg';
 // import blockFiLogo from '../public/images/bankLogos/blockfi.png';
@@ -73,20 +86,6 @@ export const formatPublishDate = (publishDate) => {
     return `${month} ${day}, ${year}`;
 };
 
-export const getRealTimeInterestRates = (rates) => {
-    const ratesList = {};
-
-    rates.forEach((rate) => {
-        const lsId = rate.provider;
-        if (loanScanNameMap[lsId]) {
-            const dnId = loanScanNameMap[lsId];
-            ratesList[dnId] = rate.supply;
-        }
-    });
-
-    return ratesList;
-};
-
 export const getReviewScores = (reviews) => {
     const scores = {};
 
@@ -146,4 +145,15 @@ export const chooseDisplayCurrencies = interestRates => {
     }
 
     return displayCurrencies;
+};
+
+export const formatLoanScanRates = (rates) => {
+    let formattedRates = {};
+
+    rates.forEach((item) => {
+        const { symbol, rate } = item;
+        formattedRates[symbol] = Number((rate*100).toFixed(2));
+    });
+
+    return formattedRates;
 };
