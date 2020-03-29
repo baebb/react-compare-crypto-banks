@@ -105,7 +105,7 @@ export default {
                 template: 'src/pages/home-page',
             },
             {
-                path: 'compare-crypto-interest-accounts',
+                path: 'crypto-interest-accounts',
                 template: 'src/pages/interest-accounts-page',
                 getData: () => ({
                     reviews,
@@ -114,8 +114,8 @@ export default {
                 }),
             },
             {
-                path: 'crypto-interest-accounts',
-                redirect: 'compare-crypto-interest-accounts',
+                path: 'compare-crypto-interest-accounts',
+                redirect: 'crypto-interest-accounts',
             },
             {
                 path: 'privacy',
