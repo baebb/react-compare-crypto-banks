@@ -17,15 +17,15 @@ const config = {
     },
     staging: {
         SITE_URL: 'https://compare-crypto-banks-staging.firebaseapp.com',
-        CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_STAGING,
-        CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_STAGING,
+        CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_PROD,
+        CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_PROD,
         GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_STAGING,
         LOANSCAN_KEY_PROD: process.env.LOANSCAN_KEY_PROD
     },
     test: {
         SITE_URL: 'https://compare-crypto-banks-test.firebaseapp.com',
-        CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_TEST,
-        CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_TEST,
+        CONTENTFUL_KEY: process.env.CONTENTFUL_KEY_PROD,
+        CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID_PROD,
         GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID_STAGING,
         LOANSCAN_KEY_PROD: process.env.LOANSCAN_KEY_PROD
     },
