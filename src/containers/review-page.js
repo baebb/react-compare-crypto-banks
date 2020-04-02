@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import StarRatings from 'react-star-ratings';
 
 // Component Dependencies
-import ProductCardMini from '../components/product-card-mini';
+import InterestProductCardMini from '../components/interest-product-card-mini';
 
 // Utility Dependencies
 import { formatPublishDate, getRealTimeInterestRates, safeGet } from '../selectors';
@@ -77,7 +77,7 @@ export default function ReviewPage() {
                         />
                     </div>
                 </div>
-                <ProductCardMini
+                <InterestProductCardMini
                     product={interestAccount}
                     rating={rating}
                     realTimeRates={realTimeRates[companyId]}

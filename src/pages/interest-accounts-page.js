@@ -3,7 +3,7 @@ import React from 'react';
 import { useRouteData, Head } from 'react-static';
 
 // Component Dependencies
-import ProductCard from '../components/product-card';
+import InterestProductCard from '../components/interest-product-card';
 
 // Utility Dependencies
 import { getReviewScores, getReviewLinks, getRealTimeInterestRates, sortForMoney } from '../selectors';
@@ -51,7 +51,7 @@ export default function InterestAccountsPage() {
             </div>
             <div className="products-section">
                 {sortedInterestAccounts.map(({ fields: interestAccount }) =>
-                    <ProductCard
+                    <InterestProductCard
                         product={interestAccount}
                         key={interestAccount.productTitle}
                         realTimeRate={realTimeRates[interestAccount.company.fields.id]}

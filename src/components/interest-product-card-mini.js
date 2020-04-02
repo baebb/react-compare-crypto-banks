@@ -8,7 +8,7 @@ import AllCryptoRatesPopup from './all-crypto-rates-popup';
 // Utility Dependencies
 import { chooseDisplayCurrencies, formatLoanScanRates, safeGet } from '../selectors';
 
-class ProductCardMini extends Component {
+class InterestProductCardMini extends Component {
     // static propTypes = {
     // };
     // static defaultProps = {
@@ -153,4 +153,4 @@ class ProductCardMini extends Component {
     }
 }
 
-export default ProductCardMini;
+export default InterestProductCardMini;
