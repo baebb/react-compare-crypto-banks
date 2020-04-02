@@ -85,6 +85,10 @@ export default {
             content_type: 'interestAccount'
         });
 
+        const { items: loans } = await contentAPI.getEntries({
+            content_type: 'loan'
+        });
+
         const { items: reviews } = await contentAPI.getEntries({
             content_type: 'review'
         });
@@ -116,6 +120,15 @@ export default {
             {
                 path: 'compare-crypto-interest-accounts',
                 redirect: 'crypto-interest-accounts',
+            },
+            {
+                path: 'crypto-loans',
+                template: 'src/pages/loans-page',
+                getData: () => ({
+                    reviews,
+                    loans,
+                    rates
+                }),
             },
             {
                 path: 'privacy',

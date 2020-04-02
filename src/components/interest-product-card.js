@@ -59,7 +59,7 @@ class InterestProductCard extends Component {
         const displayCurrencies = chooseDisplayCurrencies(rates);
 
         return (
-            <div className="product-card" key={productTitle}>
+            <div className="interest-product-card" key={productTitle}>
                 <div className="product-summary">
                     <div className="row">
                         <div className="col-xs-12 col-sm-3">
