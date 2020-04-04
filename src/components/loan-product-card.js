@@ -7,7 +7,7 @@ import { Link } from 'components/Router';
 import AllCryptoRatesPopup from './all-crypto-rates-popup';
 
 // Utility Dependencies
-import { chooseDisplayCurrencies, safeGet, formatLoanScanRates } from '../selectors';
+import { chooseDisplayCurrencies, safeGet, formatLoanScanRates, formatFloat } from '../selectors';
 
 export default function LoanProductCard({ product, rating = 0, reviewLink = null, realTimeRate = null }) {
     const {
@@ -30,6 +30,9 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
 
     const logoUrl = safeGet(['fields', 'file', 'url'], logo);
     const logoName = safeGet(['fields', 'title'], logo);
+
+    const formatAprLower = formatFloat(aprLowerLimit, 1);
+    const formatAprUpper = formatFloat(aprUpperLimit, 1);
 
     // return (
     //     <div className="loan-product-card" key={productTitle}>
@@ -72,6 +75,20 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
                             <div className="product-summary__rating hide-mobile">
                                 <div className="product-summary__rating-placeholder">
                                     Review coming soon
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-xs-6">
+
+                                </div>
+                                <div className="col-xs-6">
+                                    <div className="product-summary__APR-number">
+                                        {aprLowerLimit !== aprUpperLimit ?
+                                            <span>{formatAprLower}-{formatAprUpper}%</span>
+                                            :
+                                            <span>{formatAprUpper}%</span>
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </div>

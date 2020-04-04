@@ -157,3 +157,5 @@ export const formatLoanScanRates = (rates) => {
 
     return formattedRates;
 };
+
+export const formatFloat = (number, places = 2) => Number((number * 100).toFixed(places));

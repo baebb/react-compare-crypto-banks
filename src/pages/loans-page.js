@@ -24,9 +24,6 @@ export default function LoansPage() {
     const metaTitle = `Crypto Interest Accounts | Up to 12% p.a. (Compare ${productsCount} Offers)`;
     const metaDescription = `DeFi Nerd ranks ${productsCount} of the highest earning crypto interest accounts. Apply and earn up to 12% p.a. on your crypto today`;
 
-    console.log('productsCount', productsCount);
-    // console.log('sortedLoans', sortedLoans);
-
     return (
         <div className="loans-page">
             <Head>
