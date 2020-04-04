@@ -3,7 +3,7 @@ import React from 'react';
 import { useRouteData, Head } from 'react-static';
 
 // Component Dependencies
-// import InterestProductCard from '../components/interest-product-card';
+import LoanProductCard from '../components/loan-product-card';
 
 // Utility Dependencies
 import { getReviewScores, getReviewLinks, getRealTimeInterestRates, sortForMoney } from '../selectors';
@@ -54,9 +54,9 @@ export default function LoansPage() {
             </div>
             <div className="products-section">
                 {loans.map(({ fields: loan }) =>
-                    <div>
-                        title: {loan.productTitle}
-                    </div>
+                    <LoanProductCard
+                        product={loan}
+                    />
                 )}
             </div>
         </div>

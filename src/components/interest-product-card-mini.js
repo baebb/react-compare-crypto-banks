@@ -40,7 +40,7 @@ class InterestProductCardMini extends Component {
         const productLink = links.default;
 
         return (
-            <div className="interest-product-card interest-product-card--mini" key={productTitle}>
+            <div className="product-card product-card--mini" key={productTitle}>
                 <div className="product-summary">
                     <div className="row">
                         <div className="col-xs-12 col-sm-3">
