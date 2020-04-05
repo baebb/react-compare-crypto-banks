@@ -113,7 +113,8 @@
 
     .product-summary__heading {
         font-size: 24px;
-        margin: 8px 0;
+        margin: 0;
+        margin-bottom: 8px;
         @include screen--mobile {
             margin: 16px 0;
         }
@@ -143,8 +144,14 @@
         margin-left: 16px;
         line-height: 1.5;
     }
+
+    .product-summary__APR-title {
+        color: $grey-2;
+        font-size: 0.8125rem;
+    }
+
     .product-summary__APR-number {
-        font-family: $gotham-body;
+        font-family: $gotham400;
         font-size: 24px;
     }
 }

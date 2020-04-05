@@ -1,5 +1,5 @@
 // NPM Dependencies
-import React, { Component } from 'react';
+import React from 'react';
 import StarRatings from 'react-star-ratings';
 import { Link } from 'components/Router';
 
@@ -7,7 +7,7 @@ import { Link } from 'components/Router';
 import AllCryptoRatesPopup from './all-crypto-rates-popup';
 
 // Utility Dependencies
-import { chooseDisplayCurrencies, safeGet, formatLoanScanRates, formatFloat } from '../selectors';
+import { chooseDisplayCurrencies, safeGet, formatLoanScanRates, formatFloat, formatBankMethods } from '../selectors';
 
 export default function LoanProductCard({ product, rating = 0, reviewLink = null, realTimeRate = null }) {
     const {
@@ -21,7 +21,7 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
         aprLowerLimit,
         ltvUpperLimit,
         ltvLowerLimit,
-        availabilityExceptions,
+        availabilityExceptions = [],
         links,
     } = product;
     const { fields: companyData } = company;
@@ -34,11 +34,9 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
     const formatAprLower = formatFloat(aprLowerLimit, 1);
     const formatAprUpper = formatFloat(aprUpperLimit, 1);
 
-    // return (
-    //     <div className="loan-product-card" key={productTitle}>
-    //         title: {productTitle}
-    //     </div>
-    // );
+    const kycText = kycRequired ? 'KYC required' : 'KYC NOT required';
+    const cleanLoanMethods = formatBankMethods(payoutMethods);
+    const payoutMethodsText = `Receive loan in ${cleanLoanMethods.join(', ')}`;
 
     return (
         <div className="product-card" key={productTitle}>
@@ -69,7 +67,7 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
                             </div>
                         </div>
                     </div>
-                    <div className="col-xs-12 col-sm-9">
+                    <div className="col-xs-12 col-sm-6">
                         <div className="product-summary__text-column">
                             <h3 className="product-summary__heading hide-mobile">{productTitle}</h3>
                             <div className="product-summary__rating hide-mobile">
@@ -77,20 +75,28 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
                                     Review coming soon
                                 </div>
                             </div>
-                            <div className="row">
-                                <div className="col-xs-6">
-
-                                </div>
-                                <div className="col-xs-6">
-                                    <div className="product-summary__APR-number">
-                                        {aprLowerLimit !== aprUpperLimit ?
-                                            <span>{formatAprLower}-{formatAprUpper}%</span>
-                                            :
-                                            <span>{formatAprUpper}%</span>
-                                        }
-                                    </div>
-                                </div>
-                            </div>
+                            <ul className="product-summary__keypoint-list">
+                                <li>
+                                    <p>{kycText}</p>
+                                </li>
+                                <li>
+                                    <p>
+                                        {payoutMethodsText}
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="col-xs-12 col-sm-3">
+                        <div className="product-summary__APR-title">
+                            APR
+                        </div>
+                        <div className="product-summary__APR-number">
+                            {aprLowerLimit !== aprUpperLimit ?
+                                <span>{formatAprLower}-{formatAprUpper}%</span>
+                                :
+                                <span>{formatAprUpper}%</span>
+                            }
                         </div>
                     </div>
                 </div>
@@ -101,12 +107,20 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
                         <div className="product-key-details__column">
                             <h5 className="product-key-details__heading">Availability</h5>
                             <div className="product-key-details__text">
+                                {availabilityExceptions.length > 1 ?
+                                    <div>
+                                        <b>Unavailable in: </b>
+                                        {availabilityExceptions.join(', ')}
+                                    </div>
+                                    :
+                                    <div><b>Worldwide</b></div>
+                                }
                             </div>
                         </div>
                     </div>
                     <div className="col-xs-12 col-sm-3">
                         <div className="product-key-details__column">
-                            <h5 className="product-key-details__heading">Interest details</h5>
+                            <h5 className="product-key-details__heading">Loan details</h5>
                             <div className="product-key-details__text">
                             </div>
                         </div>
@@ -120,7 +134,7 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
                     </div>
                     <div className="col-xs-12 col-sm-3">
                         <div className="product-key-details__column">
-                            <h5 className="product-key-details__heading product-key-details__heading--interest-rate">Interest rates</h5>
+                            <h5 className="product-key-details__heading">Collateral accepted</h5>
                         </div>
                     </div>
                 </div>

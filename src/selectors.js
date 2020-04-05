@@ -159,3 +159,25 @@ export const formatLoanScanRates = (rates) => {
 };
 
 export const formatFloat = (number, places = 2) => Number((number * 100).toFixed(places));
+
+export const formatBankMethods = (payoutMethods) => {
+    const methodsArray = [];
+
+    const hasStablecoins = payoutMethods.find(method => method === 'Stablecoins');
+    const hasSEPA = payoutMethods.find(method => method === 'SEPA');
+    const hasSWIFT = payoutMethods.find(method => method === 'SWIFT');
+
+    if (hasStablecoins) {
+        methodsArray.push('Stablecoins');
+    }
+
+    if (hasSEPA && hasSWIFT) {
+        methodsArray.push('Bank wire (SWIFT or SEPA)');
+    } else if (hasSEPA && !hasSWIFT) {
+        methodsArray.push('Bank wire (SEPA)');
+    } else if (!hasSEPA && hasSWIFT) {
+        methodsArray.push('Bank wire (SWIFT)');
+    }
+
+    return methodsArray;
+};
