@@ -70,7 +70,7 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
                             </div>
                         </div>
                     </div>
-                    <div className="col-xs-12 col-sm-6">
+                    <div className="col-xs-12 col-sm-6 last-xs">
                         <div className="product-summary__text-column">
                             <h3 className="product-summary__heading hide-mobile">{productTitle}</h3>
                             <div className="product-summary__rating hide-mobile">
