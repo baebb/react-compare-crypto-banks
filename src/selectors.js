@@ -144,6 +144,14 @@ export const chooseDisplayCurrencies = interestRates => {
         displayCurrencies.push('BUSD');
     }
 
+    if (interestRates['XRP'] && displayCurrencies.length < displayCount) {
+        displayCurrencies.push('XRP');
+    }
+
+    if (interestRates['LTC'] && displayCurrencies.length < displayCount) {
+        displayCurrencies.push('LTC');
+    }
+
     return displayCurrencies;
 };
 
