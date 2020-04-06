@@ -38,7 +38,6 @@ class InterestProductCard extends Component {
             links,
             keyPoints,
             geoExceptions = [],
-            security,
             interestPayout,
             compounding,
             terms,
@@ -47,7 +46,8 @@ class InterestProductCard extends Component {
         const { fields: companyData } = company;
         const {
             name: companyName,
-            logo
+            logo,
+            securityScore
         } = companyData;
 
         const logoUrl = safeGet(['fields', 'file', 'url'], logo);
@@ -77,7 +77,7 @@ class InterestProductCard extends Component {
                                                         rating={rating}
                                                         starDimension="22px"
                                                         starSpacing="1px"
-                                                        starRatedColor="#008255"
+                                                        starRatedColor="#e8b923"
                                                     />
                                                 </span>
                                                 <span className="product-summary__rating-number">
@@ -119,15 +119,16 @@ class InterestProductCard extends Component {
                                                     rating={rating}
                                                     starDimension="22px"
                                                     starSpacing="1px"
-                                                    starRatedColor="#008255"
+                                                    starRatedColor="#e8b923"
                                                 />
                                             </span>
                                             <span className="product-summary__rating-number">
                                                 {rating.toFixed(1)}
                                             </span>
                                             <span className="product-summary__review-link">
+                                                <span>Editor's Rating &nbsp;</span>
                                                 <Link to={`/reviews/${reviewLink}`} className="text-link">
-                                                    Editor's Rating
+                                                    Read review→
                                                 </Link>
                                             </span>
                                         </>
@@ -184,10 +185,16 @@ class InterestProductCard extends Component {
                         </div>
                         <div className="col-xs-12 col-sm-3">
                             <div className="product-key-details__column">
-                                <h5 className="product-key-details__heading">Security</h5>
-                                {security.map((securityItem) => (
-                                    <p className="product-key-details__text" key={securityItem}>{securityItem}</p>
-                                ))}
+                                <h5 className="product-key-details__heading">Security score</h5>
+                                <div className="product-key-details__text">
+                                    <StarRatings
+                                        rating={securityScore}
+                                        starDimension="16px"
+                                        starSpacing="1px"
+                                        starRatedColor="#008255"
+                                    />
+                                    <span> {securityScore.toFixed(1)}</span>
+                                </div>
                             </div>
                         </div>
                         <div className="col-xs-12 col-sm-3">
@@ -200,7 +207,7 @@ class InterestProductCard extends Component {
                                     </p>
                                 ))}
                                 {Object.keys(rates).length > 3 &&
-                                    <AllCryptoRatesPopup savingsInterestRate={rates} />
+                                    <AllCryptoRatesPopup rates={rates} />
                                 }
                             </div>
                         </div>

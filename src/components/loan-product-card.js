@@ -7,7 +7,7 @@ import { Link } from 'components/Router';
 import AllCryptoRatesPopup from './all-crypto-rates-popup';
 
 // Utility Dependencies
-import { chooseDisplayCurrencies, safeGet, formatLoanScanRates, formatFloat, formatBankMethods } from '../selectors';
+import { chooseDisplayCurrencies, safeGet, formatFloat, formatBankMethods } from '../selectors';
 
 export default function LoanProductCard({ product, rating = 0, reviewLink = null, realTimeRate = null }) {
     const {
@@ -25,7 +25,7 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
         links,
     } = product;
     const { fields: companyData } = company;
-    const { name: companyName, logo } = companyData;
+    const { name: companyName, logo, securityScore } = companyData;
     const productLink = links.default;
 
     const logoUrl = safeGet(['fields', 'file', 'url'], logo);
@@ -33,10 +33,13 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
 
     const formatAprLower = formatFloat(aprLowerLimit, 1);
     const formatAprUpper = formatFloat(aprUpperLimit, 1);
+    const formatLtvLower = formatFloat(ltvLowerLimit, 1);
+    const formatLtvUpper = formatFloat(ltvUpperLimit, 1);
 
     const kycText = kycRequired ? 'KYC required' : 'KYC NOT required';
     const cleanLoanMethods = formatBankMethods(payoutMethods);
     const payoutMethodsText = `Receive loan in ${cleanLoanMethods.join(', ')}`;
+    const displayAcceptedCollateral = chooseDisplayCurrencies(collateralAccepted);
 
     return (
         <div className="product-card" key={productTitle}>
@@ -92,10 +95,10 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
                             APR
                         </div>
                         <div className="product-summary__APR-number">
-                            {aprLowerLimit !== aprUpperLimit ?
-                                <span>{formatAprLower}-{formatAprUpper}%</span>
-                                :
+                            {!aprLowerLimit || aprLowerLimit === aprUpperLimit ?
                                 <span>{formatAprUpper}%</span>
+                                :
+                                <span>{formatAprLower}-{formatAprUpper}%</span>
                             }
                         </div>
                     </div>
@@ -122,19 +125,41 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
                         <div className="product-key-details__column">
                             <h5 className="product-key-details__heading">Loan details</h5>
                             <div className="product-key-details__text">
+                                <span>Loan-to-value: </span>
+                                {!ltvLowerLimit || ltvLowerLimit === ltvUpperLimit ?
+                                    <span>{formatLtvUpper}%</span>
+                                    :
+                                    <span>{formatLtvLower}-{formatLtvUpper}%</span>
+                                }
                             </div>
+                            <p className="product-key-details__text">{`Terms: ${terms.join(', ')}`}</p>
                         </div>
                     </div>
                     <div className="col-xs-12 col-sm-3">
                         <div className="product-key-details__column">
                             <h5 className="product-key-details__heading">Security</h5>
                             <div className="product-key-details__text">
+                                <StarRatings
+                                    rating={securityScore}
+                                    starDimension="16px"
+                                    starSpacing="1px"
+                                    starRatedColor="#008255"
+                                />
+                                <span> {securityScore.toFixed(1)}</span>
                             </div>
                         </div>
                     </div>
                     <div className="col-xs-12 col-sm-3">
                         <div className="product-key-details__column">
                             <h5 className="product-key-details__heading">Collateral accepted</h5>
+                            {displayAcceptedCollateral.map((currency) => (
+                                <p className="product-key-details__text" key={currency}>
+                                    <span>{currency}</span>
+                                </p>
+                            ))}
+                            {Object.keys(collateralAccepted).length > 3 &&
+                                <AllCryptoRatesPopup rates={collateralAccepted} type="collateral" />
+                            }
                         </div>
                     </div>
                 </div>

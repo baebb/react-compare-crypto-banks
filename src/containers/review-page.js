@@ -73,7 +73,7 @@ export default function ReviewPage() {
                             rating={rating}
                             starDimension="22px"
                             starSpacing="1px"
-                            starRatedColor="#008255"
+                            starRatedColor="#e8b923"
                         />
                     </div>
                 </div>
