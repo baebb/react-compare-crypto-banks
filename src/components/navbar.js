@@ -47,7 +47,7 @@ export default function NavBar() {
                                     </button>
                                 </Link>
                             </div>
-                            <div>
+                            <div className="hide-mobile">
                                 <Link to="/reviews">
                                     <button  type="button" className="nav-button">
                                         Reviews
