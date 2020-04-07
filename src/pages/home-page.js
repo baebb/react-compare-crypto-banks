@@ -1,10 +1,9 @@
 // NPM Dependencies
 import React from 'react';
 import { Head } from 'react-static';
-import { Link } from 'components/Router';
 
-// Image Dependencies
-import InterestAccountsIcon from '../../public/images/icons/interest-accounts.svg';
+// Component Dependencies
+import LinkTile from '../components/link-tile';
 
 // Data
 const metaTitle = 'DeFi Nerd: Easily Compare DeFi and Crypto Financial Services';
@@ -38,23 +37,8 @@ export default function HomePage() {
                     {subSubHeading}
                 </h4>
                 <div className="row center-xs">
-                    <Link to="/crypto-interest-accounts" className="col-xs-12 links-section__link-tile">
-                        <div className="row">
-                            <div className="col-xs-4 col-sm-12 links-section__icon-wrapper">
-                                <div className="links-section__icon-background">
-                                    <img
-                                        className="links-section__icon"
-                                        src={InterestAccountsIcon}
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-xs-8 col-sm-12 links-section__link-text-wrapper">
-                                <h4 className="links-section__link-text">
-                                    Savings Accounts
-                                </h4>
-                            </div>
-                        </div>
-                    </Link>
+                    <LinkTile linkId="interestAccounts" />
+                    <LinkTile linkId="loans" />
                 </div>
             </div>
         </div>

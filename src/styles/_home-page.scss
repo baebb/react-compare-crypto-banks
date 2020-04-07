@@ -33,6 +33,21 @@
                 padding-top: 24px;
                 max-width: 160px;
                 height: 160px;
+                margin: 0 12px;
+            }
+            @include screen--mobile {
+                margin: 8px 0;
+            }
+
+            &.link-tile--purple {
+                .links-section__icon-background {
+                    background-color: $purple-1;
+                }
+            }
+            &.link-tile--red {
+                .links-section__icon-background {
+                    background-color: $red-1;
+                }
             }
         }
         .links-section__icon-wrapper {
@@ -59,6 +74,7 @@
             @extend .wide-text;
             color: $grey-2;
             font-family: $gotham600;
+            width: 100%;
             text-transform: uppercase;
             font-size: 0.8125rem;
             margin-bottom: 0;

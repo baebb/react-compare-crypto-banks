@@ -16,7 +16,12 @@ export default function Footer() {
                         <div className="footer-content__links">
                             <div>
                                 <Link to="/crypto-interest-accounts" className="text-link text-link--hover-green">
-                                    Interest Accounts
+                                    Compare Crypto Interest Accounts
+                                </Link>
+                            </div>
+                            <div>
+                                <Link to="/crypto-loans" className="text-link text-link--hover-green">
+                                    Compare Crypto Loans
                                 </Link>
                             </div>
                             <div>
@@ -27,11 +32,6 @@ export default function Footer() {
                             {/*<div>*/}
                             {/*    <Link to="/blog" className="text-link text-link--hover-green">*/}
                             {/*        Blog*/}
-                            {/*    </Link>*/}
-                            {/*</div>*/}
-                            {/*<div>*/}
-                            {/*    <Link to="/about" className="text-link text-link--hover-green">*/}
-                            {/*        About*/}
                             {/*    </Link>*/}
                             {/*</div>*/}
                         </div>
