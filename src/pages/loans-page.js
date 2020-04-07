@@ -9,20 +9,19 @@ import LoanProductCard from '../components/loan-product-card';
 import { getReviewScores, getReviewLinks, getRealTimeInterestRates, sortForMoney } from '../selectors';
 
 // Data
-const heading = 'Grow your crypto portfolio ';
-const calloutWord = 'passively';
+const heading = 'Compare Crypto Loans';
 
 export default function LoansPage() {
     const { reviews, loans, rates } = useRouteData();
 
-    const realTimeRates = getRealTimeInterestRates(rates);
-    const reviewScores = getReviewScores(reviews);
-    const reviewLinks = getReviewLinks(reviews);
+    // const realTimeRates = getRealTimeInterestRates(rates);
+    // const reviewScores = getReviewScores(reviews);
+    // const reviewLinks = getReviewLinks(reviews);
     const productsCount = loans.length;
-    // const sortedLoans = sortForMoney(loans);
+    const sortedLoans = sortForMoney(loans);
 
-    const metaTitle = `Crypto Interest Accounts | Up to 12% p.a. (Compare ${productsCount} Offers)`;
-    const metaDescription = `DeFi Nerd ranks ${productsCount} of the highest earning crypto interest accounts. Apply and earn up to 12% p.a. on your crypto today`;
+    const metaTitle = `Compare Crypto Loans | DeFi Nerd`;
+    const metaDescription = `DeFi Nerd compares the top ${productsCount} crypto loans from Compound, BlockFi, & others to help you reduce the cost of your loan and maximise your upside`;
 
     return (
         <div className="loans-page">
@@ -34,10 +33,7 @@ export default function LoansPage() {
             </Head>
             <div className="intro-section">
                 <div className="intro-section__heading">
-                    <h2>
-                        {heading}
-                        <span className="calloutText">{calloutWord}</span>
-                    </h2>
+                    <h1>{heading}</h1>
                 </div>
                 <div className="intro-section__sub-heading">
                     <div className="row">
@@ -50,7 +46,7 @@ export default function LoansPage() {
             <div className="banner-section">
             </div>
             <div className="products-section">
-                {loans.map(({ fields: loan }) =>
+                {sortedLoans.map(({ fields: loan }) =>
                     <LoanProductCard
                         product={loan}
                     />

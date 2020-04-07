@@ -46,11 +46,11 @@ export const getRealTimeInterestRates = (rates) => {
 //     ledn: lednLogo
 // };
 
-export const specialIds = ['blockFi', 'youHodler', 'ledn', 'coinloan', 'hodlnaut', 'celsiusNetwork'];
-
 export const safeGet = (path, object) =>
     path.reduce((xs, x) =>
         (xs && xs[x]) ? xs[x] : null, object);
+
+export const specialOrder = ['blockFi', 'youHodler', 'ledn', 'coinloan', 'hodlnaut', 'celsiusNetwork'];
 
 export const sortForMoney = (items) => {
     const sortedArray = [];
@@ -58,7 +58,7 @@ export const sortForMoney = (items) => {
     const nonSpecialItems = [];
 
     items.forEach(item => {
-        const orderLocation = specialIds.indexOf(item.fields.company.fields.id);
+        const orderLocation = specialOrder.indexOf(item.fields.company.fields.id);
 
         if (orderLocation !== -1) {
             specialItems[orderLocation] = item;
@@ -67,7 +67,9 @@ export const sortForMoney = (items) => {
         }
     });
 
-    sortedArray.push(...specialItems);
+    const specialItemsNoEmptySlots = specialItems.filter(x => x);
+
+    sortedArray.push(...specialItemsNoEmptySlots);
     sortedArray.push(...nonSpecialItems);
 
     return sortedArray;

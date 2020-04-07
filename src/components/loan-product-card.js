@@ -70,7 +70,19 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
                             </div>
                         </div>
                     </div>
-                    <div className="col-xs-12 col-sm-6 last-xs">
+                    <div className="col-xs-12 col-sm-3 last-sm">
+                        <div className="product-summary__APR-title">
+                            APR
+                        </div>
+                        <div className="product-summary__APR-number">
+                            {!aprLowerLimit || aprLowerLimit === aprUpperLimit ?
+                                <span>{formatAprUpper}%</span>
+                                :
+                                <span>{formatAprLower}-{formatAprUpper}%</span>
+                            }
+                        </div>
+                    </div>
+                    <div className="col-xs-12 col-sm-6">
                         <div className="product-summary__text-column">
                             <h3 className="product-summary__heading hide-mobile">{productTitle}</h3>
                             <div className="product-summary__rating hide-mobile">
@@ -88,18 +100,6 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
                                     </p>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
-                    <div className="col-xs-12 col-sm-3">
-                        <div className="product-summary__APR-title">
-                            APR
-                        </div>
-                        <div className="product-summary__APR-number">
-                            {!aprLowerLimit || aprLowerLimit === aprUpperLimit ?
-                                <span>{formatAprUpper}%</span>
-                                :
-                                <span>{formatAprLower}-{formatAprUpper}%</span>
-                            }
                         </div>
                     </div>
                 </div>
