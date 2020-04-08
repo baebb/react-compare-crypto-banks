@@ -12,16 +12,16 @@ export default function Footer() {
         <footer className="footer">
             <div className="footer-content">
                 <div className="row">
-                    <div className="col-xs-12 col-sm-6">
+                    <div className="col-xs-12 col-sm-3">
                         <div className="footer-content__links">
                             <div>
                                 <Link to="/crypto-interest-accounts" className="text-link text-link--hover-green">
-                                    Compare Crypto Interest Accounts
+                                    Crypto Interest Accounts
                                 </Link>
                             </div>
                             <div>
                                 <Link to="/crypto-loans" className="text-link text-link--hover-green">
-                                    Compare Crypto Loans
+                                    Crypto Loans
                                 </Link>
                             </div>
                             <div>
@@ -29,11 +29,15 @@ export default function Footer() {
                                     Reviews
                                 </Link>
                             </div>
-                            {/*<div>*/}
-                            {/*    <Link to="/blog" className="text-link text-link--hover-green">*/}
-                            {/*        Blog*/}
-                            {/*    </Link>*/}
-                            {/*</div>*/}
+                        </div>
+                    </div>
+                    <div className="col-xs-12 col-sm-3">
+                        <div className="footer-content__links">
+                            <div>
+                                <Link to="/blog" className="text-link text-link--hover-green">
+                                    Blog
+                                </Link>
+                            </div>
                         </div>
                     </div>
                     <div className="col-xs-12 col-sm-6">
