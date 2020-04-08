@@ -29,7 +29,6 @@ export default function ReviewsHomePage() {
                 <div className="header-section__description-text">Our DeFi Nerd experts break down the most popular crypto interest accounts, loans, and credit cards on the market — and turn up a few gems you may never have heard of</div>
             </div>
             <div className="interest-accounts-section">
-                <h2>Interest account reviews</h2>
                 <div className="interest-accounts-section__reviews-list">
                     <div className="row interest-accounts-section__reviews-list-column-titles">
                         <div className="col-xs-4">Name</div>

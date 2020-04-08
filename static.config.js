@@ -157,7 +157,10 @@ export default {
             },
             {
                 path: 'blog',
-                redirect: '404',
+                template: 'src/pages/blog-home-page',
+                getData: () => ({
+                    blogPosts
+                }),
                 children: blogPosts.map(({ fields: blogPost }) => ({
                     path: `/${blogPost.slug}`,
                     template: 'src/containers/blog-post-page',
