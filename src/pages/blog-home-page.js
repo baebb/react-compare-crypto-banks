@@ -3,10 +3,13 @@ import React from 'react';
 import { useRouteData, Head } from 'react-static';
 
 // Utility Dependencies
-import { safeGet } from '../selectors';
+// import { safeGet } from '../selectors';
 
 // Local Dependencies
-import ReviewListItem from 'components/review-list-item';
+import { Link } from 'components/Router';
+
+// Image Dependencies
+import WideIconLogo from '../../public/images/logo/DN-logo-wide-icon.svg';
 
 // Data
 const metaTitle = 'Blog Posts | Learn about crypto interest accounts and crypto loans';
@@ -30,9 +33,18 @@ export default function ReviewsHomePage() {
             <div className="blog-post-section">
                 <div className="row">
                     {blogPosts.map(({ fields: post }) => (
-                        <div className="col-xs-12 col-sm-4 blog-post-tile-wrapper">
-                            <div className="blog-post-tile">{post.title}</div>
-                        </div>
+                        <Link to={`/blog/${post.slug}`} className="col-xs-12 col-sm-4 blog-post-tile-wrapper">
+                            <div className="blog-post-tile">
+                                <div className="blog-post-tile__image">
+                                    <img
+                                        src={WideIconLogo}
+                                        className="nav-logo nav-logo__fav"
+                                        alt="DeFi Nerd favicon logo"
+                                    />
+                                </div>
+                                <div className="blog-post-tile__title">{post.title}</div>
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </div>

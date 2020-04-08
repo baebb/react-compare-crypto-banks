@@ -1,5 +1,6 @@
 .blog-post-section {
-    margin-top: 40px;
+    margin-top: 32px;
+    margin-bottom: 32px;
 }
 
 .blog-post-tile-wrapper {
@@ -8,6 +9,18 @@
 
 .blog-post-tile {
     box-shadow: 0 4px 8px 0 rgba(108,127,135,.1),0 1px 4px 0 rgba(108,127,135,.36);
-    height: 160px;
+    height: 120px;
     padding: 24px;
+
+    .blog-post-tile__image {
+        text-align: center;
+        margin: 16px 0;
+        @include screen--mobile {
+            margin: 20px 0;
+        }
+    }
+
+    .blog-post-tile__title {
+        text-align: center;
+    }
 }
