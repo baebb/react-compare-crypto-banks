@@ -9,6 +9,7 @@ import InterestProductCard from '../components/interest-product-card';
 import { getReviewScores, getReviewLinks, getRealTimeInterestRates, sortForMoney } from '../selectors';
 
 // Data
+const heading = 'Compare Crypto Interest Accounts';
 const tilePoints = [
     'Earn high interest on BTC, ETH, USD, Euros, and other crypto assets',
     'Find crypto interest account terms that suit you and your circumstances',
@@ -38,7 +39,7 @@ export default function InterestAccountsPage() {
             <div className="intro-section">
                 <div className="intro-section__heading">
                     <h1>
-                        Compare Crypto Interest Accounts
+                        {heading}
                     </h1>
                 </div>
                 <div className="intro-section__sub-heading">

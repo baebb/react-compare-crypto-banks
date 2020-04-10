@@ -10,6 +10,11 @@ import { getReviewScores, getReviewLinks, getRealTimeInterestRates, sortForMoney
 
 // Data
 const heading = 'Compare Crypto Loans';
+const tilePoints = [
+    'Avoid capital gains tax on your assets by getting a crypto loan instead of selling',
+    'Receive stablecoins, USD, or EUR in exchange for crypto collateral',
+    'Learn more about services with our in-depth reviews of crypto loans'
+];
 
 export default function LoansPage() {
     const { reviews, loans, rates } = useRouteData();
@@ -21,7 +26,7 @@ export default function LoansPage() {
     const sortedLoans = sortForMoney(loans);
 
     const metaTitle = `Compare Crypto Loans | DeFi Nerd`;
-    const metaDescription = `DeFi Nerd compares the top ${productsCount} crypto loans from Compound, BlockFi, & others to help you reduce the cost of your loan and maximise your upside`;
+    const metaDescription = `DeFi Nerd compares the top ${productsCount} crypto loans from Compound, BlockFi, & others to reduce the cost of your loan and maximise your upside.`;
 
     return (
         <div className="loans-page">
@@ -41,6 +46,22 @@ export default function LoansPage() {
                             {metaDescription}
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className="tile-points-section">
+                <div className="row center-xs">
+                    {tilePoints.map(text => (
+                        <div className="col-xs-12 col-sm-3">
+                            <div className="tile-point">
+                                <div className="tile-point__icon">
+                                    ✅
+                                </div>
+                                <div className="tile-point__text">
+                                    {text}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
             <div className="banner-section">
