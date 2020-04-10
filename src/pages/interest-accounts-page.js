@@ -24,7 +24,7 @@ export default function InterestAccountsPage() {
     const productsCount = interestAccounts.length;
     const sortedInterestAccounts = sortForMoney(interestAccounts);
 
-    const metaTitle = `Crypto Interest Accounts | Up to 12% p.a. (Compare ${productsCount} Offers)`;
+    const metaTitle = `Crypto Interest Accounts | Up to 12% p.a. | Compare ${productsCount} Offers`;
     const metaDescription = `DeFi Nerd ranks ${productsCount} of the highest earning crypto interest accounts. Apply and earn up to 12% p.a. on your crypto today.`;
 
     return (
