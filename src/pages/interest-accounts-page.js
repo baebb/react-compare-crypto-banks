@@ -56,7 +56,7 @@ export default function InterestAccountsPage() {
                         <div className="col-xs-12 col-sm-3">
                             <div className="tile-point">
                                 <div className="tile-point__icon">
-                                    ✅
+                                    <span role="img" aria-label="tick-emoji">✅</span>
                                 </div>
                                 <div className="tile-point__text">
                                     {text}

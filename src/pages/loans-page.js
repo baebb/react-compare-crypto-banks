@@ -20,8 +20,8 @@ export default function LoansPage() {
     const { reviews, loans, rates } = useRouteData();
 
     // const realTimeRates = getRealTimeInterestRates(rates);
-    // const reviewScores = getReviewScores(reviews);
-    // const reviewLinks = getReviewLinks(reviews);
+    const reviewScores = getReviewScores(reviews);
+    const reviewLinks = getReviewLinks(reviews);
     const productsCount = loans.length;
     const sortedLoans = sortForMoney(loans);
 
@@ -54,7 +54,7 @@ export default function LoansPage() {
                         <div className="col-xs-12 col-sm-3">
                             <div className="tile-point">
                                 <div className="tile-point__icon">
-                                    ✅
+                                    <span role="img" aria-label="tick-emoji">✅</span>
                                 </div>
                                 <div className="tile-point__text">
                                     {text}
@@ -70,6 +70,8 @@ export default function LoansPage() {
                 {sortedLoans.map(({ fields: loan }) =>
                     <LoanProductCard
                         product={loan}
+                        rating={reviewScores[loan.company.fields.id]}
+                        reviewLink={reviewLinks[loan.company.fields.id]}
                     />
                 )}
             </div>

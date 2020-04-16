@@ -86,9 +86,31 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
                         <div className="product-summary__text-column">
                             <h3 className="product-summary__heading hide-mobile">{productTitle}</h3>
                             <div className="product-summary__rating hide-mobile">
-                                <div className="product-summary__rating-placeholder">
-                                    Review coming soon
-                                </div>
+                                {reviewLink ?
+                                    <>
+                                        <span className="product-summary__star-rating">
+                                            <StarRatings
+                                                rating={rating}
+                                                starDimension="22px"
+                                                starSpacing="1px"
+                                                starRatedColor="#e8b923"
+                                            />
+                                        </span>
+                                        <span className="product-summary__rating-number">
+                                            {rating.toFixed(1)}
+                                        </span>
+                                        <span className="product-summary__review-link">
+                                            <span>Editor's Rating &nbsp;</span>
+                                            <Link to={`/reviews/${reviewLink}`} className="text-link">
+                                                Read review→
+                                            </Link>
+                                        </span>
+                                    </>
+                                    :
+                                    <div className="product-summary__rating-placeholder">
+                                        Review coming soon
+                                    </div>
+                                }
                             </div>
                             <ul className="product-summary__keypoint-list">
                                 <li>
