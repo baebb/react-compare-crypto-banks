@@ -146,6 +146,13 @@
         line-height: 1.5;
     }
 
+    .product-summary__APR-content {
+        @include screen--mobile {
+            margin-top: 20px;
+            text-align: center;
+        }
+    }
+
     .product-summary__APR-title {
         color: $grey-2;
         font-size: 0.8125rem;

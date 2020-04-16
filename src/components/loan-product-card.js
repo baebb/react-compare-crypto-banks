@@ -53,9 +53,30 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
                             <div className="product-summary__mobile-text hide-desktop">
                                 <h3 className="product-summary__heading">{productTitle}</h3>
                                 <div className="product-summary__rating">
-                                    <div className="product-summary__rating-placeholder">
-                                        Review coming soon
-                                    </div>
+                                    {reviewLink ?
+                                        <>
+                                            <span className="product-summary__star-rating">
+                                                <StarRatings
+                                                    rating={rating}
+                                                    starDimension="22px"
+                                                    starSpacing="1px"
+                                                    starRatedColor="#e8b923"
+                                                />
+                                            </span>
+                                            <span className="product-summary__rating-number">
+                                                {rating.toFixed(1)}
+                                            </span>
+                                            <span className="product-summary__review-link">
+                                                <Link to={`/reviews/${reviewLink}`} className="text-link">
+                                                    Editor's Rating
+                                                </Link>
+                                            </span>
+                                        </>
+                                        :
+                                        <div className="product-summary__rating-placeholder">
+                                            Review coming soon
+                                        </div>
+                                    }
                                 </div>
                             </div>
                             <div className="product-summary__cta-button">
@@ -71,15 +92,17 @@ export default function LoanProductCard({ product, rating = 0, reviewLink = null
                         </div>
                     </div>
                     <div className="col-xs-12 col-sm-3 last-sm">
-                        <div className="product-summary__APR-title">
-                            APR
-                        </div>
-                        <div className="product-summary__APR-number">
-                            {!aprLowerLimit || aprLowerLimit === aprUpperLimit ?
-                                <span>{formatAprUpper}%</span>
-                                :
-                                <span>{formatAprLower}-{formatAprUpper}%</span>
-                            }
+                        <div className="product-summary__APR-content">
+                            <div className="product-summary__APR-title">
+                                APR
+                            </div>
+                            <div className="product-summary__APR-number">
+                                {!aprLowerLimit || aprLowerLimit === aprUpperLimit ?
+                                    <span>{formatAprUpper}%</span>
+                                    :
+                                    <span>{formatAprLower}-{formatAprUpper}%</span>
+                                }
+                            </div>
                         </div>
                     </div>
                     <div className="col-xs-12 col-sm-6">

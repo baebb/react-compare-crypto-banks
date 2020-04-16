@@ -151,6 +151,7 @@ export default {
                     getData: () => ({
                         review,
                         interestAccounts,
+                        loans,
                         rates
                     }),
                 })),

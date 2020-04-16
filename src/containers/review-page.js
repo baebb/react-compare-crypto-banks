@@ -6,12 +6,13 @@ import StarRatings from 'react-star-ratings';
 
 // Component Dependencies
 import InterestProductCardMini from '../components/interest-product-card-mini';
+import LoanProductCardMini from '../components/loan-product-card-mini';
 
 // Utility Dependencies
 import { formatPublishDate, getRealTimeInterestRates, safeGet } from '../selectors';
 
 export default function ReviewPage() {
-    const { review, interestAccounts, rates } = useRouteData();
+    const { review, interestAccounts, loans, rates } = useRouteData();
     const {
         title: reviewTitle,
         metaDescription = '',
@@ -31,6 +32,8 @@ export default function ReviewPage() {
     const realTimeRates = getRealTimeInterestRates(rates);
     const cleanPublishDate = formatPublishDate(publishDate);
     const { fields: interestAccount } = interestAccounts.find(({ fields: item }) =>
+        safeGet(['company', 'sys', 'id'], item) === companySysId);
+    const { fields: loan } = loans.find(({ fields: item }) =>
         safeGet(['company', 'sys', 'id'], item) === companySysId);
     const { productTitle } = interestAccount;
 
@@ -77,6 +80,10 @@ export default function ReviewPage() {
                         />
                     </div>
                 </div>
+                <LoanProductCardMini
+                    product={loan}
+                    rating={rating}
+                />
                 <InterestProductCardMini
                     product={interestAccount}
                     rating={rating}
