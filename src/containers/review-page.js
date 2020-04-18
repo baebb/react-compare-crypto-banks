@@ -31,10 +31,12 @@ export default function ReviewPage() {
 
     const realTimeRates = getRealTimeInterestRates(rates);
     const cleanPublishDate = formatPublishDate(publishDate);
-    const { fields: interestAccount } = interestAccounts.find(({ fields: item }) =>
-        safeGet(['company', 'sys', 'id'], item) === companySysId);
-    const { fields: loan } = loans.find(({ fields: item }) =>
-        safeGet(['company', 'sys', 'id'], item) === companySysId);
+    const interestAccountContent = interestAccounts.find(item =>
+        safeGet(['fields', 'company', 'sys', 'id'], item) === companySysId);
+    const interestAccount = interestAccountContent ? interestAccountContent.fields : null;
+    const loanContent = loans.find(item =>
+        safeGet(['fields', 'company', 'sys', 'id'], item) === companySysId);
+    const loan = loanContent ? loanContent.fields : null;
     const { productTitle } = interestAccount;
 
     const metaTitle = `${productTitle} Review | DeFi Nerd`;
@@ -80,10 +82,10 @@ export default function ReviewPage() {
                         />
                     </div>
                 </div>
-                <LoanProductCardMini
-                    product={loan}
-                    rating={rating}
-                />
+                {/*<LoanProductCardMini*/}
+                {/*    product={loan}*/}
+                {/*    rating={rating}*/}
+                {/*/>*/}
                 <InterestProductCardMini
                     product={interestAccount}
                     rating={rating}
