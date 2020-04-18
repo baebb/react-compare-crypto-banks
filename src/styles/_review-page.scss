@@ -8,8 +8,20 @@
 }
 
 .review-page {
+    .review-page__section-title {
+        font-size: 32px;
+        margin-bottom: 32px;
+
+        @include screen--mobile {
+            margin: 0;
+            margin-bottom: 20px;
+            margin-top: 8px;
+            font-size: 1.65rem;
+        }
+    }
+
     .header-section {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         .header-section__editorial-text {
             @extend .wide-text;
             color: black;
@@ -24,6 +36,7 @@
             @include screen--mobile {
                 margin: 0;
                 margin-bottom: 20px;
+                margin-top: 8px;
                 font-size: 1.75rem;
             }
         }
@@ -41,6 +54,30 @@
     }
 
     .review-summary-section {
+        margin-bottom: 40px;
+
+        .review-summary-section__heading {
+            font-size: 24px;
+            margin: 16px 0;
+            @include screen--mobile {
+                font-size: 20px;
+            }
+        }
+        .review-summary-section__contents-list {
+            margin: 0;
+            padding-left: 20px;
+            li {
+                margin-bottom: 12px;
+            }
+        }
+        .review-summary-section__our-take-wrapper {
+            display: flex;
+            justify-content: flex-end;
+
+            @include screen--mobile {
+                justify-content: flex-start;
+            }
+        }
         .review-summary-section__rating-number {
             font-family: $gotham600;
             font-size: 52px;

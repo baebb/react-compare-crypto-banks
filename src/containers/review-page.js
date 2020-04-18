@@ -1,5 +1,5 @@
 // NPM Dependencies
-import React from 'react';
+import React, { Component } from 'react';
 import { useRouteData, Head } from 'react-static';
 import ReactMarkdown from 'react-markdown';
 import StarRatings from 'react-star-ratings';
@@ -65,27 +65,54 @@ export default function ReviewPage() {
                 </div>
             </div>
             <div className="review-summary-section">
-                <h2>Our Take</h2>
-                <div className="review-summary-section__rating-wrapper">
-                    <div className="review-summary-section__rating-number">
-                        {rating.toFixed(1)}
-                    </div>
-                    <div>
-                        <div className="review-summary-section__rating-text">
-                            Editor's rating
+                <div className="row">
+                    <div className="col-xs-12 col-sm-6 last-sm">
+                        <div className="review-summary-section__our-take-wrapper">
+                            <div>
+                                <h4 className="review-summary-section__heading">Our Take</h4>
+                                <div className="review-summary-section__rating-wrapper">
+                                    <div className="review-summary-section__rating-number">
+                                        {rating.toFixed(1)}
+                                    </div>
+                                    <div>
+                                        <div className="review-summary-section__rating-text">
+                                            Editor's rating
+                                        </div>
+                                        <StarRatings
+                                            rating={rating}
+                                            starDimension="22px"
+                                            starSpacing="1px"
+                                            starRatedColor="#e8b923"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <StarRatings
-                            rating={rating}
-                            starDimension="22px"
-                            starSpacing="1px"
-                            starRatedColor="#e8b923"
-                        />
+                    </div>
+                    <div className="col-xs-12 col-sm-6">
+                        <div className="review-summary-section__contents-wrapper">
+                            <h4 className="review-summary-section__heading">Table of Contents</h4>
+                            <ul className="review-summary-section__contents-list">
+                                <li>
+                                    <a href="#interest-account-section" className="link-button">CoinLoan Interest Account Review</a>
+                                </li>
+                                <li>
+                                    <a className="link-button">CoinLoan Loan Review</a>
+                                </li>
+                                <li>
+                                    <a className="link-button">CoinLoan Company Review</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 {/*<LoanProductCardMini*/}
                 {/*    product={loan}*/}
                 {/*    rating={rating}*/}
                 {/*/>*/}
+            </div>
+            <div className="interest-account-section" id="interest-account-section">
+                <h2 className="review-page__section-title">CoinLoan Interest Account Review</h2>
                 <InterestProductCardMini
                     product={interestAccount}
                     rating={rating}
