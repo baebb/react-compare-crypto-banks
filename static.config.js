@@ -143,6 +143,7 @@ export default {
                 getData: () => ({
                     reviews,
                     interestAccounts,
+                    loans,
                     rates
                 }),
                 children: reviews.map(({ fields: review }) => ({

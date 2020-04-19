@@ -166,14 +166,14 @@ export default function ReviewPage() {
                         <div className="review-summary-section__contents-wrapper">
                             <h4 className="review-summary-section__heading">Table of Contents</h4>
                             <ul className="review-summary-section__contents-list">
-                                {interestAccount &&
+                                {interestAccount && interestAccountReview &&
                                 <li>
                                     <a href="#interest-account-section" className="link-button">
                                         {companyName} Interest Account Review
                                     </a>
                                 </li>
                                 }
-                                {loan &&
+                                {loan && loanReview &&
                                 <li>
                                     <a href="#loan-section" className="link-button">
                                         {companyName} Loan Review
@@ -190,7 +190,7 @@ export default function ReviewPage() {
                     </div>
                 </div>
             </div>
-            {interestAccount &&
+            {interestAccount && interestAccountReview &&
             <div className="content-section interest-account-section" id="interest-account-section">
                 <h2 className="review-page__section-title">{companyName} Interest Account Review</h2>
                 <InterestProductCardMini
@@ -216,7 +216,7 @@ export default function ReviewPage() {
                 </div>
             </div>
             }
-            {loan &&
+            {loan && loanReview &&
             <div className="content-section loan-section" id="loan-section">
                 <h2 className="review-page__section-title">{companyName} Loan Review</h2>
                 <LoanProductCardMini

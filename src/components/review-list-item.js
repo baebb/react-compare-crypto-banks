@@ -7,7 +7,7 @@ import { Link } from 'components/Router';
 // Util Dependencies
 import { chooseDisplayCurrencies, formatLoanScanRates } from '../selectors';
 
-const ReviewListItem = ({ review, interestAccount, realTimeRate = null }) => {
+const ReviewListItem = ({ review, interestAccount, loans, companyName, realTimeRate = null }) => {
     const { slug, rating } = review;
     const { productTitle, interestRates, geoExceptions = [] } = interestAccount;
 
@@ -18,7 +18,7 @@ const ReviewListItem = ({ review, interestAccount, realTimeRate = null }) => {
         <div className="interest-accounts-section__review-list-item">
             <div className="row">
                 <div className="col-xs-4">
-                    <Link to={`/reviews/${slug}`}>{productTitle}</Link>
+                    <Link to={`/reviews/${slug}`}>{companyName} Review</Link>
                 </div>
                 <div className="col-xs-3 col-sm-1 interest-accounts-section__review-list-item-score">
                     {rating}

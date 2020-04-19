@@ -13,7 +13,7 @@ const metaTitle = 'Reviews | Crypto Interest Accounts, Loans and Credit Cards';
 const metaDescription = 'Our DeFi Nerd experts review the most popular crypto interest accounts, loans and credit cards on the market - and turn up a few gems you may never have heard of';
 
 export default function ReviewsHomePage() {
-    const { reviews, interestAccounts, rates } = useRouteData();
+    const { reviews, interestAccounts, loans, rates } = useRouteData();
     const realTimeRates = getRealTimeInterestRates(rates);
 
     return (
@@ -38,15 +38,24 @@ export default function ReviewsHomePage() {
                     {reviews.map(({ fields: review }) => {
                         const companySysId = safeGet(['company', 'sys', 'id'], review);
                         const companyId = safeGet(['company', 'fields', 'id'], review);
-                        const { fields: interestAccount } = interestAccounts.find(({ fields: item }) =>
-                            safeGet(['company', 'sys', 'id'], item) === companySysId);
+                        const companyName = safeGet(['company', 'fields', 'name'], review);
                         const realTimeRate = realTimeRates[companyId];
+
+                        const interestAccountContent = interestAccounts.find(item =>
+                            safeGet(['fields', 'company', 'sys', 'id'], item) === companySysId);
+                        const interestAccount = interestAccountContent ? interestAccountContent.fields : null;
+
+                        const loanContent = loans.find(item =>
+                            safeGet(['fields', 'company', 'sys', 'id'], item) === companySysId);
+                        const loan = loanContent ? loanContent.fields : null;
 
                         return (
                             <ReviewListItem
                                 key={review.slug}
                                 review={review}
+                                companyName={companyName}
                                 interestAccount={interestAccount}
+                                loan={loan}
                                 realTimeRate={realTimeRate}
                             />
                         );
