@@ -1,5 +1,5 @@
 // NPM Dependencies
-import React, { Component } from 'react';
+import React from 'react';
 import { useRouteData, Head } from 'react-static';
 import ReactMarkdown from 'react-markdown';
 import StarRatings from 'react-star-ratings';
@@ -23,23 +23,28 @@ export default function ReviewPage() {
         pros,
         cons,
         body,
+        interestAccountReview,
+        loanReview,
+        companyReview
     } = review;
     const { name: authorName } = author.fields;
 
     const companySysId = safeGet(['company', 'sys', 'id'], review);
     const companyId = safeGet(['company', 'fields', 'id'], review);
+    const companyName = safeGet(['company', 'fields', 'name'], review);
 
-    const realTimeRates = getRealTimeInterestRates(rates);
-    const cleanPublishDate = formatPublishDate(publishDate);
     const interestAccountContent = interestAccounts.find(item =>
         safeGet(['fields', 'company', 'sys', 'id'], item) === companySysId);
     const interestAccount = interestAccountContent ? interestAccountContent.fields : null;
+
     const loanContent = loans.find(item =>
         safeGet(['fields', 'company', 'sys', 'id'], item) === companySysId);
     const loan = loanContent ? loanContent.fields : null;
-    const { productTitle } = interestAccount;
 
-    const metaTitle = `${productTitle} Review | DeFi Nerd`;
+    const realTimeRates = getRealTimeInterestRates(rates);
+    const cleanPublishDate = formatPublishDate(publishDate);
+
+    const metaTitle = `${companyName} Review | DeFi Nerd`;
 
     return (
         <div className="review-page">
@@ -93,47 +98,73 @@ export default function ReviewPage() {
                         <div className="review-summary-section__contents-wrapper">
                             <h4 className="review-summary-section__heading">Table of Contents</h4>
                             <ul className="review-summary-section__contents-list">
+                                {interestAccount &&
                                 <li>
-                                    <a href="#interest-account-section" className="link-button">CoinLoan Interest Account Review</a>
+                                    <a href="#interest-account-section" className="link-button">
+                                        {companyName} Interest Account Review
+                                    </a>
                                 </li>
+                                }
+                                {loan &&
                                 <li>
-                                    <a className="link-button">CoinLoan Loan Review</a>
+                                    <a href="#loan-section" className="link-button">
+                                        {companyName} Loan Review
+                                    </a>
                                 </li>
+                                }
                                 <li>
-                                    <a className="link-button">CoinLoan Company Review</a>
+                                    <a href="#company-section" className="link-button">
+                                        {companyName} Company Review
+                                    </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                {/*<LoanProductCardMini*/}
-                {/*    product={loan}*/}
-                {/*    rating={rating}*/}
-                {/*/>*/}
             </div>
-            <div className="interest-account-section" id="interest-account-section">
-                <h2 className="review-page__section-title">CoinLoan Interest Account Review</h2>
+            {interestAccount &&
+            <div className="content-section interest-account-section" id="interest-account-section">
+                <h2 className="review-page__section-title">{companyName} Interest Account Review</h2>
                 <InterestProductCardMini
                     product={interestAccount}
                     rating={rating}
                     realTimeRates={realTimeRates[companyId]}
                 />
-            </div>
-            <div className="pros-cons-section">
-                <h2 className="pros-cons-section__title">Pros & Cons</h2>
-                <div className="row">
-                    <div className="col-xs-12 col-sm-6 pros-cons-section__list">
-                        <h4>Pros</h4>
-                        <ReactMarkdown source={pros} />
-                    </div>
-                    <div className="col-xs-12 col-sm-6 pros-cons-section__list">
-                        <h4>Cons</h4>
-                        <ReactMarkdown source={cons} />
+                <div className="pros-cons-section">
+                    <h2 className="pros-cons-section__title">Pros & Cons</h2>
+                    <div className="row">
+                        <div className="col-xs-12 col-sm-6 pros-cons-section__list">
+                            <h4>Pros</h4>
+                            <ReactMarkdown source={pros} />
+                        </div>
+                        <div className="col-xs-12 col-sm-6 pros-cons-section__list">
+                            <h4>Cons</h4>
+                            <ReactMarkdown source={cons} />
+                        </div>
                     </div>
                 </div>
+                <div className="body-section">
+                    <ReactMarkdown source={interestAccountReview} />
+                </div>
             </div>
-            <div className="body-section">
-                <ReactMarkdown source={body} />
+            }
+            {loan &&
+            <div className="content-section loan-section" id="loan-section">
+                <h2 className="review-page__section-title">{companyName} Loan Review</h2>
+                <LoanProductCardMini
+                    product={loan}
+                    rating={rating}
+                />
+                <div className="body-section">
+                    <ReactMarkdown source={loanReview} />
+                </div>
+            </div>
+            }
+            <div className="content-section company-section" id="company-section">
+                <h2 className="review-page__section-title">{companyName} Company Review</h2>
+                <div className="body-section">
+                    <ReactMarkdown source={companyReview} />
+                </div>
             </div>
         </div>
     );

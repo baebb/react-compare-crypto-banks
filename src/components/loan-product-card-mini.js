@@ -94,7 +94,7 @@ export default function LoanProductCardMini({ product, rating = 0, reviewLink = 
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-xs-12 col-sm-6">
+                            <div className="col-xs-12 col-sm-9">
                                 <div className="product-summary__text-column">
                                     <h3 className="product-summary__heading hide-mobile">{productTitle}</h3>
                                     <div className="product-summary__rating hide-mobile">
@@ -133,7 +133,6 @@ export default function LoanProductCardMini({ product, rating = 0, reviewLink = 
                                 <div className="col-xs-12 col-sm-3">
                                     <div className="product-key-details__column">
                                         <h5 className="product-key-details__heading">Loan details</h5>
-                                        <p className="product-key-details__text">{kycText}</p>
                                         <p className="product-key-details__text">{kycText}</p>
                                         <div className="product-key-details__text">
                                             <span>Loan-to-value: </span>

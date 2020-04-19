@@ -65,7 +65,8 @@
         }
         .review-summary-section__contents-list {
             margin: 0;
-            padding-left: 20px;
+            padding: 0;
+            margin-left: 20px;
             li {
                 margin-bottom: 12px;
             }
@@ -105,7 +106,7 @@
             }
             ul {
                 margin: 0;
-                margin-left: 16px;
+                margin-left: 20px;
                 padding-left: 0;
             }
             li {
@@ -127,15 +128,37 @@
         }
     }
 
+    .content-section {
+        margin-bottom: 80px;
+    }
+
     .body-section {
         line-height: 1.5;
+        text-align: justify;
+        p {
+            margin-top: 0px;
+            margin-bottom: 16px;
+        }
+
+        ul {
+            margin: 0;
+            margin-left: 20px;
+            padding-left: 0;
+        }
         li {
             margin-bottom: 8px;
             &:last-child {
                 margin-bottom: 0;
             }
         }
+
+        h2 {
+            margin-top: 32px;
+            margin-bottom: 20px;
+        }
         h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
             font-size: 1rem;
             @extend .secondary-heading;
         }
