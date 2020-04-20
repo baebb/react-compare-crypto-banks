@@ -35,7 +35,6 @@ class InterestProductCard extends Component {
         const {
             productTitle,
             company,
-            links,
             keyPoints,
             geoExceptions = [],
             interestPayout,
@@ -47,7 +46,8 @@ class InterestProductCard extends Component {
         const {
             name: companyName,
             logo,
-            securityScore
+            securityScore,
+            links
         } = companyData;
 
         const logoUrl = safeGet(['fields', 'file', 'url'], logo);

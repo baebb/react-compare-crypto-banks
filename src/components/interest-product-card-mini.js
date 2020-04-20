@@ -18,7 +18,6 @@ class InterestProductCardMini extends Component {
         const {
             productTitle,
             company,
-            links,
             geoExceptions = [],
             interestPayout,
             compounding,
@@ -29,7 +28,8 @@ class InterestProductCardMini extends Component {
         const {
             name: companyName,
             logo,
-            securityScore
+            securityScore,
+            links
         } = companyData;
 
         const logoUrl = safeGet(['fields', 'file', 'url'], logo);

@@ -9,7 +9,7 @@ import { chooseDisplayCurrencies, formatLoanScanRates } from '../selectors';
 
 const ReviewListItem = ({ review, interestAccount, loans, companyName, realTimeRate = null }) => {
     const { slug, rating } = review;
-    const { productTitle, interestRates, geoExceptions = [] } = interestAccount;
+    const { interestRates, geoExceptions = [] } = interestAccount;
 
     const rates = realTimeRate ? formatLoanScanRates(realTimeRate) : interestRates;
     const displayCurrencies = chooseDisplayCurrencies(rates);

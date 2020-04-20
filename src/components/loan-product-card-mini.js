@@ -21,11 +21,15 @@ export default function LoanProductCardMini({ product, rating = 0, reviewLink = 
         aprLowerLimit,
         ltvUpperLimit,
         ltvLowerLimit,
-        availabilityExceptions = [],
-        links,
+        availabilityExceptions = []
     } = product;
     const { fields: companyData } = company;
-    const { name: companyName, logo, securityScore } = companyData;
+    const {
+        name: companyName,
+        logo,
+        securityScore,
+        links
+    } = companyData;
     const productLink = links.default;
 
     const logoUrl = safeGet(['fields', 'file', 'url'], logo);
