@@ -13,7 +13,9 @@ const metaTitle = 'Reviews | Crypto Interest Accounts, Loans and Credit Cards';
 const metaDescription = 'Our DeFi Nerd experts review the most popular crypto interest accounts, loans and credit cards on the market - and turn up a few gems you may never have heard of';
 
 export default function ReviewsHomePage() {
-    const { reviews, interestAccounts, loans, rates } = useRouteData();
+    const { reviews, interestAccounts, loans, rates, reviewScores } = useRouteData();
+
+    const reviewScoreValues = safeGet(['fields', 'values'], reviewScores);
     const realTimeRates = getRealTimeInterestRates(rates);
 
     return (
@@ -53,6 +55,7 @@ export default function ReviewsHomePage() {
                             <ReviewListItem
                                 key={review.slug}
                                 review={review}
+                                rating={reviewScoreValues[companyId]}
                                 companyName={companyName}
                                 interestAccount={interestAccount}
                                 loan={loan}

@@ -6,7 +6,7 @@ import { useRouteData, Head } from 'react-static';
 import InterestProductCard from '../components/interest-product-card';
 
 // Utility Dependencies
-import { getReviewScores, getReviewLinks, getRealTimeInterestRates, sortForMoney } from '../selectors';
+import { getReviewScores, getReviewLinks, getRealTimeInterestRates, sortForMoney, safeGet } from '../selectors';
 
 // Data
 const heading = 'Compare Crypto Interest Accounts';
@@ -17,10 +17,10 @@ const tilePoints = [
 ];
 
 export default function InterestAccountsPage() {
-    const { reviews, interestAccounts, rates } = useRouteData();
+    const { reviews, interestAccounts, rates, reviewScores } = useRouteData();
 
     const realTimeRates = getRealTimeInterestRates(rates);
-    const reviewScores = getReviewScores(reviews);
+    const reviewScoreValues = safeGet(['fields', 'values'], reviewScores);
     const reviewLinks = getReviewLinks(reviews);
     const productsCount = interestAccounts.length;
     const sortedInterestAccounts = sortForMoney(interestAccounts);
@@ -74,7 +74,7 @@ export default function InterestAccountsPage() {
                         product={interestAccount}
                         key={interestAccount.productTitle}
                         realTimeRate={realTimeRates[interestAccount.company.fields.id]}
-                        rating={reviewScores[interestAccount.company.fields.id]}
+                        rating={reviewScoreValues[interestAccount.company.fields.id]}
                         reviewLink={reviewLinks[interestAccount.company.fields.id]}
                     />
                 )}

@@ -12,14 +12,13 @@ import LoanProductCardMini from '../components/loan-product-card-mini';
 import { formatPublishDate, getRealTimeInterestRates, safeGet } from '../selectors';
 
 export default function ReviewPage() {
-    const { review, interestAccounts, loans, rates } = useRouteData();
+    const { review, interestAccounts, loans, rates, reviewScores } = useRouteData();
     const {
         title: reviewTitle,
         metaDescription = '',
         description,
         author,
         publishDate,
-        rating,
         pros,
         cons,
         body,
@@ -32,6 +31,9 @@ export default function ReviewPage() {
     const companySysId = safeGet(['company', 'sys', 'id'], review);
     const companyId = safeGet(['company', 'fields', 'id'], review);
     const companyName = safeGet(['company', 'fields', 'name'], review);
+
+    const reviewScoreValues = safeGet(['fields', 'values'], reviewScores);
+    const rating = reviewScoreValues[companyId];
 
     const interestAccountContent = interestAccounts.find(item =>
         safeGet(['fields', 'company', 'sys', 'id'], item) === companySysId);

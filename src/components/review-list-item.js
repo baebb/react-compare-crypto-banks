@@ -7,12 +7,13 @@ import { Link } from 'components/Router';
 // Util Dependencies
 import { chooseDisplayCurrencies, formatLoanScanRates } from '../selectors';
 
-const ReviewListItem = ({ review, interestAccount, loans, companyName, realTimeRate = null }) => {
-    const { slug, rating } = review;
+const ReviewListItem = ({ review, interestAccount, loans, companyName, realTimeRate = null, rating }) => {
+    const { slug } = review;
     const { interestRates, geoExceptions = [] } = interestAccount;
 
     const rates = realTimeRate ? formatLoanScanRates(realTimeRate) : interestRates;
     const displayCurrencies = chooseDisplayCurrencies(rates);
+    const formatRating = rating.toFixed(1);
 
     return (
         <div className="interest-accounts-section__review-list-item">
@@ -21,7 +22,7 @@ const ReviewListItem = ({ review, interestAccount, loans, companyName, realTimeR
                     <Link to={`/reviews/${slug}`}>{companyName} Review</Link>
                 </div>
                 <div className="col-xs-3 col-sm-1 interest-accounts-section__review-list-item-score">
-                    {rating}
+                    {formatRating}
                 </div>
                 <div className="col-xs-5 col-sm-7 interest-accounts-section__review-list-item-details">
                     <div className="interest-accounts-section__review-list-item-rates">

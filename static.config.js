@@ -81,6 +81,10 @@ export default {
         //     content_type: 'company'
         // });
 
+        const { items: dataItems } = await contentAPI.getEntries({
+            content_type: 'data'
+        });
+
         const { items: interestAccounts } = await contentAPI.getEntries({
             content_type: 'interestAccount'
         });
@@ -102,6 +106,7 @@ export default {
         });
 
         const privacyPage = legalPages.find(({ fields }) => fields.pageType === 'privacy');
+        const reviewScores = dataItems.find(({ fields }) => fields.id === 'scores');
 
         return [
             {
@@ -114,7 +119,8 @@ export default {
                 getData: () => ({
                     reviews,
                     interestAccounts,
-                    rates
+                    rates,
+                    reviewScores
                 }),
             },
             {
@@ -127,7 +133,8 @@ export default {
                 getData: () => ({
                     reviews,
                     loans,
-                    rates
+                    rates,
+                    reviewScores
                 }),
             },
             {
@@ -144,7 +151,8 @@ export default {
                     reviews,
                     interestAccounts,
                     loans,
-                    rates
+                    rates,
+                    reviewScores
                 }),
                 children: reviews.map(({ fields: review }) => ({
                     path: `/${review.slug}`,
@@ -153,7 +161,8 @@ export default {
                         review,
                         interestAccounts,
                         loans,
-                        rates
+                        rates,
+                        reviewScores
                     }),
                 })),
             },

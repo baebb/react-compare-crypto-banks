@@ -21,6 +21,9 @@
     }
 
     .header-section {
+        @include screen--desktop {
+            margin-top: 80px;
+        }
         margin-bottom: 20px;
         .header-section__editorial-text {
             @extend .wide-text;

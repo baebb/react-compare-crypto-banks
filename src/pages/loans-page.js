@@ -6,7 +6,7 @@ import { useRouteData, Head } from 'react-static';
 import LoanProductCard from '../components/loan-product-card';
 
 // Utility Dependencies
-import { getReviewScores, getReviewLinks, getRealTimeInterestRates, sortForMoney } from '../selectors';
+import { getReviewScores, getReviewLinks, getRealTimeInterestRates, sortForMoney, safeGet } from '../selectors';
 
 // Data
 const heading = 'Compare Crypto Loans';
@@ -17,10 +17,10 @@ const tilePoints = [
 ];
 
 export default function LoansPage() {
-    const { reviews, loans, rates } = useRouteData();
+    const { reviews, loans, rates, reviewScores } = useRouteData();
 
     // const realTimeRates = getRealTimeInterestRates(rates);
-    const reviewScores = getReviewScores(reviews);
+    const reviewScoreValues = safeGet(['fields', 'values'], reviewScores);
     const reviewLinks = getReviewLinks(reviews);
     const productsCount = loans.length;
     const sortedLoans = sortForMoney(loans);
@@ -70,7 +70,7 @@ export default function LoansPage() {
                 {sortedLoans.map(({ fields: loan }) =>
                     <LoanProductCard
                         product={loan}
-                        rating={reviewScores[loan.company.fields.id]}
+                        rating={reviewScoreValues[loan.company.fields.id]}
                         reviewLink={reviewLinks[loan.company.fields.id]}
                     />
                 )}

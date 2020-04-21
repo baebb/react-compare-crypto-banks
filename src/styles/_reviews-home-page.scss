@@ -9,7 +9,11 @@
 
 .reviews-home-page {
     .header-section {
+        @include screen--desktop {
+            margin-top: 80px;
+        }
         .header-section__title-text {
+            margin-bottom: 40px;
             @include screen--mobile {
                 margin-bottom: 20px;
                 font-size: 1.75rem;
@@ -23,8 +27,10 @@
         }
     }
     .interest-accounts-section {
-        margin-top: 40px;
-
+        margin-top: 64px;
+        @include screen--mobile {
+            margin-top: 40px;
+        }
         .interest-accounts-section__reviews-list-column-titles {
             font-size: 0.8125rem;
             @extend .secondary-heading;
