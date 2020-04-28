@@ -6,6 +6,7 @@ import { Link } from 'components/Router';
 
 // Image Dependencies
 import WideIconLogo from '../../public/images/logo/DN-logo-wide-icon.svg';
+import DefiPulseFavi from '../../public/images/defiPulseFavi.ico';
 
 export default function Footer() {
     return (
@@ -62,6 +63,15 @@ export default function Footer() {
                                 Privacy Policy
                             </Link>
                         </div>
+                    </div>
+                    <div className="footer-content__affiliate-img">
+                        <div>DeFi Friends:</div>
+                        <a href="https://defipulse.com/defi-list" target="_blank">
+                            <img
+                                src={DefiPulseFavi}
+                                alt="DeFi Pulse logo"
+                            />
+                        </a>
                     </div>
                 </div>
             </div>
