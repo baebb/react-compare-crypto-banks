@@ -51,4 +51,15 @@
     .footer-content__brand-legal-links {
 
     }
+    .footer-content__socials-container {
+        padding-top: 24px;
+        display: flex;
+        justify-content: flex-end;
+        @include screen--mobile {
+            justify-content: center;
+        }
+        .social-icon {
+            margin-left: 8px;
+        }
+    }
 }

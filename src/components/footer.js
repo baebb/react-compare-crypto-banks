@@ -1,5 +1,6 @@
 // NPM Dependencies
 import React from 'react';
+import { SocialIcon } from 'react-social-icons';
 
 // Local Dependencies
 import { Link } from 'components/Router';
@@ -47,31 +48,63 @@ export default function Footer() {
                         </p>
                     </div>
                 </div>
-                <div className="footer-content__brand-container">
-                    <div className="footer-content__brand-img">
-                        <Link to="/">
-                            <img
-                                src={WideIconLogo}
-                                alt="DeFi Nerd favicon logo"
+                <div className="row bottom-xs">
+                    <div className="col-xs-12 col-sm-6 last-sm">
+                        <div className="footer-content__socials-container">
+                            <SocialIcon
+                                style={{ height: 32, width: 32 }}
+                                network="twitter"
+                                bgColor="#8b8c8f"
+                                url="https://twitter.com/DeFi_Nerd"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             />
-                        </Link>
-                    </div>
-                    <div className="footer-content__brand-text">
-                        <div>© 2020 DeFi Nerd</div>
-                        <div className="footer-content__brand-legal-links">
-                            <Link to="/privacy" className="text-link text-link--hover-green">
-                                Privacy Policy
-                            </Link>
+                            <SocialIcon
+                                style={{ height: 32, width: 32 }}
+                                network="facebook"
+                                bgColor="#8b8c8f"
+                                url="https://www.facebook.com/DeFi-Nerd-104130084622193"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            />
+                            <SocialIcon
+                                style={{ height: 32, width: 32 }}
+                                network="linkedin"
+                                bgColor="#8b8c8f"
+                                url="https://www.linkedin.com/company/defi-nerd"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            />
                         </div>
                     </div>
-                    <div className="footer-content__affiliate-img">
-                        <div>DeFi Friends:</div>
-                        <a href="https://defipulse.com/defi-list" target="_blank">
-                            <img
-                                src={DefiPulseFavi}
-                                alt="DeFi Pulse logo"
-                            />
-                        </a>
+                    <div className="col-xs-12 col-sm-6">
+                        <div className="footer-content__brand-container">
+                            <div className="footer-content__brand-img">
+                                <Link to="/">
+                                    <img
+                                        src={WideIconLogo}
+                                        alt="DeFi Nerd favicon logo"
+                                    />
+                                </Link>
+                            </div>
+                            <div className="footer-content__brand-text">
+                                <div>© 2020 DeFi Nerd</div>
+                                <div className="footer-content__brand-legal-links">
+                                    <Link to="/privacy" className="text-link text-link--hover-green">
+                                        Privacy Policy
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className="footer-content__affiliate-img">
+                                <div>DeFi Friends:</div>
+                                <a href="https://defipulse.com/defi-list" target="_blank" rel="noopener noreferrer">
+                                    <img
+                                        src={DefiPulseFavi}
+                                        alt="DeFi Pulse logo"
+                                    />
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
