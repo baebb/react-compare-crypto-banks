@@ -31,6 +31,8 @@ export default function ReviewPage() {
     const companySysId = safeGet(['company', 'sys', 'id'], review);
     const companyId = safeGet(['company', 'fields', 'id'], review);
     const companyName = safeGet(['company', 'fields', 'name'], review);
+    const companyLinks = safeGet(['company', 'fields', 'links'], review);
+    const productLink = companyLinks.default;
 
     const reviewScoreValues = safeGet(['fields', 'values'], reviewScores);
     const rating = reviewScoreValues[companyId];
@@ -235,6 +237,13 @@ export default function ReviewPage() {
                 <div className="body-section">
                     <ReactMarkdown source={companyReview} />
                 </div>
+            </div>
+            <div className="content-section footer-section">
+                <a href={productLink} target="_blank">
+                    <button type="button" className="callout-button callout-button--primary">
+                        Find out more on {companyName}'s website
+                    </button>
+                </a>
             </div>
         </div>
     );
