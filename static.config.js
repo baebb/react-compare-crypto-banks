@@ -81,8 +81,16 @@ export default {
         //     content_type: 'company'
         // });
 
+        const { items: dataItems } = await contentAPI.getEntries({
+            content_type: 'data'
+        });
+
         const { items: interestAccounts } = await contentAPI.getEntries({
             content_type: 'interestAccount'
+        });
+
+        const { items: loans } = await contentAPI.getEntries({
+            content_type: 'loan'
         });
 
         const { items: reviews } = await contentAPI.getEntries({
@@ -98,6 +106,7 @@ export default {
         });
 
         const privacyPage = legalPages.find(({ fields }) => fields.pageType === 'privacy');
+        const reviewScores = dataItems.find(({ fields }) => fields.id === 'scores');
 
         return [
             {
@@ -110,12 +119,23 @@ export default {
                 getData: () => ({
                     reviews,
                     interestAccounts,
-                    rates
+                    rates,
+                    reviewScores
                 }),
             },
             {
                 path: 'compare-crypto-interest-accounts',
                 redirect: 'crypto-interest-accounts',
+            },
+            {
+                path: 'crypto-loans',
+                template: 'src/pages/loans-page',
+                getData: () => ({
+                    reviews,
+                    loans,
+                    rates,
+                    reviewScores
+                }),
             },
             {
                 path: 'privacy',
@@ -130,7 +150,9 @@ export default {
                 getData: () => ({
                     reviews,
                     interestAccounts,
-                    rates
+                    loans,
+                    rates,
+                    reviewScores
                 }),
                 children: reviews.map(({ fields: review }) => ({
                     path: `/${review.slug}`,
@@ -138,13 +160,18 @@ export default {
                     getData: () => ({
                         review,
                         interestAccounts,
-                        rates
+                        loans,
+                        rates,
+                        reviewScores
                     }),
                 })),
             },
             {
                 path: 'blog',
-                redirect: '404',
+                template: 'src/pages/blog-home-page',
+                getData: () => ({
+                    blogPosts
+                }),
                 children: blogPosts.map(({ fields: blogPost }) => ({
                     path: `/${blogPost.slug}`,
                     template: 'src/containers/blog-post-page',

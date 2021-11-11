@@ -46,11 +46,11 @@ export const getRealTimeInterestRates = (rates) => {
 //     ledn: lednLogo
 // };
 
-export const specialIds = ['blockFi', 'youHodler', 'ledn', 'coinloan', 'hodlnaut', 'celsiusNetwork'];
-
 export const safeGet = (path, object) =>
     path.reduce((xs, x) =>
         (xs && xs[x]) ? xs[x] : null, object);
+
+export const specialOrder = ['blockFi', 'youHodler', 'ledn', 'coinloan', 'hodlnaut', 'celsiusNetwork'];
 
 export const sortForMoney = (items) => {
     const sortedArray = [];
@@ -58,7 +58,7 @@ export const sortForMoney = (items) => {
     const nonSpecialItems = [];
 
     items.forEach(item => {
-        const orderLocation = specialIds.indexOf(item.fields.company.fields.id);
+        const orderLocation = specialOrder.indexOf(item.fields.company.fields.id);
 
         if (orderLocation !== -1) {
             specialItems[orderLocation] = item;
@@ -67,7 +67,9 @@ export const sortForMoney = (items) => {
         }
     });
 
-    sortedArray.push(...specialItems);
+    const specialItemsNoEmptySlots = specialItems.filter(x => x);
+
+    sortedArray.push(...specialItemsNoEmptySlots);
     sortedArray.push(...nonSpecialItems);
 
     return sortedArray;
@@ -144,6 +146,14 @@ export const chooseDisplayCurrencies = interestRates => {
         displayCurrencies.push('BUSD');
     }
 
+    if (interestRates['XRP'] && displayCurrencies.length < displayCount) {
+        displayCurrencies.push('XRP');
+    }
+
+    if (interestRates['LTC'] && displayCurrencies.length < displayCount) {
+        displayCurrencies.push('LTC');
+    }
+
     return displayCurrencies;
 };
 
@@ -156,4 +166,28 @@ export const formatLoanScanRates = (rates) => {
     });
 
     return formattedRates;
+};
+
+export const formatFloat = (number, places = 2) => Number((number * 100).toFixed(places));
+
+export const formatBankMethods = (payoutMethods) => {
+    const methodsArray = [];
+
+    const hasStablecoins = payoutMethods.find(method => method === 'Stablecoins');
+    const hasSEPA = payoutMethods.find(method => method === 'SEPA');
+    const hasSWIFT = payoutMethods.find(method => method === 'SWIFT');
+
+    if (hasStablecoins) {
+        methodsArray.push('Stablecoins');
+    }
+
+    if (hasSEPA && hasSWIFT) {
+        methodsArray.push('Bank wire (SWIFT or SEPA)');
+    } else if (hasSEPA && !hasSWIFT) {
+        methodsArray.push('Bank wire (SEPA)');
+    } else if (!hasSEPA && hasSWIFT) {
+        methodsArray.push('Bank wire (SWIFT)');
+    }
+
+    return methodsArray;
 };

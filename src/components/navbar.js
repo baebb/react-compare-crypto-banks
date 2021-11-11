@@ -41,6 +41,13 @@ export default function NavBar() {
                                 </Link>
                             </div>
                             <div>
+                                <Link to="/crypto-loans">
+                                    <button  type="button" className="nav-button">
+                                        Loans
+                                    </button>
+                                </Link>
+                            </div>
+                            <div className="hide-mobile">
                                 <Link to="/reviews">
                                     <button  type="button" className="nav-button">
                                         Reviews

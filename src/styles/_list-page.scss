@@ -1,0 +1,60 @@
+.interest-accounts-page,
+.loans-page
+{
+    .intro-section {
+        margin-top: 80px;
+        text-align: center;
+
+        @include screen--mobile {
+            margin-top: 60px;
+        }
+
+        .intro-section__heading {
+            margin-bottom: 40px;
+            font-size: 28px;
+
+            .calloutText {
+                color: $primary-color;
+            }
+        }
+        .intro-section__sub-heading {
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+    }
+    .tile-points-section {
+        margin-top: 80px;
+
+        @include screen--mobile {
+            margin-top: 40px;
+        }
+
+        .tile-point {
+            display: flex;
+            line-height: 1.5;
+
+            @include screen--desktop {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+            @include screen--mobile {
+                margin-bottom: 16px;
+            }
+            .tile-point__icon {
+                margin-right: 16px;
+            }
+            .tile-point__text {
+                text-align: left;
+                font-size: 0.8125rem;
+                color: $primary-color;
+            }
+        }
+    }
+    .products-section {
+        margin-top: 80px;
+
+        @include screen--mobile {
+            margin-top: 32px;
+        }
+    }
+}

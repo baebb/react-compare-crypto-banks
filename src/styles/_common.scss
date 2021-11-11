@@ -90,6 +90,12 @@ html, body, #root, #root > div  {
     }
 }
 
+.muted-cta-text {
+    color: #8b8c8f;
+    text-align: center;
+    font-size: 0.8125rem;
+}
+
 .link-button {
     font-family: $gotham400;
     border: none;

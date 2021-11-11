@@ -8,7 +8,7 @@ import AllCryptoRatesPopup from './all-crypto-rates-popup';
 // Utility Dependencies
 import { chooseDisplayCurrencies, formatLoanScanRates, safeGet } from '../selectors';
 
-class ProductCardMini extends Component {
+class InterestProductCardMini extends Component {
     // static propTypes = {
     // };
     // static defaultProps = {
@@ -18,9 +18,7 @@ class ProductCardMini extends Component {
         const {
             productTitle,
             company,
-            links,
             geoExceptions = [],
-            security,
             interestPayout,
             compounding,
             terms,
@@ -29,7 +27,9 @@ class ProductCardMini extends Component {
         const { fields: companyData } = company;
         const {
             name: companyName,
-            logo
+            logo,
+            securityScore,
+            links
         } = companyData;
 
         const logoUrl = safeGet(['fields', 'file', 'url'], logo);
@@ -56,7 +56,7 @@ class ProductCardMini extends Component {
                                                 rating={rating}
                                                 starDimension="18px"
                                                 starSpacing="1px"
-                                                starRatedColor="#008255"
+                                                starRatedColor="#e8b923"
                                             />
                                         </span>
                                         <span className="product-summary__star-rating-text">
@@ -85,7 +85,7 @@ class ProductCardMini extends Component {
                                             rating={rating}
                                             starDimension="18px"
                                             starSpacing="1px"
-                                            starRatedColor="#008255"
+                                            starRatedColor="#e8b923"
                                         />
                                     </span>
                                     <span className="product-summary__star-rating-text">
@@ -123,10 +123,16 @@ class ProductCardMini extends Component {
                                     </div>
                                     <div className="col-xs-12 col-sm-3">
                                         <div className="product-key-details__column">
-                                            <h5 className="product-key-details__heading">Security</h5>
-                                            {security.map((securityItem) => (
-                                                <p className="product-key-details__text" key={securityItem}>{securityItem}</p>
-                                            ))}
+                                            <h5 className="product-key-details__heading">Security score</h5>
+                                            <div className="product-key-details__text">
+                                                <StarRatings
+                                                    rating={securityScore}
+                                                    starDimension="16px"
+                                                    starSpacing="1px"
+                                                    starRatedColor="#008255"
+                                                />
+                                                <span> {securityScore.toFixed(1)}</span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="col-xs-12 col-sm-3">
@@ -139,7 +145,7 @@ class ProductCardMini extends Component {
                                                 </p>
                                             ))}
                                             {Object.keys(rates).length > 3 &&
-                                                <AllCryptoRatesPopup savingsInterestRate={rates} />
+                                                <AllCryptoRatesPopup rates={rates} />
                                             }
                                         </div>
                                     </div>
@@ -153,4 +159,4 @@ class ProductCardMini extends Component {
     }
 }
 
-export default ProductCardMini;
+export default InterestProductCardMini;

@@ -3,33 +3,33 @@ import React from 'react';
 import { useRouteData, Head } from 'react-static';
 
 // Component Dependencies
-import InterestProductCard from '../components/interest-product-card';
+import LoanProductCard from '../components/loan-product-card';
 
 // Utility Dependencies
 import { getReviewScores, getReviewLinks, getRealTimeInterestRates, sortForMoney, safeGet } from '../selectors';
 
 // Data
-const heading = 'Compare Crypto Interest Accounts';
+const heading = 'Compare Crypto Loans';
 const tilePoints = [
-    'Earn high interest on BTC, ETH, USD, Euros, and other crypto assets',
-    'Find crypto interest account terms that suit you and your circumstances',
-    'Learn more about services with our in-depth reviews of crypto interest accounts'
+    'Avoid capital gains tax on your assets by getting a crypto loan instead of selling',
+    'Receive stablecoins, USD, or EUR in exchange for crypto collateral',
+    'Learn more about services with our in-depth reviews of crypto loans'
 ];
 
-export default function InterestAccountsPage() {
-    const { reviews, interestAccounts, rates, reviewScores } = useRouteData();
+export default function LoansPage() {
+    const { reviews, loans, rates, reviewScores } = useRouteData();
 
-    const realTimeRates = getRealTimeInterestRates(rates);
+    // const realTimeRates = getRealTimeInterestRates(rates);
     const reviewScoreValues = safeGet(['fields', 'values'], reviewScores);
     const reviewLinks = getReviewLinks(reviews);
-    const productsCount = interestAccounts.length;
-    const sortedInterestAccounts = sortForMoney(interestAccounts);
+    const productsCount = loans.length;
+    const sortedLoans = sortForMoney(loans);
 
-    const metaTitle = `Crypto Interest Accounts | Up to 12% p.a. | Compare ${productsCount} Offers`;
-    const metaDescription = `DeFi Nerd ranks ${productsCount} of the highest earning crypto interest accounts. Apply and earn up to 12% p.a. on your crypto today.`;
+    const metaTitle = `Compare Crypto Loans | DeFi Nerd`;
+    const metaDescription = `DeFi Nerd compares the top ${productsCount} crypto loans from Compound, BlockFi, & others to reduce the cost of your loan and maximise your upside.`;
 
     return (
-        <div className="interest-accounts-page">
+        <div className="loans-page">
             <Head>
                 <title>{metaTitle}</title>
                 <meta name="description" content={metaDescription} />
@@ -38,9 +38,7 @@ export default function InterestAccountsPage() {
             </Head>
             <div className="intro-section">
                 <div className="intro-section__heading">
-                    <h1>
-                        {heading}
-                    </h1>
+                    <h1>{heading}</h1>
                 </div>
                 <div className="intro-section__sub-heading">
                     <div className="row">
@@ -69,13 +67,11 @@ export default function InterestAccountsPage() {
             <div className="banner-section">
             </div>
             <div className="products-section">
-                {sortedInterestAccounts.map(({ fields: interestAccount }) =>
-                    <InterestProductCard
-                        product={interestAccount}
-                        key={interestAccount.productTitle}
-                        realTimeRate={realTimeRates[interestAccount.company.fields.id]}
-                        rating={reviewScoreValues[interestAccount.company.fields.id]}
-                        reviewLink={reviewLinks[interestAccount.company.fields.id]}
+                {sortedLoans.map(({ fields: loan }) =>
+                    <LoanProductCard
+                        product={loan}
+                        rating={reviewScoreValues[loan.company.fields.id]}
+                        reviewLink={reviewLinks[loan.company.fields.id]}
                     />
                 )}
             </div>

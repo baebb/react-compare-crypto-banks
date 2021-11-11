@@ -2,19 +2,26 @@
 import React from 'react';
 import Popup from 'reactjs-popup';
 
-const AllCryptoRatesPopup = ({ savingsInterestRate }) => {
+const AllCryptoRatesPopup = ({ rates, type = 'interest' }) => {
+    const buttonText = {
+        interest: 'See all rates',
+        collateral: 'See all options'
+    };
+
     return (
         <div className="product-key-details__more-info-wrapper">
             <Popup
-                trigger={<button className="link-button">See all rates</button>}
+                trigger={<button className="link-button">{buttonText[type]}</button>}
                 position="top center"
                 on="hover"
             >
                 <div className="product-key-details__more-info-content">
-                    {Object.keys(savingsInterestRate).map((key) => (
+                    {Object.keys(rates).map((key) => (
                         <p className="product-key-details__text" key={key}>
-                            <span>{`${key}: `}</span>
-                            <span className="product-key-details__rate">{`${savingsInterestRate[key]}%`}</span>
+                            <span>{key}</span>
+                            {type === 'interest' &&
+                                <span className="product-key-details__rate">{`${rates[key]}%`}</span>
+                            }
                         </p>
                     ))}
                 </div>
