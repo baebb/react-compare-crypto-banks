@@ -10,11 +10,12 @@ jobs:
           - staging
           - test
     docker:
-      - image: circleci/node:10.17.0
+      - image: circleci/node:14.18.1
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
+    resource_class: large
     working_directory: ~/repo
     steps:
       - checkout
@@ -45,11 +46,11 @@ jobs:
           name: Firebase Deploy
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              ./node_modules/.bin/firebase deploy --project=prod --token "$FIREBASE_TOKEN_PROD"
+              ./node_modules/.bin/firebase deploy --project=prod --token "$FIREBASE_TOKEN_PROD" --only hosting
             fi
             if [ "${CIRCLE_BRANCH}" == "staging" ]; then
-              ./node_modules/.bin/firebase deploy --project=staging --token "$FIREBASE_TOKEN_STAGING"
+              ./node_modules/.bin/firebase deploy --project=staging --token "$FIREBASE_TOKEN_STAGING" --only hosting
             fi
             if [ "${CIRCLE_BRANCH}" == "test" ]; then
-              ./node_modules/.bin/firebase deploy --project=test --token "$FIREBASE_TOKEN_TEST"
+              ./node_modules/.bin/firebase deploy --project=test --token "$FIREBASE_TOKEN_TEST" --only hosting
             fi
